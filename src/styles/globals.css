@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+	--font-sans: var(--font-wix), ui-sans-serif, system-ui, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer utilities {
+	.container {
+		@apply mx-auto px-[1%] md:px-[3%] max-w-full;
+		/* padding-left: clamp(1rem, 4vw, 4rem); */
+		/* padding-right: clamp(1rem, 4vw, 4rem); */
+	}
+}
