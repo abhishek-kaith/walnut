@@ -74,7 +74,7 @@ const Header: React.FC = () => {
 
 	return (
 		<header className="container hidden py-2 lg:block">
-			<nav className="flex justify-between md:text-[32px] md:leading-[32px]">
+			<nav className="flex justify-between lg:text-[26px] lg:leading-[26px]">
 				<div>
 					<div
 						style={{
@@ -135,7 +135,7 @@ const Header: React.FC = () => {
 					</div>
 				</div>
 
-				<div style={{ display: "inline-block", marginLeft: "20px" }}>
+				<div className="space-x-4">
 					<Link href="/resources">Resources</Link>{" "}
 					<Link href="/contact">Contact</Link>{" "}
 					{/* biome-ignore lint/a11y/useButtonType: <explanation> */}

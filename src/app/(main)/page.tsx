@@ -26,25 +26,39 @@ export default async function HomePage() {
 					/>
 				</div>
 			</div>
-			<div className="container">
-				<div className="mx-auto max-w-[1039px] font-semibold text-[40px] leading-none md:text-[80px]">
-					<p className="text-left text-[#17312D]">
-						Ready to level <br /> up,
-					</p>
-					<p className="-mt-4.5 ml-auto text-right text-[#17312D]">
-						Where growth <br /> meets play.
-					</p>
+			<div className="container pb-8 md:pb-12">
+				<div className="mx-auto max-w-[1039px] font-semibold text-[40px] leading-none md:text-[80px] space-y-8 md:space-y-12">
+					<div>
+						<p className="text-left text-[#17312D]">
+							Ready to level <br /> up,
+						</p>
+						<p className="-mt-4.5 ml-auto text-right text-[#17312D]">
+							Where growth <br /> meets play.
+						</p>
+					</div>
 					<button
-						className="mx-auto mt-6 block rounded-lg bg-[#17312D] p-1 text-[24px] text-white md:text-[48px]"
+						className="mx-auto block rounded-lg bg-[#17312D] py-1 px-3 text-[24px] text-white md:text-[48px]"
 						type="button"
 					>
 						Let’s level up!
 					</button>
+					<p className="text-[40px] md:text-[80px] mt-8 md:mt-12 text-[#17312D]">
+						At Walnut, we turn learning into an adventure for individuals and
+						organisations alike.
+					</p>
+				</div>
+			</div>
+			<div className="container bg-[#17312D] h-[300px] md:h-[600px] lg:h-[800px] my-8 md:my-12">
+				<div className="h-full flex items-center justify-center text-center">
+					<div className="text-[34px] md:text-[64px] lg:text-[128px] font-semibold">
+						<h2 className="text-white">How We Help You</h2>
+						<h3 className="text-[#186358] italic">Level-Up!</h3>
+					</div>
 				</div>
 			</div>
 			<div className="container py-8 md:py-12">
 				<div className="mx-auto max-w-[1039px]">
-					<p className="font-medium text-[24px] leading-none md:text-[48px]">
+					<p className="font-medium text-[24px] leading-tight md:text-[48px]">
 						Through gamified assessments, customisable skill trees,
 						algorithm-based coach matching, and reward-based coaching tasks,
 						Walnut delivers a fully personalised, immersive growth experience.
