@@ -1,4 +1,5 @@
 import Image from "next/image";
+import EmblaCarousel from "./_components/slider";
 
 export default async function HomePage() {
 	return (
@@ -48,7 +49,7 @@ export default async function HomePage() {
 					</p>
 				</div>
 			</div>
-			<div className="container my-8 h-[300px] bg-[#17312D] md:my-12 md:h-[800px]">
+			<div className="container mt-8 h-[300px] bg-[#17312D] md:mt-12 md:h-[500px]">
 				<div className="flex h-full items-center justify-center text-center">
 					<div className="font-semibold text-[64px] md:text-[128px]">
 						<h2 className="text-white">How We Help You</h2>
@@ -56,6 +57,7 @@ export default async function HomePage() {
 					</div>
 				</div>
 			</div>
+      <EmblaCarousel />
 			<div className="container py-8 md:py-12">
 				<div className="mx-auto max-w-[1039px]">
 					<p className="font-medium text-[24px] leading-tight md:text-[48px]">
