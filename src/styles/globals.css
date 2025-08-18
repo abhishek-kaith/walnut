@@ -3,6 +3,7 @@
 @theme {
 	--font-sans: var(--font-wix), ui-sans-serif, system-ui, sans-serif,
 		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--color-white: #fefefe;
 }
 
 @layer utilities {

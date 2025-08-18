@@ -22,19 +22,9 @@ const Header: React.FC = () => {
 	const router = useRouter();
 	const [activeDropdown, setActiveDropdown] = useState<DropdownType>(null);
 
-	const corporateSolutions: MenuItem[] = [
-		{ label: "Enterprise Planning", href: "/corporate/enterprise-planning" },
-		{ label: "Risk Management", href: "/corporate/risk-management" },
-		{ label: "Compliance Solutions", href: "/corporate/compliance" },
-		{ label: "Custom Integration", href: "/corporate/integration" },
-	];
+	const corporateSolutions: MenuItem[] = [{ label: "Todo", href: "#todo1" }];
 
-	const individualSolutions: MenuItem[] = [
-		{ label: "Personal Planning", href: "/individual/personal-planning" },
-		{ label: "Investment Advisory", href: "/individual/investment-advisory" },
-		{ label: "Retirement Planning", href: "/individual/retirement" },
-		{ label: "Wealth Management", href: "/individual/wealth-management" },
-	];
+	const individualSolutions: MenuItem[] = [{ label: "Todo", href: "#todo2" }];
 
 	const handleMouseEnter = (dropdown: DropdownType): void => {
 		setActiveDropdown(dropdown);
@@ -140,7 +130,7 @@ const Header: React.FC = () => {
 					<Link href="/contact">Contact</Link>{" "}
 					{/* biome-ignore lint/a11y/useButtonType: <explanation> */}
 					<button
-						className="rounded bg-[#DA7414] p-[1px] text-[#FEFEFE]"
+						className="rounded-lg bg-[#DA7414] px-2 py-1 text-[#FEFEFE]"
 						onClick={() => handleNavigation("/login")}
 					>
 						Login

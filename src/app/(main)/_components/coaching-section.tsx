@@ -1,86 +1,55 @@
+"use client"
+import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+import React, { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
-export default async function HomePage() {
+const CoachingSection = () => {
+	// Controls for the animation
+	const controls = useAnimation();
+
+	// Hook to detect when the element is in view
+	const { ref, inView } = useInView({
+		threshold: 0.3, // Trigger animation when 30% of the element is visible
+		triggerOnce: true, // Only trigger the animation once
+	});
+
+	// Animation variants
+	const sectionVariants = {
+		hidden: { opacity: 0, y: 50 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
+				ease: "easeOut",
+			},
+		},
+	};
+
+	// Start animation when the element is in view
+	useEffect(() => {
+		if (inView) {
+			controls.start("visible");
+		}
+	}, [controls, inView]);
+
 	return (
-		<div>
-			<div className="relative">
-				<div className="flex min-h-[calc(100dvh-60px)] flex-col items-center justify-center py-8 text-center font-semibold md:py-12">
-					<h1 className="text-[#17312D] text-[40px] md:text-[80px]">Walnut</h1>
-					<p className="text-[#17312D] text-[20px] md:text-[40px]">
-						<span className="text-[#DA7414]">The</span> gamified coaching
-						platform
-					</p>
-					<Image
-						alt="Iphone"
-						src={"/hero-phone.png"}
-						height={900}
-						width={500}
-						className="top-[3%] right-0 hidden h-[500px] object-contain object-right md:absolute md:block md:h-full"
-					/>
-					<Image
-						alt="Iphone"
-						src={"/hero-mobile.png"}
-						height={900}
-						width={500}
-						className="h-auto w-full md:hidden"
-					/>
-				</div>
-			</div>
-			<div className="container pb-8 md:pb-12">
-				<div className="mx-auto max-w-[1039px] space-y-8 font-semibold text-[40px] leading-none md:space-y-12 md:text-[80px]">
-					<div>
-						<p className="text-left text-[#17312D]">
-							Ready to level <br /> up,
-						</p>
-						<p className="-mt-4.5 ml-auto text-right text-[#17312D]">
-							Where growth <br /> meets play.
-						</p>
-					</div>
-					<button
-						className="mx-auto block rounded-lg bg-[#17312D] p-1 text-[24px] text-white md:text-[48px]"
-						type="button"
-					>
-						Let’s level up!
-					</button>
-					<p className="mt-8 text-[#17312D] text-[40px] md:mt-12 md:text-[80px]">
-						At Walnut, we turn learning into an adventure for individuals and
-						organisations alike.
-					</p>
-				</div>
-			</div>
-			<div className="container my-8 h-[300px] bg-[#17312D] md:my-12 md:h-[800px]">
-				<div className="flex h-full items-center justify-center text-center">
-					<div className="font-semibold text-[64px] md:text-[128px]">
-						<h2 className="text-white">How We Help You</h2>
-						<h3 className="text-[#186358] italic">Level-Up!</h3>
-					</div>
-				</div>
-			</div>
-			<div className="container py-8 md:py-12">
-				<div className="mx-auto max-w-[1039px]">
-					<p className="font-medium text-[24px] leading-tight md:text-[48px]">
-						Through gamified assessments, customisable skill trees,
-						algorithm-based coach matching, and reward-based coaching tasks,
-						Walnut delivers a fully personalised, immersive growth experience.
-						Supported by ICF-certified PCC/MCC coaches, our platform makes
-						coaching interactive, measurable, and engaging. Whether you're
-						building yourself or building your team.
-					</p>
-				</div>
-			</div>
-			<div className="container">
-				<div className="relative mx-auto h-[670px] max-w-[1039px] rounded-2xl bg-[radial-gradient(circle_at_center,_#22c55e_0%,_rgba(18,151,31,0.8)_70%,_rgba(18,151,31,1)_100%)] p-4 md:p-8">
+		<div className="bg-white font-sans">
+			{/* First Section */}
+			<div className="container mx-auto px-4">
+				<div className="relative mx-auto h-[670px] max-w-[1039px] rounded-2xl bg-[radial-gradient(circle_at_center,_#22c55e_0%,_rgba(18,151,31,0.8)_70%,_rgba(18,151,31,1)_100%)] p-4 md:p-8 my-8 md:my-12">
 					<Image
 						height={250}
 						width={250}
-						src={"/top-frame.png"}
+						src="https://placehold.co/250x250/transparent/transparent?text="
 						alt="Frame"
 						className="absolute top-0 left-0 object-contain"
 					/>
 					<Image
 						height={250}
 						width={250}
-						src={"/bottom-frame.png"}
+						src="https://placehold.co/250x250/transparent/transparent?text="
 						alt="Frame"
 						className="absolute right-0 bottom-0 object-contain"
 					/>
@@ -93,7 +62,7 @@ export default async function HomePage() {
 								Designed just for you
 							</h3>
 						</div>
-						<p className="font-medium text-[20px] text-white md:text-[32px]">
+						<p className="font-medium text-[20px] text-white md:text-[32px] max-w-4xl">
 							Uncover your personality through engaging, game-based assessments
 							that go beyond boring surveys. Powered by OCEAN, MBTI, and
 							Enneagram models, Walnut’s interactive assessments make
@@ -106,7 +75,6 @@ export default async function HomePage() {
 								type="button"
 							>
 								<span className="underline underline-offset-5">Learn More</span>
-
 								<svg
 									width="20"
 									height="20"
@@ -141,19 +109,27 @@ export default async function HomePage() {
 					</div>
 				</div>
 			</div>
-			<div className="container py-8 md:py-12">
+
+			{/* Second Section (Animated) */}
+			<motion.div
+				ref={ref}
+				initial="hidden"
+				animate={controls}
+				variants={sectionVariants}
+				className="container mx-auto px-4 py-8 md:py-12"
+			>
 				<div className="relative mx-auto h-[670px] max-w-[1039px] rounded-2xl bg-[#186358] p-4 md:p-8">
 					<Image
 						height={250}
 						width={250}
-						src={"/top-frame.png"}
+						src="https://placehold.co/250x250/transparent/transparent?text="
 						alt="Frame"
 						className="absolute top-0 left-0 object-contain"
 					/>
 					<Image
 						height={250}
 						width={250}
-						src={"/bottom-frame.png"}
+						src="https://placehold.co/250x250/transparent/transparent?text="
 						alt="Frame"
 						className="absolute right-0 bottom-0 object-contain"
 					/>
@@ -166,7 +142,7 @@ export default async function HomePage() {
 								Growth that works for your organisation
 							</h3>
 						</div>
-						<p className="font-medium text-[20px] text-white md:text-[32px]">
+						<p className="font-medium text-[20px] text-white md:text-[32px] max-w-4xl">
 							Every organisation is unique, so your coaching should be too.
 							Walnut designs custom coaching journeys tailored to your company’s
 							goals, culture, and leadership needs, ensuring learning that
@@ -178,7 +154,6 @@ export default async function HomePage() {
 								type="button"
 							>
 								<span className="underline underline-offset-5">Learn More</span>
-
 								<svg
 									width="20"
 									height="20"
@@ -212,7 +187,9 @@ export default async function HomePage() {
 						</div>
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</div>
 	);
-}
+};
+
+export default CoachingSection;
