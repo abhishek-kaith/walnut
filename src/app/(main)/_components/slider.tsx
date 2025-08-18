@@ -44,12 +44,9 @@ export default function Slider() {
 		},
 	];
 
-	return (
-			<EmblaCarousel slides={features} />
-	);
+	return <EmblaCarousel slides={features} />;
 }
 
-/* ---------------- Button Types ---------------- */
 interface DotButtonProps {
 	selected: boolean;
 	onClick: () => void;
@@ -88,7 +85,6 @@ const PrevNextButton: React.FC<PrevNextButtonProps> = ({
 	</button>
 );
 
-/* ---------------- EmblaCarousel ---------------- */
 interface EmblaCarouselProps {
 	slides: Feature[];
 }
@@ -152,7 +148,6 @@ const EmblaCarousel: React.FC<EmblaCarouselProps> = ({ slides }) => {
 					))}
 				</div>
 			</div>
-			{/* Carousel Controls */}
 			<div className="flex items-center justify-between px-4 pb-8 sm:px-8">
 				<div className="flex items-center">
 					<PrevNextButton onClick={scrollPrev} enabled={prevBtnEnabled} />
