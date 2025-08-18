@@ -73,8 +73,8 @@ const Header: React.FC = () => {
 	);
 
 	return (
-		<header className="container py-2">
-			<nav className="flex justify-between text-[32px] leading-[32px]">
+		<header className="container hidden py-2 lg:block">
+			<nav className="flex justify-between md:text-[32px] md:leading-[32px]">
 				<div>
 					<div
 						style={{

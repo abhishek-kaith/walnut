@@ -20,7 +20,7 @@ export default function Footer() {
 						hello@walnut.in
 					</p>
 				</div>
-				<div className="grid grid-cols-4 border-black border-b-[1px] pb-8 text-[20px] md:pb-12 md:text-[40px]">
+				<div className="grid grid-cols-2 border-black border-b-[1px] pb-8 text-[20px] md:grid-cols-4 md:pb-12 md:text-[40px]">
 					<div>
 						<Link href="#">LinkedIn</Link>
 					</div>
