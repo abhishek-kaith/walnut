@@ -68,7 +68,7 @@ const parseDiscDelta = (deltaStr: string): DiscType => {
 		const match = part.trim().match(/([DISC])([+-])(\d+)/);
 		if (match) {
 			const [, trait, sign, value] = match;
-			const numValue = Number.parseInt(value) * (sign === "+" ? 1 : -1);
+			const numValue = Number.parseInt(value || "0") * (sign === "+" ? 1 : -1);
 			result[trait as keyof DiscType] = numValue;
 		}
 	}
@@ -84,7 +84,7 @@ const parseOceanDelta = (deltaStr: string): OceanType => {
 		const match = part.trim().match(/([OCEAN])([+-])(\d+)/);
 		if (match) {
 			const [, trait, sign, value] = match;
-			const numValue = Number.parseInt(value) * (sign === "+" ? 1 : -1);
+			const numValue = Number.parseInt(value || "0") * (sign === "+" ? 1 : -1);
 			result[trait as keyof OceanType] = numValue;
 		}
 	}
@@ -99,7 +99,7 @@ const parseEnneagramDelta = (deltaStr: string): EnneagramType => {
 	for (const part of parts) {
 		const match = part.trim().match(/Type (\d+)/);
 		if (match) {
-			const typeNum = Number.parseInt(match[1]);
+			const typeNum = Number.parseInt(match[1] || "0");
 			const key = `type${typeNum}`;
 			result[key] = (result[key] || 0) + 1;
 		}
@@ -143,14 +143,14 @@ const parseMarkdownFile = (filePath: string): Map<string, Scene> => {
 	};
 
 	for (let i = 0; i < lines.length; i++) {
-		const line = lines[i].trim();
+		const line = (lines[i] || "").trim();
 
 		// Day header: ## Day 1
 		if (line.match(/^## Day (\d+)/)) {
 			finalizeScene(); // Finalize previous scene if any
 			const dayMatch = line.match(/^## Day (\d+)/);
 			if (dayMatch) {
-				currentDay = Number.parseInt(dayMatch[1]);
+				currentDay = Number.parseInt(dayMatch[1] || "0");
 				currentScene = 0;
 			}
 			continue;
@@ -161,8 +161,8 @@ const parseMarkdownFile = (filePath: string): Map<string, Scene> => {
 			finalizeScene(); // Finalize previous scene
 			const sceneMatch = line.match(/^### Scene (\d+): (.+)/);
 			if (sceneMatch) {
-				currentScene = Number.parseInt(sceneMatch[1]);
-				currentSceneTitle = `Scene ${currentScene}: ${sceneMatch[2]}`;
+				currentScene = Number.parseInt(sceneMatch[1] || "0");
+				currentSceneTitle = `Scene ${currentScene}: ${sceneMatch[2] || ""}`;
 				inDescription = true;
 				inChoices = false;
 			}
@@ -189,8 +189,8 @@ const parseMarkdownFile = (filePath: string): Map<string, Scene> => {
 
 			const choiceMatch = line.match(/^\* ([ABC])\. (.+)/);
 			if (choiceMatch) {
-				const choiceId = choiceMatch[1].toLowerCase();
-				const choiceText = `${choiceMatch[1]}. ${choiceMatch[2]}`;
+				const choiceId = (choiceMatch[1] || "").toLowerCase();
+				const choiceText = `${choiceMatch[1] || ""}. ${choiceMatch[2] || ""}`;
 
 				currentChoices.push({
 					id: `day-${currentDay}-scene-${currentScene}-${choiceId}`,
@@ -247,7 +247,9 @@ const main = (): void => {
 	const allSceneKeys = new Set([...scenesMap.keys(), ...scoreMap.keys()]);
 
 	for (const key of allSceneKeys) {
-		const [dayNum, sceneNum] = key.split("-").map(Number);
+		const [dayStr, sceneStr] = key.split("-");
+		const dayNum = Number.parseInt(dayStr || "0");
+		const sceneNum = Number.parseInt(sceneStr || "0");
 		const scoreEntries = scoreMap.get(key) || [];
 		const markdownScene = scenesMap.get(key);
 
@@ -335,16 +337,16 @@ const main = (): void => {
 
 	// Convert to sorted array
 	const days = Array.from(daysMap.values()).sort((a, b) => {
-		const aNum = Number.parseInt(a.id.split("-")[1]);
-		const bNum = Number.parseInt(b.id.split("-")[1]);
+		const aNum = Number.parseInt(a.id.split("-")[1] || "0");
+		const bNum = Number.parseInt(b.id.split("-")[1] || "0");
 		return aNum - bNum;
 	});
 
 	// Sort scenes within each day
 	for (const day of days) {
 		day.scenes.sort((a, b) => {
-			const aNum = Number.parseInt(a.id.split("-")[3]);
-			const bNum = Number.parseInt(b.id.split("-")[3]);
+			const aNum = Number.parseInt(a.id.split("-")[3] || "0");
+			const bNum = Number.parseInt(b.id.split("-")[3] || "0");
 			return aNum - bNum;
 		});
 	}
