@@ -6,10 +6,9 @@ export default async function HomePage() {
 		<div>
 			<div className="relative">
 				<div className="flex min-h-[calc(100dvh-60px)] flex-col items-center justify-center py-8 text-center font-semibold md:py-12">
-					<h1 className="text-[#17312D] text-[40px] md:text-[80px]">Walnut</h1>
-					<p className="text-[#17312D] text-[20px] md:text-[40px]">
-						<span className="text-[#DA7414]">The</span> gamified coaching
-						platform
+					<h1 className="text-[40px] text-primary md:text-[80px]">Walnut</h1>
+					<p className="text-[20px] text-primary md:text-[40px]">
+						<span className="text-accent">The</span> gamified coaching platform
 					</p>
 					<Image
 						alt="Iphone"
@@ -30,34 +29,34 @@ export default async function HomePage() {
 			<div className="container pb-8 md:pb-12">
 				<div className="mx-auto max-w-[1039px] space-y-8 font-semibold text-[40px] leading-none md:space-y-12 md:text-[80px]">
 					<div>
-						<p className="text-left text-[#17312D]">
+						<p className="text-left text-primary">
 							Ready to level <br /> up,
 						</p>
-						<p className="-mt-4.5 ml-auto text-right text-[#17312D]">
+						<p className="-mt-4.5 ml-auto text-right text-primary">
 							Where growth <br /> meets play.
 						</p>
 					</div>
 					<button
-						className="mx-auto block rounded-lg bg-[#17312D] p-1 text-[24px] text-white md:text-[48px]"
+						className="mx-auto block rounded-lg bg-primary p-1 text-[24px] text-white md:text-[48px]"
 						type="button"
 					>
 						Let’s level up!
 					</button>
-					<p className="mt-8 text-[#17312D] text-[40px] md:mt-12 md:text-[80px]">
+					<p className="mt-8 text-[40px] text-primary md:mt-12 md:text-[80px]">
 						At Walnut, we turn learning into an adventure for individuals and
 						organisations alike.
 					</p>
 				</div>
 			</div>
-			<div className="container mt-8 h-[300px] bg-[#17312D] md:mt-12 md:h-[500px]">
+			<div className="container mt-8 h-[300px] bg-primary md:mt-12 md:h-[500px]">
 				<div className="flex h-full items-center justify-center text-center">
 					<div className="font-semibold text-[64px] md:text-[128px]">
 						<h2 className="text-white">How We Help You</h2>
-						<h3 className="text-[#186358] italic">Level-Up!</h3>
+						<h3 className="text-primary-light italic">Level-Up!</h3>
 					</div>
 				</div>
 			</div>
-      <EmblaCarousel />
+			<EmblaCarousel />
 			<div className="container py-8 md:py-12">
 				<div className="mx-auto max-w-[1039px]">
 					<p className="font-medium text-[24px] leading-tight md:text-[48px]">
@@ -71,7 +70,7 @@ export default async function HomePage() {
 				</div>
 			</div>
 			<div className="container">
-				<div className="relative mx-auto h-[670px] max-w-[1039px] rounded-2xl bg-[radial-gradient(circle_at_center,_#22c55e_0%,_rgba(18,151,31,0.8)_70%,_rgba(18,151,31,1)_100%)] p-4 md:p-8">
+				<div className="relative mx-auto h-[670px] max-w-[1039px] rounded-2xl bg-[radial-gradient(circle_at_center,_var(--color-success)_0%,_var(--color-success-gradient-start)_70%,_var(--color-success-gradient-end)_100%)] p-4 md:p-8">
 					<Image
 						height={250}
 						width={250}
@@ -119,14 +118,14 @@ export default async function HomePage() {
 									<title>Arrow</title>
 									<path
 										d="M5.8335 14.1666L14.1668 5.83325"
-										stroke="#FEFEFE"
+										stroke="var(--color-white)"
 										strokeWidth="2"
 										strokeLinecap="round"
 										strokeLinejoin="round"
 									/>
 									<path
 										d="M5.8335 5.83325H14.1668V14.1666"
-										stroke="#FEFEFE"
+										stroke="var(--color-white)"
 										strokeWidth="2"
 										strokeLinecap="round"
 										strokeLinejoin="round"
@@ -134,7 +133,7 @@ export default async function HomePage() {
 								</svg>
 							</button>
 							<button
-								className="-ml-[2px] cursor-pointer rounded-xl bg-[#17312D] px-4 py-2 text-[24px] text-white"
+								className="-ml-[2px] cursor-pointer rounded-xl bg-primary px-4 py-2 text-[24px] text-white"
 								type="button"
 							>
 								Get Started
@@ -144,7 +143,7 @@ export default async function HomePage() {
 				</div>
 			</div>
 			<div className="container py-8 md:py-12">
-				<div className="relative mx-auto h-[670px] max-w-[1039px] rounded-2xl bg-[#186358] p-4 md:p-8">
+				<div className="relative mx-auto h-[670px] max-w-[1039px] rounded-2xl bg-primary-light p-4 md:p-8">
 					<Image
 						height={250}
 						width={250}
@@ -191,14 +190,14 @@ export default async function HomePage() {
 									<title>Arrow</title>
 									<path
 										d="M5.8335 14.1666L14.1668 5.83325"
-										stroke="#FEFEFE"
+										stroke="var(--color-white)"
 										strokeWidth="2"
 										strokeLinecap="round"
 										strokeLinejoin="round"
 									/>
 									<path
 										d="M5.8335 5.83325H14.1668V14.1666"
-										stroke="#FEFEFE"
+										stroke="var(--color-white)"
 										strokeWidth="2"
 										strokeLinecap="round"
 										strokeLinejoin="round"
@@ -206,7 +205,7 @@ export default async function HomePage() {
 								</svg>
 							</button>
 							<button
-								className="-ml-[2px] cursor-pointer rounded-xl bg-[#17312D] px-4 py-2 text-[24px] text-white"
+								className="-ml-[2px] cursor-pointer rounded-xl bg-primary px-4 py-2 text-[24px] text-white"
 								type="button"
 							>
 								Get Started

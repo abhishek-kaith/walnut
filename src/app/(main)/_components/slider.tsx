@@ -124,7 +124,7 @@ const EmblaCarousel: React.FC<EmblaCarouselProps> = ({ slides }) => {
 	}, [emblaApi]);
 
 	return (
-		<div className="container mx-auto mb-8  bg-[#17312D] md:mb-12">
+		<div className="container mx-auto mb-8 bg-primary md:mb-12">
 			<div className="embla overflow-hidden" ref={emblaRef}>
 				<div className="embla__container flex gap-4 py-8 md:py-12">
 					{slides.map((f, i) => (
@@ -133,7 +133,7 @@ const EmblaCarousel: React.FC<EmblaCarouselProps> = ({ slides }) => {
 							key={i}
 							className="embla__slide min-w-0 flex-[0_0_90%] pl-4 sm:flex-[0_0_50%] md:flex-[0_0_40%] lg:flex-[0_0_33.33%]"
 						>
-							<div className="relative h-[378px] w-full rounded-lg bg-[linear-gradient(318.35deg,rgba(24,99,53,0)_39.58%,#30C96B_96.91%)] p-[2px] before:absolute before:inset-0 before:m-[2px] before:rounded-lg before:bg-[#17312D] before:content-[''] before:[-webkit-mask-composite:xor] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[mask-composite:exclude] before:[mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)]">
+							<div className="relative h-[378px] w-full rounded-lg bg-[linear-gradient(318.35deg,rgba(24,99,53,0)_39.58%,var(--color-success-light)_96.91%)] p-[2px] before:absolute before:inset-0 before:m-[2px] before:rounded-lg before:bg-primary before:content-[''] before:[-webkit-mask-composite:xor] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[mask-composite:exclude] before:[mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)]">
 								<div className="relative z-10 flex h-full flex-col justify-center space-y-4 p-6 text-white">
 									<p className="font-semibold text-2xl">{f.title}</p>
 									<p className="font-semibold text-white/80 text-xl">

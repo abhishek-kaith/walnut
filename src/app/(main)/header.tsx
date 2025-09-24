@@ -130,7 +130,7 @@ const Header: React.FC = () => {
 					<Link href="/contact">Contact</Link>{" "}
 					{/* biome-ignore lint/a11y/useButtonType: <explanation> */}
 					<button
-						className="rounded-lg bg-[#DA7414] px-2 py-1 text-[#FEFEFE]"
+						className="rounded-lg bg-accent px-2 py-1 text-white"
 						onClick={() => handleNavigation("/login")}
 					>
 						Login

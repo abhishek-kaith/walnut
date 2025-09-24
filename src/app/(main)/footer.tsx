@@ -7,7 +7,7 @@ export default function Footer() {
 				<div className="mx-auto max-w-[1039px] pb-8 md:pb-[120px]">
 					<p className="font-medium text-[40px] leading-[40px] md:text-[80px] md:leading-[80px]">
 						With Walnut, you don’t just grow —{" "}
-						<span className="text-[#DA7414]">you level up!</span>
+						<span className="text-accent">you level up!</span>
 					</p>
 				</div>
 			</div>

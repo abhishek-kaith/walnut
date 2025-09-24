@@ -3,7 +3,25 @@
 @theme {
 	--font-sans: var(--font-wix), ui-sans-serif, system-ui, sans-serif,
 		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+	/* Theme Colors */
 	--color-white: #fefefe;
+	--color-primary: #17312d;
+	--color-primary-light: #186358;
+	--color-accent: #da7414;
+	--color-success: #22c55e;
+	--color-success-light: #30c96b;
+	--color-success-gradient-start: rgba(18, 151, 31, 0.8);
+	--color-success-gradient-end: rgba(18, 151, 31, 1);
+
+	/* Semantic Color Mappings */
+	--color-text-primary: var(--color-primary);
+	--color-text-accent: var(--color-accent);
+	--color-text-white: var(--color-white);
+	--color-background-primary: var(--color-primary);
+	--color-background-white: var(--color-white);
+	--color-button-primary: var(--color-primary);
+	--color-button-accent: var(--color-accent);
 }
 
 @layer utilities {

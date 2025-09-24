@@ -1,0 +1,4606 @@
+{
+	"intro": {
+		"title": "Welcome to Your Personality Assessment Journey",
+		"description": [
+			"Welcome! You're about to embark on a 7-day journey through various workplace and personal scenarios that will help uncover your unique personality traits.",
+			"Each day presents realistic situations where you'll need to make choices. Your responses will help us understand your DISC profile, OCEAN traits, and Enneagram type.",
+			"Be honest with your choices - there are no right or wrong answers. The goal is to understand yourself better and gain insights into how you navigate different situations.",
+			"Take your time with each scenario, consider the options carefully, and choose what feels most authentic to you."
+		],
+		"imageUrl": "/scene/intro.png"
+	},
+	"days": [
+		{
+			"id": "day-1",
+			"title": "Day 1",
+			"scenes": [
+				{
+					"id": "day-1-scene-1",
+					"title": "Scene 1: Morning Commute Crisis",
+					"description": [
+						"Your phone buzzes at 8:47 AM with the dreaded notification: \"Your ride has been cancelled due to driver unavailability.\"",
+						"You stare at the screen, heart sinking. The quarterly review meeting starts at 9:15 AM sharp and Priya, your manager, had specifically mentioned yesterday, \"I expect everyone to be there on time. We have the regional head joining us.\"",
+						"The Uber app shows surge pricing - 2.8x the normal rate. Your regular auto-wallah Ramesh isn't picking up his phone, probably already busy with the morning rush.",
+						"A colleague from your building, Manasi, hurries past with her helmet. \"Running late too?\" she calls out sympathetically.",
+						"You check the time again: 8:49 AM. The traffic from your area to the office typically takes 35-40 minutes on a good day."
+					],
+					"choices": [
+						{
+							"id": "day-1-scene-1-a",
+							"text": "A. Book another cab quickly and pay the surge pricing",
+							"deltas": {
+								"disc": {
+									"D": 1
+								},
+								"ocean": {
+									"C": 2,
+									"N": 1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-1-scene-1-b",
+							"text": "B. Wait for the surge to come down and book a regular cab",
+							"deltas": {
+								"disc": {
+									"C": 1
+								},
+								"ocean": {
+									"C": -1,
+									"O": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d1s1.png"
+				},
+				{
+					"id": "day-1-scene-2",
+					"title": "Scene 2: First Team Meeting Introduction",
+					"description": [
+						"The conference room has that typical Monday morning energy - a mix of caffeine dependence and weekend recovery. You slip in just as Priya adjusts her laptop and the projector flickers to life.",
+						"\"Good morning, team,\" she begins, scanning the room. \"Before we dive into Q2 targets, I'd like everyone to meet our new stakeholder, Meera from the Mumbai office. She'll be working closely with us on the digital transformation project.\"",
+						"Meera waves from the corner, notebook already open, pen poised. She has that eager, slightly nervous energy of someone trying to make a good first impression.",
+						"Priya continues, \"I think it would be good for everyone to introduce themselves briefly - your role, what you're working on currently.\"",
+						"The room falls into that familiar awkward silence where everyone's mentally calculating if they should jump in first or wait to be called upon. Rajesh from marketing clears his throat but doesn't speak. Anita from finance glances at her notes.",
+						"You catch Meera's eye and she gives you an encouraging smile."
+					],
+					"choices": [
+						{
+							"id": "day-1-scene-2-a",
+							"text": "A. Introduce yourself confidently first to break the ice",
+							"deltas": {
+								"disc": {
+									"I": 1,
+									"D": 1
+								},
+								"ocean": {
+									"E": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-1-scene-2-b",
+							"text": "B. Wait to be introduced by someone else",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"E": -1,
+									"A": 1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d1s2.png"
+				},
+				{
+					"id": "day-1-scene-3",
+					"title": "Scene 3: Lunch Invite",
+					"description": [
+						"The lunch bell has barely finished ringing when Kavya appears at your desk, brown bag in hand and a warm smile on her face.",
+						"\"Hey! We're all heading to the new South Indian place that opened up near the Metro station. Want to join us?\" She gestures toward the elevator where Rahul and Deepak are already waiting, discussing something animatedly.",
+						"You glance at your screen - three emails marked 'urgent' and a presentation that needs finishing by 3 PM. The South Indian place does sound tempting though and you haven't really had a chance to catch up with the team properly since the project reshuffle last month.",
+						"Kavya notices your hesitation. \"Come on, you've been glued to that screen all morning. Plus, Rahul was just telling us about his weekend trek - you'll get a good laugh.\"",
+						"From the elevator, Deepak calls out, \"The reviews say they have amazing filter coffee!\"",
+						"Your stomach growls quietly, reminding you that the banana you grabbed for breakfast wasn't quite enough."
+					],
+					"choices": [
+						{
+							"id": "day-1-scene-3-a",
+							"text": "A. Join the group eagerly for lunch",
+							"deltas": {
+								"disc": {
+									"I": 1
+								},
+								"ocean": {
+									"E": 1,
+									"A": 1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						},
+						{
+							"id": "day-1-scene-3-b",
+							"text": "B. Eat alone quietly at your desk",
+							"deltas": {
+								"disc": {
+									"C": 1
+								},
+								"ocean": {
+									"E": -2,
+									"C": 1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						},
+						{
+							"id": "day-1-scene-3-c",
+							"text": "C. Continue working through lunch",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 2,
+									"A": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d1s3.png"
+				},
+				{
+					"id": "day-1-scene-4",
+					"title": "Scene 4: Manager's Unclear Instructions",
+					"description": [
+						"Priya stops by your desk around 2:30 PM, coffee mug in hand, looking slightly frazzled from back-to-back meetings.",
+						"\"I need you to work on the client report for the Bangalore account,\" she says, setting down some printouts. \"Make sure it covers all the key metrics and, you know, the usual comprehensive analysis they expect.\"",
+						"You glance at the papers - they're mostly blank templates with a few scattered notes in her handwriting. The words \"customer satisfaction\" and \"ROI analysis\" are circled, but there's no clear scope or deadline mentioned.",
+						"\"When do you need this?\" you ask.",
+						"\"Soon,\" she replies, already checking her phone. \"The client is quite particular about these things. You know how it is.\" She starts walking away, then turns back. \"Oh and make sure it aligns with what we discussed in the strategy meeting.\"",
+						"You pause. There were three strategy meetings last week, covering different clients and different projects.",
+						"Vijay, sitting at the adjacent desk, catches your confused expression and raises his eyebrows sympathetically."
+					],
+					"choices": [
+						{
+							"id": "day-1-scene-4-a",
+							"text": "A. Ask Priya directly for clarification on scope and timeline",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-1-scene-4-b",
+							"text": "B. Start working on the report based on your best understanding",
+							"deltas": {
+								"disc": {
+									"D": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1
+								},
+								"enneagram": {
+									"type8": 1
+								}
+							}
+						},
+						{
+							"id": "day-1-scene-4-c",
+							"text": "C. Ask Priya or another colleague subtly about what they think she meant",
+							"deltas": {
+								"disc": {
+									"S": 1,
+									"I": 1
+								},
+								"ocean": {
+									"A": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d1s4.png"
+				},
+				{
+					"id": "day-1-scene-5",
+					"title": "Scene 5: Personal Call During Work Hours",
+					"description": [
+						"Your phone starts buzzing at 4:15 PM. The caller ID shows \"Rohit College\" - your closest friend from engineering who now works at a startup in Pune.",
+						"The phone keeps buzzing as you glance around the office. Priya is in her cabin with the door closed, probably on another client call. Most of your teammates are busy with their own work, though you notice Kavya occasionally chats with her desk neighbor about weekend plans.",
+						"The buzzing stops, then immediately starts again. Rohit rarely calls during work hours unless it's something important. You remember he mentioned having a difficult conversation with his manager this week about a promotion.",
+						"Your screen shows two pending emails and the client report you're still figuring out. The phone buzzes a third time.",
+						"Anita from the next team walks by and glances at your ringing phone with a slight smile, as if to say, \"We've all been there.\""
+					],
+					"choices": [
+						{
+							"id": "day-1-scene-5-a",
+							"text": "A. Ignore the call completely and focus on work",
+							"deltas": {
+								"disc": {
+									"C": 1,
+									"D": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-1-scene-5-b",
+							"text": "B. Step out briefly to take the call",
+							"deltas": {
+								"disc": {
+									"I": 1
+								},
+								"ocean": {
+									"A": 1,
+									"C": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-1-scene-5-c",
+							"text": "C. Answer and chat casually at your desk",
+							"deltas": {
+								"disc": {
+									"I": 1
+								},
+								"ocean": {
+									"E": 1,
+									"C": -2
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d1s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-2",
+			"title": "Day 2",
+			"scenes": [
+				{
+					"id": "day-2-scene-1",
+					"title": "Scene 1: Project Role Selection",
+					"description": [
+						"The conference room buzzes with post-lunch energy as Priya pulls up the project timeline on the whiteboard. \"The client wants to revamp their entire customer onboarding process,\" she explains, marker squeaking against the board. \"It's a six-month project, high visibility and frankly, it could set the template for how we handle similar clients.\"",
+						"She turns to face the team. \"I need someone to lead the technical workstream and someone to handle stakeholder coordination. Both roles will involve client interaction and cross-functional collaboration.\"",
+						"Meera, who joined just yesterday, leans forward with interest. Rajesh drums his fingers on the table, clearly weighing his options. Kavya glances at you, eyebrows raised in a \"this could be interesting\" expression.",
+						"\"The leadership role means owning the deliverables, managing timelines and being the primary point of contact,\" Priya continues. \"The supporting role involves execution, documentation and ensuring the lead has everything they need to succeed.\"",
+						"She caps her marker and looks around the room. \"So, who's interested in what?\"",
+						"The room falls into that familiar contemplative silence. You can almost hear everyone's mental calculations - career impact, workload, risk versus reward."
+					],
+					"choices": [
+						{
+							"id": "day-2-scene-1-a",
+							"text": "A. Volunteer for the leadership role",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 1
+								},
+								"ocean": {
+									"E": 1,
+									"O": 1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-2-scene-1-b",
+							"text": "B. Offer to take the supporting role",
+							"deltas": {
+								"disc": {
+									"S": 1,
+									"C": 1
+								},
+								"ocean": {
+									"A": 1,
+									"C": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d2s1.png"
+				},
+				{
+					"id": "day-2-scene-2",
+					"title": "Scene 2: Slacking Teammate",
+					"description": [
+						"Three days into the new project, it's becoming obvious that Rajesh isn't pulling his weight. During the morning standup, he gives vague updates like \"still working on the analysis\" and \"need a bit more time to finalize things.\"",
+						"You notice Meera glancing at the shared project tracker where Rajesh's tasks have been marked \"In Progress\" for the past week without any visible output. The client review is scheduled for next Monday.",
+						"After the standup, Kavya approaches your desk, coffee in hand. \"So... I'm not the only one who noticed, right?\" she says quietly, nodding toward Rajesh's direction where he's currently scrolling through LinkedIn.",
+						"\"His deliverables are blocking my workstream,\" she continues. \"I've been trying to be patient, but the client isn't going to accept 'still working on it' as a status update.\"",
+						"You glance over at Rajesh, who seems completely unaware of the mounting concern. Priya is in back-to-back meetings today and hasn't noticed the delay yet.",
+						"\"I could cover some of his tasks,\" Kavya offers, \"but that doesn't really solve the underlying issue, does it?\""
+					],
+					"choices": [
+						{
+							"id": "day-2-scene-2-a",
+							"text": "A. Confront Rajesh privately about his performance",
+							"deltas": {
+								"disc": {
+									"D": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-2-scene-2-b",
+							"text": "B. Cover his work quietly to keep the project on track",
+							"deltas": {
+								"disc": {
+									"S": 1,
+									"C": 1
+								},
+								"ocean": {
+									"A": 2,
+									"C": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-2-scene-2-c",
+							"text": "C. Escalate the issue formally to Priya",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d2s2.png"
+				},
+				{
+					"id": "day-2-scene-3",
+					"title": "Scene 3: Miscommunication with Senior Leadership",
+					"description": [
+						"The email from Pradeep, the Regional Head, lands in your inbox at 11:30 AM with a red exclamation mark indicating high priority.",
+						"\"Please prepare a detailed analysis of our Q1 performance metrics for the board presentation. Focus on customer acquisition costs and retention rates. Need this by tomorrow morning.\"",
+						"You stare at the screen, confused. Last week, during the quarterly review, Pradeep had specifically praised the team for exceeding Q1 targets and mentioned that the board was already briefed on performance metrics.",
+						"Moreover, you recall Priya mentioning just yesterday that the board presentation was focused on Q2 strategy, not Q1 analysis.",
+						"Meera, working on her laptop nearby, notices your puzzled expression. \"Everything okay?\"",
+						"\"I'm not sure,\" you reply, showing her the email. \"This doesn't align with what we discussed in the quarterly review.\"",
+						"She reads it quickly. \"Maybe there's been a change in the board agenda? Or perhaps he meant Q2 performance projections?\"",
+						"Your phone shows three missed calls from the data analytics team and two calendar invites for tomorrow morning - both scheduled during the time you'd need to prepare this analysis."
+					],
+					"choices": [
+						{
+							"id": "day-2-scene-3-a",
+							"text": "A. Clarify the requirements immediately with Pradeep",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-2-scene-3-b",
+							"text": "B. Let it slide and prepare the Q1 analysis as requested",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"A": 1,
+									"C": -1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d2s3.png"
+				},
+				{
+					"id": "day-2-scene-4",
+					"title": "Scene 4: Office Happy Hour",
+					"description": [
+						"The Slack notification pops up at 5:30 PM: \"🍻 Friday happy hour at the rooftop café! Join us for some snacks and team bonding. -Kavya\"",
+						"You glance around the office. About half the team seems to be packing up for the day, while others are settling in for what looks like a longer evening of work. Rajesh, surprisingly, is one of the first to respond with a thumbs-up emoji.",
+						"Meera walks over to your desk, bag slung over her shoulder. \"You joining the happy hour? I'm still getting to know everyone, so it might be nice to chat outside of project deadlines.\"",
+						"The client report you've been working on is about 70% complete and ideally, you'd like to finish it tonight while the analysis is fresh in your mind. But then again, building relationships with the team - especially with Meera who you'll be working closely with - could be valuable too.",
+						"Your phone buzzes with a text from your flatmate: \"Ordered dinner for 8 PM, let me know if you'll be home.\"",
+						"Kavya appears at your desk with her jacket. \"Come on, first drink is on me! Plus, I heard the rooftop has a great view of the sunset.\""
+					],
+					"choices": [
+						{
+							"id": "day-2-scene-4-a",
+							"text": "A. Attend the happy hour enthusiastically",
+							"deltas": {
+								"disc": {
+									"I": 2
+								},
+								"ocean": {
+									"E": 2,
+									"A": 1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						},
+						{
+							"id": "day-2-scene-4-b",
+							"text": "B. Skip politely and continue with work",
+							"deltas": {
+								"disc": {
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"E": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-2-scene-4-c",
+							"text": "C. Take the initiative to organize the happy hour activities",
+							"deltas": {
+								"disc": {
+									"I": 2,
+									"D": 1
+								},
+								"ocean": {
+									"E": 1,
+									"A": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d2s4.png"
+				},
+				{
+					"id": "day-2-scene-5",
+					"title": "Scene 5: After-Hours Client Call",
+					"description": [
+						"Your phone rings at 8:45 PM just as you're settling down with dinner and Netflix. The caller ID shows \"Venky - Bangalore Client.\"",
+						"You pause, fork halfway to your mouth. Venky usually sticks to business hours and email communication. The last time he called this late, it was about a critical bug that needed immediate attention.",
+						"Your laptop is in the bedroom and you'd need a few minutes to boot it up and access the client files. The call goes to voicemail, then immediately starts ringing again.",
+						"Your flatmate, Neha, looks up from her own dinner. \"Work call?\"",
+						"\"Yeah, the Bangalore client. He never calls this late unless something's urgent.\"",
+						"The phone stops ringing, then buzzes with a WhatsApp message: \"Hi, need to discuss the timeline changes. Are you available for a quick call?\"",
+						"You glance at the clock. It's definitely outside office hours, but Venky's project is one of your key accounts and maintaining a good relationship with him has always been a priority."
+					],
+					"choices": [
+						{
+							"id": "day-2-scene-5-a",
+							"text": "A. Answer promptly and handle the client query",
+							"deltas": {
+								"disc": {
+									"C": 1,
+									"D": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": 1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-2-scene-5-b",
+							"text": "B. Text back politely deferring to tomorrow morning",
+							"deltas": {
+								"disc": {
+									"S": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d2s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-3",
+			"title": "Day 3",
+			"scenes": [
+				{
+					"id": "day-3-scene-1",
+					"title": "Scene 1: Ethically Challenging Task",
+					"description": [
+						"Priya closes the cabin door behind her and settles into the chair across from your desk, her expression more serious than usual.",
+						"\"I need you to prepare a report for the Hyderabad client,\" she begins, sliding a folder across the table. \"They're asking for ROI projections for their digital transformation initiative.\"",
+						"You open the folder and scan the preliminary data. The numbers look concerning - the projected costs are significantly higher than the expected benefits, at least in the short to medium term.",
+						"\"The thing is,\" Priya continues, lowering her voice, \"they're really keen on this project. The CEO has already committed to it internally. They just need our analysis to support their business case for the board.\"",
+						"You look up from the papers. \"But, based on this data, the ROI looks quite negative for the first two years.\"",
+						"She nods slowly. \"I know. But maybe we can focus on the long-term benefits, use some optimistic market projections. You know how these things work - there's always room for... interpretation in forecasting.\"",
+						"The office buzzes with regular activity around you, but the conversation feels strangely isolated. Meera glances over from her desk, probably wondering about the closed-door discussion."
+					],
+					"choices": [
+						{
+							"id": "day-3-scene-1-a",
+							"text": "A. Voice your concerns about the data manipulation openly",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 2,
+									"A": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-3-scene-1-b",
+							"text": "B. Quietly complete the report as requested",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"A": 1,
+									"C": -1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d3s1.png"
+				},
+				{
+					"id": "day-3-scene-2",
+					"title": "Scene 2: Unpaid Extra Work",
+					"description": [
+						"Satvik from HR approaches your desk with his characteristic friendly smile and a stack of colorful brochures.",
+						"\"Hi! I hope you don't mind me dropping by. We're organizing the annual company retreat next month and I could really use some help with the planning committee.\"",
+						"He spreads out the brochures showing various resort locations. \"It's going to be a two-day event - team building activities, leadership workshops, maybe some cultural performances. The kind of thing that really brings everyone together, you know?\"",
+						"You glance at the materials. It does look interesting and you remember last year's retreat being quite enjoyable.",
+						"\"The committee meets twice a week for the next month, mostly in the evenings or weekends,\" Priya continues. \"It's voluntary, of course, but the experience looks great on internal profiles and you get to work directly with senior leadership on the planning.\"",
+						"Kavya, overhearing from the next desk, chimes in, \"I did it two years ago. It's actually quite fun, though it does eat up a lot of personal time.\"",
+						"Your current project workload is already stretching your weekdays and you had plans to start an online certification course on weekends."
+					],
+					"choices": [
+						{
+							"id": "day-3-scene-2-a",
+							"text": "A. Accept the opportunity enthusiastically",
+							"deltas": {
+								"disc": {
+									"I": 1,
+									"D": 1
+								},
+								"ocean": {
+									"E": 1,
+									"O": 1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-3-scene-2-b",
+							"text": "B. Decline politely citing other commitments",
+							"deltas": {
+								"disc": {
+									"C": 1,
+									"S": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": 1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d3s2.png"
+				},
+				{
+					"id": "day-3-scene-3",
+					"title": "Scene 3: Recognition Oversight",
+					"description": [
+						"The Monday morning team meeting starts with Priya reviewing last week's achievements. She pulls up the client feedback dashboard on the projector.",
+						"\"Great job, everyone. The Bangalore client was particularly impressed with the user experience analysis. Rajesh, excellent work on that front.\"",
+						"You pause, coffee mug halfway to your lips. The user experience analysis was actually your deliverable - you'd worked late three nights last week to get the data visualization and insights ready.",
+						"Rajesh nods and smiles, accepting the praise gracefully. \"Thank you. I tried to make it as comprehensive as possible.\"",
+						"Meera glances at you with raised eyebrows, clearly remembering the conversations you'd had about the UX analysis challenges. Kavya, sitting across the table, looks confused and mouths \"Wasn't that yours?\"",
+						"Priya continues, \"This kind of detailed analysis is exactly what sets us apart from other vendors. Keep it up, Rajesh.\"",
+						"The meeting moves on to other topics, but you can feel Meera and Kavya's eyes on you, waiting to see how you'll respond."
+					],
+					"choices": [
+						{
+							"id": "day-3-scene-3-a",
+							"text": "A. Point out the error subtly during the meeting",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-3-scene-3-b",
+							"text": "B. Let it pass to avoid creating awkwardness",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"A": 2,
+									"N": 1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d3s3.png"
+				},
+				{
+					"id": "day-3-scene-4",
+					"title": "Scene 4: Work-Life Balance Pressure",
+					"description": [
+						"At 7:30 PM, you're finally wrapping up the day when your flatmate Neha texts: \"House party tonight! Some college friends are in town. Come home soon!\"",
+						"You can hear laughter and music starting to filter through the thin walls of the office as the evening crowd in the building next door begins their social hour. Your screen still shows two pending client emails and tomorrow's presentation needs some final touches.",
+						"Kavya, packing up her things, notices you're still at your desk. \"Long day for you too?\"",
+						"\"Yeah, trying to finish up a few things. My flatmate's throwing a party tonight.\"",
+						"\"That sounds fun! Are you going to make it?\"",
+						"You glance at your laptop screen, then at the clock. The party's probably just getting started and you could realistically finish the urgent work in another hour. But then again, some of these college friends you haven't seen in months.",
+						"Your phone buzzes with a photo from the party - everyone's gathered around Neha's dining table, raising their glasses in a toast."
+					],
+					"choices": [
+						{
+							"id": "day-3-scene-4-a",
+							"text": "A. Head home and join the party briefly",
+							"deltas": {
+								"disc": {
+									"I": 1
+								},
+								"ocean": {
+									"E": 1,
+									"C": -1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						},
+						{
+							"id": "day-3-scene-4-b",
+							"text": "B. Stay focused and complete your work first",
+							"deltas": {
+								"disc": {
+									"C": 1,
+									"D": 1
+								},
+								"ocean": {
+									"C": 2,
+									"E": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d3s4.png"
+				},
+				{
+					"id": "day-3-scene-5",
+					"title": "Scene 5: Late-Night Reflection",
+					"description": [
+						"It's 11:30 PM and the house has finally quieted down after the party. You're sitting by your bedroom window with a cup of tea, city lights twinkling in the distance.",
+						"The day feels heavy in your mind - the ethical dilemma with the Hyderabad client report, the missed recognition for your work, the constant juggling between professional commitments and personal life.",
+						"Your journal lies open on the bedside table, pen beside it. You'd started maintaining it a few months ago after reading about the benefits of reflective writing, though you haven't been very consistent.",
+						"Alternatively, you could just go to sleep early for once. Tomorrow's another busy day and you've been running on insufficient sleep for the past week.",
+						"Your phone shows a few unread messages from friends, a couple of work notifications that aren't urgent and a reminder about the online course you'd been meaning to start."
+					],
+					"choices": [
+						{
+							"id": "day-3-scene-5-a",
+							"text": "A. Spend time journaling and reflecting on the day",
+							"deltas": {
+								"disc": {
+									"C": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": 1
+								},
+								"enneagram": {
+									"type4": 1
+								}
+							}
+						},
+						{
+							"id": "day-3-scene-5-b",
+							"text": "B. Go to sleep early to recharge for tomorrow",
+							"deltas": {
+								"disc": {
+									"S": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d3s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-4",
+			"title": "Day 4",
+			"scenes": [
+				{
+					"id": "day-4-scene-1",
+					"title": "Scene 1: Running Late to Important Meeting",
+					"description": [
+						"Your phone alarm goes off at 6:30 AM, but somehow you don't wake up until 7:45 AM. The quarterly presentation to the regional leadership is at 9:00 AM sharp and you're supposed to be presenting the key findings from your team's project.",
+						"Panic sets in as you realize the traffic from your area to the office will take at least an hour and fifteen minutes during rush hour. You grab a quick shower, skip breakfast and run to catch an auto-rickshaw.",
+						"By 8:55 AM, you're still stuck in traffic, watching the clock tick ominously. Your phone shows three missed calls from Kavya and a text: \"Where are you? The meeting's about to start.\"",
+						"You finally rush into the conference room at 9:12 AM, slightly out of breath. Priya pauses mid-sentence and all eyes turn to you. Priya gives you a look that's somewhere between concern and disappointment.",
+						"\"Sorry I'm late,\" you begin, as the room falls silent."
+					],
+					"choices": [
+						{
+							"id": "day-4-scene-1-a",
+							"text": "A. Apologize sincerely and take responsibility for the delay",
+							"deltas": {
+								"disc": {
+									"S": 1,
+									"C": 1
+								},
+								"ocean": {
+									"A": 1,
+									"C": 1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-4-scene-1-b",
+							"text": "B. Quickly mention the traffic situation to explain the delay",
+							"deltas": {
+								"disc": {
+									"I": 1
+								},
+								"ocean": {
+									"A": -1,
+									"N": 1
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d4s1.png"
+				},
+				{
+					"id": "day-4-scene-2",
+					"title": "Scene 2: Credit Theft",
+					"description": [
+						"The presentation is going well. You're midway through explaining the customer retention analysis when Rajesh interrupts smoothly.",
+						"\"If I may add to this point,\" he says, standing up and walking to the projector, \"the data segmentation strategy we implemented really made the difference here. I spent considerable time analyzing the customer behavior patterns.\"",
+						"Your stomach drops. The data segmentation was entirely your work - late nights, weekend analysis, multiple iterations based on client feedback. Rajesh had barely been involved beyond attending the kickoff meeting.",
+						"Priya nods approvingly. \"Excellent approach, Rajesh. This kind of deep dive analysis is exactly what we need.\"",
+						"Meera, sitting to your right, shifts uncomfortably in her chair. Kavya's eyes widen as she looks between you and Rajesh.",
+						"Priya seems unaware of the tension, making notes about the analysis approach. The meeting continues, but you can feel the blood rushing to your ears."
+					],
+					"choices": [
+						{
+							"id": "day-4-scene-2-a",
+							"text": "A. Address the issue directly after the meeting",
+							"deltas": {
+								"disc": {
+									"D": 2
+								},
+								"ocean": {
+									"C": 1,
+									"A": -2
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-4-scene-2-b",
+							"text": "B. Ignore it for the sake of team harmony",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"A": 2,
+									"N": 1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d4s2.png"
+				},
+				{
+					"id": "day-4-scene-3",
+					"title": "Scene 3: Unethical Shortcut Offer",
+					"description": [
+						"After the meeting, Rajesh approaches you in the corridor with a casual smile, as if the credit issue never happened.",
+						"\"Hey, about the Hyderabad client report that's due next week,\" he says, lowering his voice. \"I have a contact at a consulting firm who worked on a similar project for their competitor. He could share their analysis framework - saving us a lot of time and effort.\"",
+						"You pause, understanding the implication. Using a competitor's proprietary analysis framework would definitely be crossing ethical lines, not to mention potentially illegal.",
+						"\"Think about it,\" Rajesh continues. \"The client will never know and it'll make our analysis look incredibly sophisticated. Everyone wins.\"",
+						"Kavya walks by, heading to the pantry and gives you both a friendly nod. The corridor is otherwise empty and Rajesh's offer hangs in the air between you.",
+						"\"I know it sounds a bit... unconventional,\" he adds, \"but this is how things work in the real world. The client wants results, not moral victories.\""
+					],
+					"choices": [
+						{
+							"id": "day-4-scene-3-a",
+							"text": "A. Decline the offer firmly and clearly",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 2
+								},
+								"ocean": {
+									"C": 2,
+									"A": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-4-scene-3-b",
+							"text": "B. Say you'll think about it without committing",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"A": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d4s3.png"
+				},
+				{
+					"id": "day-4-scene-4",
+					"title": "Scene 4: Friend's Emotional Call",
+					"description": [
+						"At 3:30 PM, your phone rings with a call from Rohit, your college friend. You remember he's been going through a rough patch with his startup and his relationship.",
+						"\"Hey, I really need to talk to someone,\" his voice sounds strained when you pick up. \"Can you spare a few minutes?\"",
+						"You glance around the office. It's a relatively quiet afternoon, but you have the Hyderabad report to work on and a client call scheduled at 4:30 PM.",
+						"\"What's going on?\" you ask, genuinely concerned.",
+						"\"Everything's falling apart, yaar. The startup isn't getting funding, Aparna and I had a huge fight last night and I'm honestly questioning every decision I've made in the past two years.\"",
+						"His voice breaks slightly and you can tell this isn't just a casual venting session. Rohit has always been the strong, optimistic one in your friend group.",
+						"Meera glances over, noticing the serious tone of your conversation and gives you a sympathetic look."
+					],
+					"choices": [
+						{
+							"id": "day-4-scene-4-a",
+							"text": "A. Give him your full attention and engage in the conversation",
+							"deltas": {
+								"disc": {
+									"I": 1
+								},
+								"ocean": {
+									"A": 2,
+									"C": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-4-scene-4-b",
+							"text": "B. Tell him you'll call back after work hours",
+							"deltas": {
+								"disc": {
+									"C": 1,
+									"D": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d4s4.png"
+				},
+				{
+					"id": "day-4-scene-5",
+					"title": "Scene 5: Memory Lapse",
+					"description": [
+						"At 6 PM, Kavya stops by your desk with a small wrapped box and a card.",
+						"\"Happy birthday! I know it's a day late, but I was stuck in client meetings yesterday.\" Your heart sinks as realization hits you. You completely forgot it was Kavya's birthday yesterday. She'd mentioned it in passing last week and you'd even made a mental note to wish her, but with all the work stress, it completely slipped your mind.",
+						"Kavya's smile is genuine and warm, making you feel even worse about the oversight. She's always remembered everyone's birthdays and special occasions.",
+						"\"Thank you so much,\" she says, clearly touched that you remembered (even though you didn't). \"You didn't have to get me anything.\"",
+						"Meera, overhearing, looks confused. \"Wait, whose birthday?\""
+					],
+					"choices": [
+						{
+							"id": "day-4-scene-5-a",
+							"text": "A. Admit honestly that you forgot and apologize",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": 1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-4-scene-5-b",
+							"text": "B. Go along with the assumption that you remembered",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"A": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d4s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-5",
+			"title": "Day 5",
+			"scenes": [
+				{
+					"id": "day-5-scene-1",
+					"title": "Scene 1: Reorganization Rumors",
+					"description": [
+						"The morning coffee tastes more bitter than usual as hushed conversations fill the pantry. Anita from finance leans in toward Deepak from marketing, their voices barely above a whisper.",
+						"\"I heard from someone in Mumbai that they're restructuring the entire South zone,\" Anita says, stirring her tea nervously. \"Apparently, three teams are getting merged.\"",
+						"Deepak nods grimly. \"My contact in HR mentioned something about 'optimization' and 'synergies.' You know what that usually means.\"",
+						"You pretend to focus on your coffee while listening. Kavya joins the group, looking worried.",
+						"\"Should we be updating our resumes?\" she asks, only half-joking.",
+						"The conversation continues with increasingly dire predictions about job cuts, team mergers and office relocations. Everyone seems to have heard something different from their respective sources.",
+						"Meera approaches the group, clearly having caught the tail end of the discussion. \"What's everyone talking about?\""
+					],
+					"choices": [
+						{
+							"id": "day-5-scene-1-a",
+							"text": "A. Stay calm and focus on your current work responsibilities",
+							"deltas": {
+								"disc": {
+									"C": 1,
+									"S": 1
+								},
+								"ocean": {
+									"C": 1,
+									"N": -2
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						},
+						{
+							"id": "day-5-scene-1-b",
+							"text": "B. Join the speculation and share what you might have heard",
+							"deltas": {
+								"disc": {
+									"I": 1
+								},
+								"ocean": {
+									"E": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d5s1.png"
+				},
+				{
+					"id": "day-5-scene-2",
+					"title": "Scene 2: Mentorship Opportunity",
+					"description": [
+						"Priya calls you into her cabin after lunch, closing the door behind him with an unusual formality.",
+						"\"I have an interesting opportunity for you,\" she begins, settling into his chair. \"The company is launching a mentorship program for junior employees and I'd like you to consider taking on a mentoring role.\"",
+						"She slides a folder across the desk. \"You'd be paired with two recent hires - one from the Chennai office and one from our team here. It involves monthly one-on-ones, career guidance and helping them navigate their first year.\"",
+						"You glance through the program details. It's a six-month commitment with formal training sessions, progress reviews and additional responsibilities on top of your current workload.",
+						"\"The program looks great on internal reviews,\" Priya adds, \"and honestly, your approach with Meera when she joined has been impressive. You have a natural ability to guide people.\"",
+						"The timeline shows training sessions scheduled for the next three weekends, plus ongoing monthly commitments."
+					],
+					"choices": [
+						{
+							"id": "day-5-scene-2-a",
+							"text": "A. Accept the mentorship role and prepare for the additional responsibility",
+							"deltas": {
+								"disc": {
+									"I": 1,
+									"D": 1
+								},
+								"ocean": {
+									"C": 1,
+									"O": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-5-scene-2-b",
+							"text": "B. Ask for time to consider the decision",
+							"deltas": {
+								"disc": {
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						},
+						{
+							"id": "day-5-scene-2-c",
+							"text": "C. Suggest recommending someone else who might be better suited",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"A": 1,
+									"C": 1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d5s2.png"
+				},
+				{
+					"id": "day-5-scene-3",
+					"title": "Scene 3: One-on-One with Boss",
+					"description": [
+						"Priya's calendar invite for a \"Quarterly Check-in\" lands in your inbox with a 30-minute slot blocked for Thursday afternoon. The meeting room she's booked is one of the smaller, more private ones - typically used for performance discussions.",
+						"As you settle into the chair across from her, she pulls out a notebook and looks up with a neutral expression that's hard to read.",
+						"\"So, how are things going for you? I thought it would be good to touch base, especially with all the changes happening in the organization.\"",
+						"The question feels loaded with multiple possible directions. You could ask for feedback on your recent performance, bring up concerns about workload or team dynamics, or play it safe with general positive responses.",
+						"She leans back slightly. \"I want this to be an open conversation. What's on your mind?\""
+					],
+					"choices": [
+						{
+							"id": "day-5-scene-3-a",
+							"text": "A. Ask for specific feedback on your performance and areas for improvement",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": 1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-5-scene-3-b",
+							"text": "B. Raise a concern about team dynamics or workload",
+							"deltas": {
+								"disc": {
+									"D": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-5-scene-3-c",
+							"text": "C. Keep the conversation positive and avoid potentially sensitive topics",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d5s3.png"
+				},
+				{
+					"id": "day-5-scene-4",
+					"title": "Scene 4: Family Weekend Pressure",
+					"description": [
+						"Your phone buzzes with a family WhatsApp group message as you're wrapping up work on Friday evening.",
+						"Mom: \"Your cousin Arjun is getting engaged this Sunday. The whole family will be there. You must come home this weekend.\"",
+						"Dad: \"It's been two months since you visited. The train tickets are already booked for tomorrow morning.\"",
+						"Your sister adds: \"Everyone's asking about you. Plus, you promised to help me with my job applications, remember?\"",
+						"You stare at the messages, feeling the familiar tug between family obligations and personal time. The weekend was supposed to be for catching up on the online certification course you'd started, plus you'd tentatively planned to meet some college friends who are visiting the city.",
+						"Your phone rings - it's your mother.",
+						"\"I know you're busy with work, but family is also important. Arjun specifically asked if you'd be there.\""
+					],
+					"choices": [
+						{
+							"id": "day-5-scene-4-a",
+							"text": "A. Agree to go home for the weekend",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"A": 2,
+									"C": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-5-scene-4-b",
+							"text": "B. Negotiate a compromise - perhaps going for just one day",
+							"deltas": {
+								"disc": {
+									"I": 1,
+									"C": 1
+								},
+								"ocean": {
+									"A": 1,
+									"C": 1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						},
+						{
+							"id": "day-5-scene-4-c",
+							"text": "C. Politely decline and suggest visiting the following weekend",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d5s4.png"
+				},
+				{
+					"id": "day-5-scene-5",
+					"title": "Scene 5: End-of-Week Office Ritual",
+					"description": [
+						"It's 6 PM on Friday and Kavya starts her usual end-of-week ritual of going around to each desk with a small box of homemade sweets.",
+						"\"Okay everyone, gather around! Time for our weekly wins and learnings share,\" she announces cheerfully, setting the box on the central table.",
+						"This informal tradition started a few months ago - everyone shares one professional win and one learning from the week. It's optional, but most of the team participates and it's become a nice way to wrap up the week.",
+						"Rajesh, surprisingly, has already joined the circle and is enthusiastically describing his \"success\" with the client presentation (conveniently omitting the details about whose work it actually was).",
+						"Meera looks around uncertainly, clearly still getting used to these informal team bonding activities."
+					],
+					"choices": [
+						{
+							"id": "day-5-scene-5-a",
+							"text": "A. Join the circle and participate in sharing",
+							"deltas": {
+								"disc": {
+									"I": 1
+								},
+								"ocean": {
+									"E": 1,
+									"A": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-5-scene-5-b",
+							"text": "B. Take the initiative to facilitate the discussion",
+							"deltas": {
+								"disc": {
+									"I": 2,
+									"D": 1
+								},
+								"ocean": {
+									"E": 1,
+									"A": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-5-scene-5-c",
+							"text": "C. Politely skip and continue with your work",
+							"deltas": {
+								"disc": {
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"E": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d5s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-6",
+			"title": "Day 6",
+			"scenes": [
+				{
+					"id": "day-6-scene-1",
+					"title": "Scene 1: Presentation Preparation",
+					"description": [
+						"The client presentation is scheduled for 2 PM and it's already 11:30 AM. Priya stops by your desk with a slightly panicked expression.",
+						"\"The Pune client wants a detailed update on all workstreams. Can you handle the technical implementation section? About 15-20 minutes of the presentation.\"",
+						"You glance at your laptop. You have the core content and data, but it's scattered across different files and needs to be consolidated into a coherent narrative. A well-prepared presentation would typically require 2-3 hours of focused work.",
+						"\"I know it's short notice,\" Priya continues, \"but you know the technical details better than anyone else on the team.\"",
+						"Kavya overhears from her desk. \"I could help with the slide formatting if you want to focus on the content.\"",
+						"The clock ticks ominously as you weigh your options."
+					],
+					"choices": [
+						{
+							"id": "day-6-scene-1-a",
+							"text": "A. Confidently wing it with the information you have",
+							"deltas": {
+								"disc": {
+									"D": 2
+								},
+								"ocean": {
+									"E": 1,
+									"C": -1,
+									"O": 1
+								},
+								"enneagram": {
+									"type8": 1
+								}
+							}
+						},
+						{
+							"id": "day-6-scene-1-b",
+							"text": "B. Ask for time to prepare thoroughly, even if it means a tight schedule",
+							"deltas": {
+								"disc": {
+									"C": 2
+								},
+								"ocean": {
+									"C": 2,
+									"N": 1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-6-scene-1-c",
+							"text": "C. Request to skip presenting and have someone else handle it",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"N": 2,
+									"E": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d6s1.png"
+				},
+				{
+					"id": "day-6-scene-2",
+					"title": "Scene 2: Senior Leader Engagement",
+					"description": [
+						"The team Slack channel suddenly becomes more active than usual when a notification appears: \"Pradeep Sharma (Regional Head) has joined the channel.\"",
+						"Within minutes, the conversation shifts from casual Friday banter to a more professional tone. Pradeep types: \"Good afternoon, team. I've joined to stay closer to the ground-level discussions. Please continue your conversations as usual.\"",
+						"An awkward silence follows in the digital space. Finally, Rajesh types: \"Welcome to the channel, sir! We were just discussing the client feedback from this week.\"",
+						"Kavya sends a thumbs-up emoji and Anita shares a brief update about the quarterly numbers.",
+						"You have a few thoughts about the ongoing project challenges that could be valuable for Pradeep to know, but you're unsure about the appropriate way to engage in this new dynamic."
+					],
+					"choices": [
+						{
+							"id": "day-6-scene-2-a",
+							"text": "A. Share your thoughts and engage actively in the channel",
+							"deltas": {
+								"disc": {
+									"I": 1,
+									"D": 1
+								},
+								"ocean": {
+									"E": 1,
+									"O": 1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-6-scene-2-b",
+							"text": "B. Observe the conversations without participating actively",
+							"deltas": {
+								"disc": {
+									"S": 1,
+									"C": 1
+								},
+								"ocean": {
+									"E": -1,
+									"C": 1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						},
+						{
+							"id": "day-6-scene-2-c",
+							"text": "C. Send Pradeep sir a private message later with your insights",
+							"deltas": {
+								"disc": {
+									"C": 1,
+									"I": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": 1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d6s2.png"
+				},
+				{
+					"id": "day-6-scene-3",
+					"title": "Scene 3: Misattributed Recognition",
+					"description": [
+						"The Monday morning email from Pradeep lands in everyone's inbox with the subject line: \"Exceptional Work Recognition.\"",
+						"\"I want to highlight the outstanding customer retention analysis completed last week. Rajesh's innovative approach to data segmentation has set a new standard for our client deliverables.\"",
+						"Your coffee grows cold as you read the email. This is the second time in two weeks that your work has been attributed to Rajesh and this time it's gone all the way up to the regional head.",
+						"Meera, reading the same email at her desk, glances over at you with a concerned expression. Kavya's jaw drops slightly as she processes the content.",
+						"The email continues with praise for \"Rajesh's attention to detail\" and mentions that this analysis has been shared as a best practice with other regional teams.",
+						"Your phone buzzes with a congratulatory message from a colleague in another office: \"Saw Pradeep sir's email. Rajesh must be thrilled!\""
+					],
+					"choices": [
+						{
+							"id": "day-6-scene-3-a",
+							"text": "A. Politely intervene and correct the attribution",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-6-scene-3-b",
+							"text": "B. Make a light joke about the mix-up",
+							"deltas": {
+								"disc": {
+									"I": 1
+								},
+								"ocean": {
+									"E": 1,
+									"A": 1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						},
+						{
+							"id": "day-6-scene-3-c",
+							"text": "C. Let it go and focus on future work",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"A": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d6s3.png"
+				},
+				{
+					"id": "day-6-scene-4",
+					"title": "Scene 4: New Team Member Exclusion",
+					"description": [
+						"Meera sits alone during the lunch break, scrolling through her phone while the rest of the team gathers around Kavya's desk for an impromptu discussion about weekend plans.",
+						"\"We should check out that new gaming café that opened near the Metro station,\" Deepak suggests enthusiastically.",
+						"\"I'm in!\" Rajesh responds. \"I heard they have the latest VR setups.\"",
+						"The conversation continues with increasing excitement, but no one thinks to include Meera, who's sitting just a few desks away. She occasionally glances up from her phone, clearly aware of the animated discussion happening nearby.",
+						"You notice her isolation and feel a familiar pang - you remember your own first few weeks at the company when it took time to find your place in the established social dynamics.",
+						"Kavya, usually so inclusive, seems caught up in the planning excitement and hasn't noticed Meera's exclusion."
+					],
+					"choices": [
+						{
+							"id": "day-6-scene-4-a",
+							"text": "A. Openly invite Meera to join the group and weekend plans",
+							"deltas": {
+								"disc": {
+									"I": 1,
+									"D": 1
+								},
+								"ocean": {
+									"E": 1,
+									"A": 2
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-6-scene-4-b",
+							"text": "B. Quietly approach Meera later to include her",
+							"deltas": {
+								"disc": {
+									"S": 1,
+									"I": 1
+								},
+								"ocean": {
+									"A": 2,
+									"C": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-6-scene-4-c",
+							"text": "C. Stay out of the social dynamics",
+							"deltas": {
+								"disc": {
+									"C": 1
+								},
+								"ocean": {
+									"E": -1,
+									"A": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d6s4.png"
+				},
+				{
+					"id": "day-6-scene-5",
+					"title": "Scene 5: Friend's Startup Idea",
+					"description": [
+						"Your college friend Rohit calls you during the evening commute, his voice carrying an excitement you haven't heard in months.",
+						"\"Yaar, I think I've cracked it,\" he says breathlessly. \"Remember that food delivery problem we used to discuss? I've figured out a hyperlocal solution that could revolutionize how people order from neighborhood vendors.\"",
+						"He launches into an enthusiastic explanation of his startup idea - an app that connects small local food vendors with customers in their immediate vicinity, cutting out the middleman and reducing delivery costs.",
+						"\"I need a co-founder with your technical background,\" he continues. \"The market opportunity is huge and I already have interest from two potential investors.\"",
+						"You remember Rohit's previous startup attempts - brilliant ideas that didn't quite work out due to market timing or execution challenges. But his current energy is infectious and the idea does sound promising.",
+						"\"I know it's a big decision,\" he adds, \"but I really think this could be the one. What do you think?\""
+					],
+					"choices": [
+						{
+							"id": "day-6-scene-5-a",
+							"text": "A. Express genuine interest in exploring the opportunity",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 1
+								},
+								"ocean": {
+									"O": 2,
+									"C": -1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						},
+						{
+							"id": "day-6-scene-5-b",
+							"text": "B. Voice your concerns about startup risks and market challenges",
+							"deltas": {
+								"disc": {
+									"C": 2
+								},
+								"ocean": {
+									"C": 1,
+									"O": -1
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						},
+						{
+							"id": "day-6-scene-5-c",
+							"text": "C. Show enthusiasm while keeping your current job security in mind",
+							"deltas": {
+								"disc": {
+									"S": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": 1
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d6s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-7",
+			"title": "Day 7",
+			"scenes": [
+				{
+					"id": "day-7-scene-1",
+					"title": "Scene 1: Workload Management",
+					"description": [
+						"It's 9 PM on Thursday and you're still at the office. This has been the pattern for the entire week - staying late to catch up on deliverables, client calls extending beyond office hours and the constant pressure to meet unrealistic deadlines.",
+						"Kavya, one of the few people still around, packs up her laptop and walks over to your desk.",
+						"\"This is getting ridiculous,\" she says, concern evident in her voice. \"You've been here past 8 PM every single day this week.\"",
+						"You lean back in your chair, feeling the weight of accumulated fatigue. The Hyderabad client project, the mentorship program preparation and the regular workload have created a perfect storm of time pressure.",
+						"\"Priya seems to think this pace is normal,\" you reply, gesturing at your screen full of pending tasks.",
+						"Kavya shakes her head. \"This isn't sustainable. You need to say something.\"",
+						"Your phone buzzes with another \"urgent\" email from a different client, timestamped at 9:15 PM."
+					],
+					"choices": [
+						{
+							"id": "day-7-scene-1-a",
+							"text": "A. Raise the workload issue formally with Priya",
+							"deltas": {
+								"disc": {
+									"D": 2
+								},
+								"ocean": {
+									"C": 1,
+									"A": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-7-scene-1-b",
+							"text": "B. Quietly adjust your schedule to manage better work-life balance",
+							"deltas": {
+								"disc": {
+									"C": 1,
+									"S": 1
+								},
+								"ocean": {
+									"C": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						},
+						{
+							"id": "day-7-scene-1-c",
+							"text": "C. Accept it as part of the job and continue without complaint",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"A": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d7s1.png"
+				},
+				{
+					"id": "day-7-scene-2",
+					"title": "Scene 2: Holiday Boundary Testing",
+					"description": [
+						"The calendar invite appears on Friday afternoon: \"Performance Review Discussion - Sunday 3 PM.\"",
+						"You stare at the screen in disbelief. Sunday is supposed to be a complete break - you'd planned to visit your parents and had already confirmed with them that you'd be there for lunch.",
+						"The invite is from Priya's assistant, marked as \"Required\" attendance. The agenda mentions \"Q2 performance evaluation and goal setting for the next quarter.\"",
+						"Kavya, seeing your expression, leans over. \"Weekend meeting?\"",
+						"\"Performance review on Sunday,\" you reply, showing her the invite.",
+						"\"That's completely unreasonable,\" she says, frowning. \"Even if it's important, scheduling it on a holiday shows no respect for personal time.\"",
+						"Your phone rings - it's your mother calling to confirm Sunday lunch plans and asking what time you'll reach home."
+					],
+					"choices": [
+						{
+							"id": "day-7-scene-2-a",
+							"text": "A. Accept the Sunday meeting without question",
+							"deltas": {
+								"disc": {
+									"S": 1,
+									"C": 1
+								},
+								"ocean": {
+									"A": 1,
+									"C": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-7-scene-2-b",
+							"text": "B. Request to reschedule to a weekday",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-7-scene-2-c",
+							"text": "C. Ignore the invite completely",
+							"deltas": {
+								"disc": {
+									"D": 1
+								},
+								"ocean": {
+									"C": -1,
+									"A": -2
+								},
+								"enneagram": {
+									"type8": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d7s2.png"
+				},
+				{
+					"id": "day-7-scene-3",
+					"title": "Scene 3: Career Opportunity Decision",
+					"description": [
+						"The email from HR arrives on Friday morning with the subject line: \"Internal Opportunity - Regional Expansion Team.\"",
+						"\"We are pleased to offer you a position as Senior Analyst with our newly formed Regional Expansion team, based in our Bangalore office. This role offers significant growth opportunities and a 25% salary increase.\"",
+						"You read through the details carefully. The role involves leading market research for new geographic markets, working directly with senior leadership and being part of a high-visibility strategic initiative.",
+						"The catch: you'd need to relocate to Bangalore within six weeks.",
+						"Priya appears at your desk, having clearly been briefed about the offer. \"Congratulations! This is a fantastic opportunity. Bangalore is where all the action happens.\"",
+						"Your mind races through the implications - leaving your current team, relocating to a new city, starting over with new colleagues and leaving behind the life you've built here.",
+						"\"Take the weekend to think about it,\" Priya adds, \"but opportunities like this don't come around often.\""
+					],
+					"choices": [
+						{
+							"id": "day-7-scene-3-a",
+							"text": "A. Accept the relocation and new role willingly",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 1
+								},
+								"ocean": {
+									"O": 2,
+									"C": 1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-7-scene-3-b",
+							"text": "B. Negotiate for remote work options",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"O": 1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						},
+						{
+							"id": "day-7-scene-3-c",
+							"text": "C. Decline the offer to stay in your current city",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"C": -1,
+									"O": -1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d7s3.png"
+				},
+				{
+					"id": "day-7-scene-4",
+					"title": "Scene 4: Family Responsibility",
+					"description": [
+						"Saturday morning brings a call from your mother with a familiar request.",
+						"\"Your cousin Sania's wedding is next month and we need to organize the reception venue booking and catering coordination. Your papa and I are getting overwhelmed with all the arrangements.\"",
+						"She explains that they need someone to handle the vendor negotiations, coordinate with the venue managers and oversee the logistics planning - essentially becoming the point person for the entire reception organization.",
+						"\"You're so good at managing these kinds of projects at work,\" she continues. \"And you know how important this wedding is for the family.\"",
+						"Your sister joins the call via conference. \"I could help,\" she offers, \"but I'm in the middle of my final exams. Maybe we could divide the tasks?\"",
+						"The wedding is scheduled for the same weekend as your company's annual retreat - the one you'd agreed to help organize as part of the planning committee."
+					],
+					"choices": [
+						{
+							"id": "day-7-scene-4-a",
+							"text": "A. Take full responsibility for organizing the wedding reception",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 2,
+									"A": 1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-7-scene-4-b",
+							"text": "B. Suggest dividing the tasks among family members",
+							"deltas": {
+								"disc": {
+									"I": 1,
+									"C": 1
+								},
+								"ocean": {
+									"A": 1,
+									"C": 1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						},
+						{
+							"id": "day-7-scene-4-c",
+							"text": "C. Politely decline and suggest hiring a professional coordinator",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 1
+								},
+								"ocean": {
+									"C": 1,
+									"A": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d7s4.png"
+				},
+				{
+					"id": "day-7-scene-5",
+					"title": "Scene 5: Weekend Reflection",
+					"description": [
+						"Sunday evening finds you sitting in your favorite corner of the neighborhood café, laptop closed for once, with just a cup of coffee and your thoughts.",
+						"The week has been a whirlwind of decisions, conflicts and opportunities. The career offer from Bangalore, the ongoing issues with work attribution, the family responsibilities and the constant juggling between professional growth and personal values.",
+						"The café is quieter than usual, with soft instrumental music playing in the background. A few other patrons are scattered around - some reading, others engaged in quiet conversations.",
+						"Your phone sits face-down on the table, notifications temporarily silenced. For the first time in days, you have a genuine moment of peace to process everything that's been happening.",
+						"The barista, recognizing you as a regular, nods and smiles. \"The usual Sunday evening contemplation?\" she asks warmly.",
+						"You smile back. \"Something like that.\""
+					],
+					"choices": [
+						{
+							"id": "day-7-scene-5-a",
+							"text": "A. Spend time in quiet reflection about recent events and decisions",
+							"deltas": {
+								"disc": {
+									"C": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": 1
+								},
+								"enneagram": {
+									"type4": 1
+								}
+							}
+						},
+						{
+							"id": "day-7-scene-5-b",
+							"text": "B. Use this time to plan your next career and personal steps",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"C": 2
+								},
+								"ocean": {
+									"C": 2,
+									"O": 1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-7-scene-5-c",
+							"text": "C. Disconnect completely and just enjoy the present moment",
+							"deltas": {
+								"disc": {
+									"S": 1
+								},
+								"ocean": {
+									"N": -2,
+									"O": 1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d7s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-8",
+			"title": "Day 8",
+			"scenes": [
+				{
+					"id": "day-8-scene-1",
+					"title": "Scene 1: The Monday Morning Moment",
+					"description": [
+						"The meeting room feels unusually quiet as you slip through the door at precisely ten o'clock. The familiar hum of the projector casts everything in a warm, amber glow and you can smell the lingering traces of someone's morning coffee mixing with the faint scent of whiteboard markers.",
+						"Radhika stands at the front, remote in hand, clicking through slides with the practiced efficiency of someone who's done this countless times before. The title \"Q2 Priorities\" glows on the screen behind her, but something catches your eye-a small imperfection that makes you pause.",
+						"Around the table, your colleagues settle into their Monday morning rhythms. Arun absently flips through his notebook, the soft whisper of pages turning as he mutters something about another week beginning. Tanya's phone screen reflects in her tired eyes as she scrolls through weekend notifications she hasn't quite left behind. Across from you, Sameer adjusts his glasses with the careful precision of someone organizing their thoughts, his fingers drumming a quiet rhythm against his tablet.",
+						"The weight of the moment settles on your shoulders. You've been in meetings like this before-where a small oversight becomes a larger distraction, where twenty minutes of clarification could have been avoided with a simple observation. But you also remember the delicate balance of team dynamics, the way momentum can shift with a single interruption.",
+						"\"Okay team, let's start?\" Radhika's voice cuts through your internal debate, steady and confident despite the typo she hasn't noticed glowing behind her.",
+						"Arun leans slightly in your direction, his whisper barely audible. \"Did you catch that too?\" His eyes dart toward the screen, then back to you with the conspiratorial look of someone sharing a quiet observation.",
+						"The room holds its breath for just a moment, waiting to see which direction this Monday morning will take."
+					],
+					"choices": [
+						{
+							"id": "day-8-scene-1-a",
+							"text": "A. Gently point out the typo before the meeting gains momentum",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-8-scene-1-b",
+							"text": "B. Let the moment pass and see if someone else notices",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": -1,
+									"S": 2,
+									"C": -1
+								},
+								"ocean": {
+									"O": -1,
+									"C": -1,
+									"E": -2,
+									"A": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d8s1.png"
+				},
+				{
+					"id": "day-8-scene-2",
+					"title": "Scene 2: The Art of Professional Communication",
+					"description": [
+						"Your desk feels like a small island of calm in the bustling office as you settle into your chair, but that peace is immediately disrupted by the bold, urgent letters staring back at you from your inbox. \"PROJECT UPDATE\" screams from the subject line and you don't need to look at the sender to know it's from Aryan-the client whose relationship with deadlines could charitably be described as \"flexible.\"",
+						"The cursor blinks rhythmically as your finger taps against the keyboard, a small percussion keeping time with your thoughts. From over the partition, Meera’s voice carries a note of amused recognition. \"Aryan again?\" she asks and you can hear the smile in her voice even without seeing her face.",
+						"\"Again,\" you confirm, allowing yourself a small smile as you scroll through your inbox. His previous message from three weeks ago sits there, unopened, like a small monument to procrastination.",
+						"Meera’s voice softens with understanding. \"You planning the usual formal response?\"",
+						"You lean back in your chair, the familiar weight of professional decision-making settling across your shoulders. In your mind, you can already see Aryan's reaction playing out in different scenarios-the way a formal response might command respect but feel cold and impersonal, or how a casual approach might build the rapport you both need while potentially undermining the professional boundary that keeps projects on track.",
+						"\"Your call,\" Meera says with a characteristic shrug that you can hear in her tone. \"He's unpredictable.\"",
+						"On your screen, two draft responses wait like different versions of yourself: one carefully formatted with bullet points and professional courtesy, the other beginning with a friendly greeting and ending with something that might even be called warmth."
+					],
+					"choices": [
+						{
+							"id": "day-8-scene-2-a",
+							"text": "A. Craft a polished, comprehensive response that addresses every detail",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-8-scene-2-b",
+							"text": "B. Write with a casual, upbeat tone to build relationship",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 2,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 2,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d8s2.png"
+				},
+				{
+					"id": "day-8-scene-3",
+					"title": "Scene 3: The Space Above Your Screen",
+					"description": [
+						"The afternoon light streams through the office windows, casting long shadows across your desk as you find yourself staring at the empty wall space above your monitor. Three urgent tasks blink insistently on your screen, demanding attention with their red exclamation points, but your mind has wandered to the blank canvas of possibility hanging just above your daily work.",
+						"The gentle sound of footsteps approaches and Kavya appears beside your desk, coffee mug in hand, steam still rising from what must be her third cup of the day. Her eyes follow your gaze to the empty wall space and you can see the wheels turning behind her casual expression.",
+						"\"Planning something artistic?\" she asks, raising an eyebrow with the kind of gentle curiosity that makes you feel like your thoughts are more transparent than you'd like.",
+						"You find yourself caught between worlds-the practical and the personal, the professional and the creative. At home, tucked away in your bedroom, sits a canvas you painted last weekend. Blues and golds swirl together in a pattern that speaks to something deeper than productivity metrics, but here, in this space of deadlines and deliverables, it feels almost vulnerable to consider hanging it.",
+						"\"That canvas of yours-the blues and golds-could brighten things up,\" Kavya suggests, leaning closer to speak quietly. \"But then again, a good motivational poster might keep you focused.\"",
+						"The choice feels heavier than it should. The poster represents structure, ambition, the version of yourself that tackles to-do lists with systematic precision. Your painting whispers of creativity, of the person you are when spreadsheets and email chains fade into the background.",
+						"Kavya’s eyes drift to your screen, taking in the blinking tasks and endless browser tabs. \"Of course, the blank wall speaks to efficiency too,\" she says with a knowing smile.",
+						"You laugh softly, the sound carrying both recognition and resignation. The choice feels clear in some ways, but the weight of what each option represents makes the decision feel more significant than mere office decoration."
+					],
+					"choices": [
+						{
+							"id": "day-8-scene-3-a",
+							"text": "A. Hang a motivational poster with an inspiring quote",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 1,
+									"S": -1,
+									"C": 1
+								},
+								"ocean": {
+									"O": -1,
+									"C": 2,
+									"E": 1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-8-scene-3-b",
+							"text": "B. Display the personal artwork you created last weekend",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": -1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 2,
+									"C": -1,
+									"E": 1,
+									"A": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type4": 1
+								}
+							}
+						},
+						{
+							"id": "day-8-scene-3-c",
+							"text": "C. Leave the wall bare and focus entirely on clearing your backlog",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -2,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": -1,
+									"C": 2,
+									"E": -2,
+									"A": -1,
+									"N": 1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d8s3.png"
+				},
+				{
+					"id": "day-8-scene-4",
+					"title": "Scene 4: The Afternoon Interlude",
+					"description": [
+						"The office pantry feels like a small sanctuary from the afternoon's intensity, with its soft lighting and the gentle hum of the coffee machine creating a backdrop for genuine conversation. You stand with your favorite mug in hand, watching the steam rise from your drink, when Kavya catches your eye and waves with the kind of warmth that makes you remember why you enjoy working with this team.",
+						"\"Come, join us!\" she calls out and you can see that she's already in the process of making tea for the small group that's gathered in this informal space.",
+						"Meera sits nearby, her phone in hand, scrolling through something that's brought a small smile to her face. The afternoon light filters through the pantry windows, casting everything in a golden glow that makes even the mundane feel slightly magical.",
+						"\"Any bright ideas to break this afternoon slump?\" Kavya asks as she stirs her tea, the spoon clinking gently against the ceramic cup. Her question hangs in the air with the kind of openness that invites genuine responses rather than automatic answers.",
+						"Meera looks up from her phone, her smile widening. \"We could do a quiz-pop culture or tech trivia. Something to get the brain working in a different direction.\"",
+						"Kavya nods thoughtfully, but you can see another idea forming behind her eyes. \"But maybe something more reflective? I actually wrote down a quote this morning that's been sticking with me.\"",
+						"You take a sip of your drink, feeling the warmth settle through your chest as you consider the moment. Around you, colleagues are taking their own breaks-some reading, others engaged in quiet conversations that feel more personal than professional. There's something about these informal moments that brings out different sides of people and you find yourself thinking about the various ways to contribute to this small community.",
+						"\"Or we could ask if anyone needs help with their tasks,\" you suggest, watching their faces. \"Sometimes the best break is knowing you've helped someone else move forward.\"",
+						"Both Kavya and Meera pause, considering your words. The afternoon slump they mentioned seems to hang in the air around you, but so does the possibility of transforming it into something more meaningful."
+					],
+					"choices": [
+						{
+							"id": "day-8-scene-4-a",
+							"text": "A. Organize a quick trivia quiz to energize everyone",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 2,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 2,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						},
+						{
+							"id": "day-8-scene-4-b",
+							"text": "B. Share a reflective quote that resonates with your experience",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 1,
+									"C": 1
+								},
+								"ocean": {
+									"O": 2,
+									"C": 1,
+									"E": 1,
+									"A": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type4": 1
+								}
+							}
+						},
+						{
+							"id": "day-8-scene-4-c",
+							"text": "C. Offer to help colleagues with their pending tasks",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": 1
+								},
+								"ocean": {
+									"O": -1,
+									"C": 1,
+									"E": 1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d8s4.png"
+				},
+				{
+					"id": "day-8-scene-5",
+					"title": "Scene 5: The Day's End Reflection",
+					"description": [
+						"As the afternoon fades into evening, you find yourself drawn to the window overlooking the city. Your notebook lies open beside you, filled with the day's accumulation of thoughts, tasks and observations. Outside, clouds hang low and heavy, casting gentle shadows across the office building and the street below.",
+						"The sound of footsteps approaches and Meera emerges from her cubicle, a folder tucked under her arm. She moves with the relaxed pace of someone who's found a natural stopping point in her day and when she settles against the window sill, you can feel the shift from work mode to something more contemplative.",
+						"\"Wrapping up?\" she asks, her voice carrying the easy familiarity of someone who's shared many end-of-day conversations with you.",
+						"\"Almost,\" you reply, your pen tapping lightly against the page as you consider the various threads of the day that still need attention.",
+						"Meera gazes out at the city, her expression thoughtful. \"I'm always torn at this time of day-between planning tomorrow's targets and just allowing myself to disconnect for the weekend.\" Her words capture something you've felt countless times, that moment when the professional self begins to give way to the personal.",
+						"You glance down at your notes, seeing the familiar mix of deadlines and priorities intertwined with the faint list of weekend possibilities you'd scrawled in the margin earlier. The transition from work thoughts to personal time never feels quite clean, but rather like a gradual shift from one mode of being to another.",
+						"\"A sunset walk sounds tempting,\" Meera says, pointing toward the window where the light is beginning to change, painting everything in softer tones.",
+						"You inhale deeply, feeling the day's tension begin to release as the city's evening rhythm blends with your own thoughts. The choice of how to end this day-and begin the weekend-feels like a small but significant decision about the person you want to be outside these office walls."
+					],
+					"choices": [
+						{
+							"id": "day-8-scene-5-a",
+							"text": "A. Create a detailed list of improvements to tackle tomorrow",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": -1,
+									"N": 1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-8-scene-5-b",
+							"text": "B. Jot down the creative ideas that emerged throughout the day",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": -1,
+									"C": 1
+								},
+								"ocean": {
+									"O": 2,
+									"C": 1,
+									"E": 1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type4": 1
+								}
+							}
+						},
+						{
+							"id": "day-8-scene-5-c",
+							"text": "C. Plan a weekend outing that will help you truly unwind",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 1,
+									"A": 1,
+									"N": -2
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d8s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-9",
+			"title": "Day 9",
+			"scenes": [
+				{
+					"id": "day-9-scene-1",
+					"title": "Scene 1: The Newcomer's Uncertainty",
+					"description": [
+						"Near the reception area, you notice a figure standing with the particular stillness of someone trying to orient themselves in an unfamiliar space. The newcomer clutches a folder against their chest and there's something in their posture that immediately takes you back to your own first day-the way everything feels slightly overwhelming when you're trying to decode the unspoken rhythms of a new workplace.",
+						"Vikram appears beside you, his presence warm and observant in the way that makes him naturally attuned to these moments. \"Fresh faces always look a bit nervous,\" he says with a gentle smile, his voice carrying the kind of understanding that comes from having been there himself.",
+						"\"Too familiar,\" you murmur, the memory of your own first day washing over you with surprising clarity. You remember the confusion of forms in the wrong order, the embarrassment of taking a wrong turn, the way every interaction felt like a small test you weren't sure you were passing.",
+						"The newcomer's eyes drift to the directory board, their brow furrowed in concentration as they try to make sense of the building's layout. There's something vulnerable about the moment-the way they're trying to appear confident while clearly feeling anything but.",
+						"The choice of how to respond feels like a small but meaningful decision about the kind of workplace culture you want to contribute to. You remember how much a simple gesture of kindness meant on your first day, but you also understand that different people have different comfort levels with help from strangers."
+					],
+					"choices": [
+						{
+							"id": "day-9-scene-1-a",
+							"text": "A. Offer to show them around personally, sharing your own experience",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 2,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 2,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-9-scene-1-b",
+							"text": "B. Provide a detailed written guide they can refer to at their own pace",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": -1,
+									"S": 1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d9s1.png"
+				},
+				{
+					"id": "day-9-scene-2",
+					"title": "Scene 2: When Urgency Demands Response",
+					"description": [
+						"The sharp buzz of your phone cuts through the afternoon quiet like an alarm and you immediately feel your body shift into a different gear. Critical tickets have their own energy-a particular urgency that seems to radiate from the screen itself and demand immediate attention from everyone around you.",
+						"Neha's voice cuts through your focused concentration. \"Everything alright?\" she asks and you can hear the concern that's crept into her tone. Her experience with these situations shows in the way she's already half-standing, ready to shift from her own work to whatever crisis has emerged.",
+						"You nod slowly, your mind already racing through possibilities and solutions, but the weight of the situation is evident in your expression. Across the room, Aman continues working with his headphones on, blissfully unaware of the tension that's suddenly filled this corner of the office.",
+						"\"Need backup?\" Neha asks, placing a steadying hand on your desk. It's a simple gesture, but one that reminds you that you're not alone in this moment of professional crisis.",
+						"You scan the ticket description quickly-bug reported, deadline in two hours, tone increasingly urgent. The familiar weight of responsibility settles on your shoulders, but so does the awareness that you have colleagues who are ready to step in and help solve this problem together.",
+						"\"We could assign tasks and divide the work,\" Neha suggests, \"or work together on the fix.\" Her voice carries the calm competence of someone who's navigated these waters before.",
+						"Aman finally senses the shift in energy and pulls off his headphones, immediately tuning into the situation. \"Let me in on this,\" he says, ready to contribute whatever skills the moment requires."
+					],
+					"choices": [
+						{
+							"id": "day-9-scene-2-a",
+							"text": "A. Take charge and systematically assign tasks to address the crisis",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": -1,
+									"C": 2,
+									"E": 1,
+									"A": -1,
+									"N": -2
+								},
+								"enneagram": {
+									"type8": 1
+								}
+							}
+						},
+						{
+							"id": "day-9-scene-2-b",
+							"text": "B. Offer to troubleshoot alongside your colleagues as a team",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": 1,
+									"E": 1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d9s2.png"
+				},
+				{
+					"id": "day-9-scene-3",
+					"title": "Scene 3: The Puzzle of Inconsistent Data",
+					"description": [
+						"Your screen displays a report that doesn't quite make sense, with data fluctuations that seem to follow no logical pattern. You lean back in your chair, feeling the particular kind of frustration that comes with numbers that refuse to tell a coherent story. It's the kind of problem that makes you question whether you're missing something obvious or dealing with something genuinely complex.",
+						"Rohit appears at your shoulder, squinting at the screen with the focused attention of someone who's solved his share of data mysteries. \"Numbers acting strange again, huh?\" he asks and there's a note of camaraderie in his voice that comes from shared experience with these kinds of puzzles.",
+						"You manage a brief smile, already considering your next steps. The problem feels solvable, but the question is whether to tackle it alone or bring in additional perspectives. From her desk nearby, Shalini catches the conversation and leans over, her curiosity piqued by the challenge.",
+						"\"Need me to check formulas?\" she offers, already mentally shifting gears from her own work to the problem at hand.",
+						"Rohit points to a particularly dramatic dip in the chart. \"Could be a formula error, or maybe we're missing an entry somewhere. These things usually have a simple explanation once you find the right thread to pull.\"",
+						"The moment feels like a small crossroads-you could dive deep into the data yourself, drawing on your own analytical skills, or you could harness the collective intelligence of your team. There's also the practical consideration of follow-up communications that will be needed regardless of what you discover.",
+						"\"We could huddle and crowdsource insights,\" you suggest, \"or I could investigate alone first. Or maybe I handle the follow-up communications while you two dig into the technical details.\"",
+						"Shalini nods, ready to contribute whatever approach makes the most sense. \"Just let me know how I can help.\""
+					],
+					"choices": [
+						{
+							"id": "day-9-scene-3-a",
+							"text": "A. Research the root cause independently, using your analytical skills",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -2,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -2,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						},
+						{
+							"id": "day-9-scene-3-b",
+							"text": "B. Call a quick team huddle to brainstorm solutions collectively",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 2,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 2,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						},
+						{
+							"id": "day-9-scene-3-c",
+							"text": "C. Offer to handle follow-up communications while others investigate",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": 1
+								},
+								"ocean": {
+									"O": -1,
+									"C": 1,
+									"E": 1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d9s3.png"
+				},
+				{
+					"id": "day-9-scene-4",
+					"title": "Scene 4: Crisis Management in Real Time",
+					"description": [
+						"The dashboard's alarming red glow feels like a warning siren, bathing everything in an urgent light that immediately shifts the office energy. From the cubicle next to yours, Meera’s voice cuts through the afternoon quiet with an announcement that makes everyone within earshot pause their work.",
+						"\"Service is down!\" she calls out, her voice carrying the particular tension that comes with customer-facing outages. Around the office, you can see heads turning, conversations stopping, the way a workplace collectively holds its breath when critical systems fail.",
+						"Kavya spins around in her chair, her expression immediately shifting to problem-solving mode. \"Any idea why?\" she asks, already reaching for her phone to check the usual channels where these problems reveal themselves.",
+						"You feel your heartbeat quicken as the reality of the situation settles in. On your screen, the ticket count jumps with each refresh, a real-time measure of growing customer frustration. This is the kind of moment that tests not just technical skills, but the ability to think clearly under pressure.",
+						"\"We need a plan-now,\" Arjun adds, his voice carrying the weight of customers who are already expressing their dissatisfaction on social media.",
+						"\"Customers are already tweeting about downtime,\" Meera confirms, her phone buzzing with notifications from monitoring systems and social media alerts.",
+						"The weight of the situation presses down on you as you consider your options. You could draft a formal escalation plan, taking the time to ensure all the proper procedures are followed. You could quietly attempt to fix the immediate issues, focusing on restoration over communication. Or you could prioritize checking in with the users who are directly affected, understanding the human impact of the technical failure.",
+						"“Priya wants updates,\" Meera says, her phone buzzing again with the inevitable pressure from management."
+					],
+					"choices": [
+						{
+							"id": "day-9-scene-4-a",
+							"text": "A. Draft a comprehensive escalation plan following proper procedures",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": -1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-9-scene-4-b",
+							"text": "B. Focus on quietly fixing the immediate technical issues",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -2,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -2,
+									"A": -1,
+									"N": 1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						},
+						{
+							"id": "day-9-scene-4-c",
+							"text": "C. Prioritize checking in with affected users to understand the impact",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 1,
+									"A": 2,
+									"N": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d9s4.png"
+				},
+				{
+					"id": "day-9-scene-5",
+					"title": "Scene 5: Supporting a Colleague's Moment",
+					"description": [
+						"Ananya paces nervously outside the manager's office, her energy radiating the particular kind of anxiety that comes before important presentations. There's something about her posture-the way she holds her shoulders, the way her eyes dart between the closed door and the hallway-that immediately tells you she's in the grip of pre-presentation nerves.",
+						"\"Presentation jitters?\" you ask softly as you approach, keeping your voice low and your tone gentle.",
+						"\"Exactly,\" she exhales, the word carrying relief at being understood. Her eyes scan the hallway as if looking for escape routes or additional sources of support.",
+						"Priya walks past at just the right moment, catching the situation immediately and offering an encouraging thumbs-up. It's a small gesture, but you can see it register with Ananya as a reminder that she's not alone in this moment.",
+						"\"I'm worried my points won't land,\" Ananya admits, her voice carrying the vulnerability that comes with important professional moments. \"I know what I want to say, but I'm not sure I can make them understand why it matters.\"",
+						"The hallway feels like a small sanctuary where honest conversations can happen, away from the pressure of the presentation room but close enough to the important moment that your words carry weight.",
+						"\"We could outline your strengths so you remember what you bring to this conversation,\" you offer, \"or I could speak for you if that would help.\"",
+						"Ananya bites her lip, considering the options. \"I'd rather speak for myself-I just need to feel ready.\"",
+						"\"I can share some tips that worked for me last time,\" Priyanka adds, her voice carrying the confidence of someone who's navigated these waters successfully."
+					],
+					"choices": [
+						{
+							"id": "day-9-scene-5-a",
+							"text": "A. Advocate strongly on her behalf during the presentation",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 1,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type8": 1
+								}
+							}
+						},
+						{
+							"id": "day-9-scene-5-b",
+							"text": "B. Sit with her now and help her understand and organize her thoughts",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": 1,
+									"E": 1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-9-scene-5-c",
+							"text": "C. Research and share best-practice presentation tips for future reference",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": -1,
+									"S": 1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d9s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-10",
+			"title": "Day 10",
+			"scenes": [
+				{
+					"id": "day-10-scene-1",
+					"title": "Scene 1: Quarterly Target Talk",
+					"description": [
+						"The afternoon sun slants through Priya's office blinds, casting geometric shadows across her mahogany desk where your Q3 performance metrics glow on her laptop screen. The familiar hum of the air conditioning mingles with the distant murmur of colleagues wrapping up their lunch conversations, creating that particular late-afternoon office atmosphere where important decisions feel both inevitable and weighty.",
+						"Priya settles back into her ergonomic chair with the fluid motion of someone who's had countless conversations like this one, but her eyes carry a sharpness that suggests this particular discussion matters more than usual. Her fingers drum a quiet rhythm against her coffee mug - the ceramic one her team gave her last year, now bearing the faint ring stains of a hundred strategic conversations.",
+						"\"You've been doing really well,\" she begins and there's genuine warmth in her voice that makes your chest tighten with equal parts pride and anxiety. \"The client feedback has been more than positive - they specifically mentioned you in their satisfaction survey. And your contributions to the cross-functional projects? Leadership noticed. That presentation you gave on process optimization is still being referenced in C-suite meetings.\"",
+						"She pauses and in that silence, you can hear your own heartbeat mixing with the soft whir of her laptop fan. Her expression shifts into something more evaluative, the kind of look that precedes career-defining questions.",
+						"\"So, for Q4,\" she continues, leaning forward slightly, her voice carrying that undertone of possibility and challenge, \"what are you thinking in terms of targets? We could set something that builds naturally on what you're already crushing, or...\" She pauses again and you catch the subtle gleam in her eye. \"If you're feeling ambitious, we could look at stretch goals that might open doors you haven't even thought about yet.\"",
+						"Your palms feel slightly damp against the leather arms of your chair. You know this moment will ripple forward into your workload, your stress levels, your year-end review, possibly your entire trajectory here. The company's culture rewards those who reach, but it also has an unforgiving memory for promises not kept. You can almost feel the weight of future late nights and weekend calls hanging in the balance."
+					],
+					"choices": [
+						{
+							"id": "day-10-scene-1-a",
+							"text": "A. Request an ambitious stretch goal",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 1,
+									"S": -1,
+									"C": 1
+								},
+								"ocean": {
+									"O": 2,
+									"C": 1,
+									"E": 1,
+									"A": -1,
+									"N": 1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-10-scene-1-b",
+							"text": "B. Seek clarity on stable expectations",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": -1,
+									"S": 1,
+									"C": 2
+								},
+								"ocean": {
+									"O": -1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -2
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d10s1.png"
+				},
+				{
+					"id": "day-10-scene-2",
+					"title": "Scene 2: Team Conflict",
+					"description": [
+						"The conference room feels smaller than usual, as if the tension between Arjun and Kavya has compressed the very air. What should have been a routine project review has transformed into something raw and uncomfortable, the kind of workplace confrontation that makes everyone else wish they could disappear into their laptops.",
+						"Kavya's voice carries the controlled strain of someone who's been holding back frustration for weeks. \"I spend hours - sometimes entire evenings - creating detailed mockups based on the requirements we all agreed on and then you just dismiss them without any real discussion. Like my time doesn't matter.\"",
+						"Her hands rest flat on the table, fingers spread wide, as if she's trying to ground herself against the emotional current running through her words.",
+						"Arjun shifts in his chair, his defensive posture immediately readable - shoulders pulled back, chin slightly raised. \"I'm not dismissing them, Kavya. I'm pointing out technical limitations that somehow aren't being factored into the design process. We can't implement half of these designs with our current architecture. It's not personal, it's practical.\"",
+						"The rest of the team has collectively developed a fascination with their notebooks, laptops, anything that doesn't require making eye contact with the conflict unfolding. You can see Ravi's leg bouncing under the table, that nervous tic he gets when meetings go sideways. Priya's taking notes, but her pen hasn't moved in the last two minutes.",
+						"The project deadline looms exactly one week away and this communication breakdown isn't just creating emotional friction - it's actively blocking the work that needs to happen.",
+						"You can see valid points in both perspectives, but the dynamic has deteriorated beyond rational problem-solving into something more personal and entrenched."
+					],
+					"choices": [
+						{
+							"id": "day-10-scene-2-a",
+							"text": "A. Mediate a calm solution",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": 1,
+									"E": 1,
+									"A": 2,
+									"N": -2
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						},
+						{
+							"id": "day-10-scene-2-b",
+							"text": "B. Push for a decisive outcome",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 1,
+									"S": -1,
+									"C": 1
+								},
+								"ocean": {
+									"O": -1,
+									"C": 1,
+									"E": 1,
+									"A": -2,
+									"N": -1
+								},
+								"enneagram": {
+									"type8": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d10s2.png"
+				},
+				{
+					"id": "day-10-scene-3",
+					"title": "Scene 3: Client Pitch",
+					"description": [
+						"The client's conference room embodies corporate confidence - floor-to-ceiling windows overlooking the business district, a table that probably costs more than your monthly salary and that particular kind of silence that expensive soundproofing creates. You're acutely aware of your heartbeat as you settle into the leather chair across from three individuals who hold your team's next six months in their collective decision.",
+						"The IT Head leans forward with the focused interest of someone genuinely engaged in the technical possibilities. The Business Head maintains that neutral expression that reveals nothing while evaluating everything. The Procurement representative has their pen poised over a notepad that probably contains budget ranges and competitor comparisons.",
+						"\"So,\" the IT Head says and there's something in their tone that cuts through the pleasantries straight to the core question, \"tell us why we should choose your team for this project.\"",
+						"Ten minutes. That's your window to transform months of preparation into a compelling case that resonates with three very different priorities. Your throat feels slightly dry despite the water glass at your elbow. You can sense your team's hopes riding on how you frame these next few minutes - not just the contract, but their confidence in your ability to represent their capabilities under pressure.",
+						"The silence stretches just long enough to feel weighted with possibility and risk."
+					],
+					"choices": [
+						{
+							"id": "day-10-scene-3-a",
+							"text": "A. Highlight personal success stories",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 2,
+									"S": -1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 2,
+									"A": -1,
+									"N": 1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-10-scene-3-b",
+							"text": "B. Emphasise team reliability",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": 1
+								},
+								"ocean": {
+									"O": -1,
+									"C": 1,
+									"E": 1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-10-scene-3-c",
+							"text": "C. Confirm all risk mitigations first",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": -1,
+									"S": 1,
+									"C": 2
+								},
+								"ocean": {
+									"O": -1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -2
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d10s3.png"
+				},
+				{
+					"id": "day-10-scene-4",
+					"title": "Scene 4: After-work Meetup",
+					"description": [
+						"The familiar café wraps around your team like a warm embrace after the week's intensity - steam rising from coffee cups, the gentle buzz of conversation creating a buffer against the corporate mindset you're all trying to shed. The lighting is softer here, more forgiving than the fluorescent precision of the office and you can see people's shoulders beginning to drop from their professional positions.",
+						"Priya cradles her coffee with both hands, a gesture that makes her seem younger, more vulnerable than her managerial persona usually allows. \"I'm just glad this week is over,\" she admits and there's a tremor in her voice that suggests the leadership pressure she carries isn't as effortless as she makes it appear. \"I felt like we were all walking on eggshells and honestly, I wasn't sure if we were going to pull together for the pitch.\"",
+						"The admission hangs in the air, creating space for others to share their own experiences.",
+						"Arjun mentions feeling disconnected from the team dynamic, Kavya talks about working late to prove her commitment, Ravi expresses uncertainty about his role in the bigger picture. The conversation fragments into multiple threads - some people want to analyze what went wrong, others just need their feelings acknowledged, a few are already thinking about practical solutions.",
+						"You can sense the evening could go in several directions, each one shaping how the team processes this experience and approaches future challenges."
+					],
+					"choices": [
+						{
+							"id": "day-10-scene-4-a",
+							"text": "A. Lead a structured debrief",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": 1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-10-scene-4-b",
+							"text": "B. Listen and validate everyone's feelings",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 1,
+									"A": 2,
+									"N": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-10-scene-4-c",
+							"text": "C. Ask if any concerns need backing up",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 1,
+									"S": 1,
+									"C": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": 1,
+									"E": 1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d10s4.png"
+				},
+				{
+					"id": "day-10-scene-5",
+					"title": "Scene 5: Weekend Plan",
+					"description": [
+						"Your apartment feels like a sanctuary after the week's emotional intensity - soft lighting, familiar sounds, the absence of email notifications and Slack pings. Your phone rests on the coffee table, occasionally lighting up with messages from colleagues making weekend plans, each notification representing a different approach to recovery and preparation.",
+						"Some are suggesting team outings, others are talking about individual downtime, a few are mentioning work-related items they want to catch up on over the weekend. The messages create a gentle pressure to choose how you want to transition from the week's challenges into whatever comes next.",
+						"Your energy level sits somewhere in the middle - not completely depleted, but definitely ready for a rhythm that doesn't involve deadlines and performance metrics. You find yourself thinking about goals, team dynamics, work-life balance and how to use these next two days both for personal restoration and strategic positioning for the coming week."
+					],
+					"choices": [
+						{
+							"id": "day-10-scene-5-a",
+							"text": "A. Book a goal-setting workshop",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": 1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-10-scene-5-b",
+							"text": "B. Schedule a group game night",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 2,
+									"S": 2,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 2,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						},
+						{
+							"id": "day-10-scene-5-c",
+							"text": "C. Prepare contingency plans for family events",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": -1,
+									"S": 2,
+									"C": 2
+								},
+								"ocean": {
+									"O": -1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -2
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d10s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-11",
+			"title": "Day 11",
+			"scenes": [
+				{
+					"id": "day-11-scene-1",
+					"title": "Scene 1: Policy Change Memo",
+					"description": [
+						"The email notification cuts through your morning routine with the jarring efficiency of corporate communication - \"Updated Remote Work Policy - Effective Immediately.\" Even before opening it, something in the subject line's tone makes your coffee taste slightly more bitter.",
+						"The memo unfolds on your screen with the bureaucratic precision of decisions made without input from those who will live with the consequences. New restrictions on work-from-home days, prior approval requirements, a reduction to two days per week maximum. The explanation about \"enhancing collaboration and maintaining company culture\" reads like it was written by someone who doesn't commute an hour each way or manage school pickups or care for aging parents.",
+						"Your phone vibrates against the kitchen counter - a WhatsApp from Ananya that carries the particular urgency of shared frustration: \"Did you see this email? This is going to be a problem for so many people.\"",
+						"You can already imagine the conversations this will trigger, the calculations people will have to make between career advancement and personal responsibilities, the quiet resentment that will build in those who've been relying on flexibility for legitimate life management."
+					],
+					"choices": [
+						{
+							"id": "day-11-scene-1-a",
+							"text": "A. Propose clear process improvements",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": 1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-11-scene-1-b",
+							"text": "B. Accept and adapt calmly",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": -1,
+									"S": 2,
+									"C": 1
+								},
+								"ocean": {
+									"O": -1,
+									"C": 1,
+									"E": -1,
+									"A": 2,
+									"N": -2
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d11s1.png"
+				},
+				{
+					"id": "day-11-scene-2",
+					"title": "Scene 2: Security Drill",
+					"description": [
+						"The fire alarm's shrill insistence cuts through the office's afternoon rhythm, transforming routine productivity into managed chaos. Mr. Sharma from Admin appears with his clipboard and stopwatch, embodying the particular authority of someone whose job it is to move people efficiently through emergency procedures.",
+						"\"This is a scheduled drill,\" he announces, his voice carrying over the electronic wailing.",
+						"\"Everyone please evacuate according to the posted procedures.\"",
+						"You notice Ravi, the new employee, hovering near his desk with the uncertain energy of someone who hasn't yet internalized the building's emergency culture. Some colleagues are moving with practiced efficiency toward the stairwell, while others are still gathering personal items or trying to save their work, creating a tension between procedure and human instinct.",
+						"\"Please leave everything and proceed to the designated assembly point,\" Mr. Sharma calls out, but you can see the gap between policy and practice as people make split-second decisions about what constitutes \"everything\" - phones and wallets seem acceptable, but some are leaving laptops open with sensitive client data glowing on screens.",
+						"The drill reveals how the team responds under mild pressure, whose instincts lean toward rule-following versus personal comfort and how well the official procedures translate into actual human behavior."
+					],
+					"choices": [
+						{
+							"id": "day-11-scene-2-a",
+							"text": "A. Verify each step meticulously",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": -1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-11-scene-2-b",
+							"text": "B. Follow the lead of the drill coordinator",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": -1,
+									"S": 2,
+									"C": 1
+								},
+								"ocean": {
+									"O": -1,
+									"C": 1,
+									"E": -1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d11s2.png"
+				},
+				{
+					"id": "day-11-scene-3",
+					"title": "Scene 3: Feedback Session",
+					"description": [
+						"Sameer sits across from you with his notepad ready and that particular combination of eagerness and anxiety that feedback sessions generate. His work on the recent API integration was solid - competent, thorough, meeting all the technical requirements - but there are gaps in documentation and code comments that will matter for long-term maintenance and team collaboration.",
+						"The office around you hums with the quiet productivity of a normal afternoon, but this small conference room feels charged with the weight of professional development and relationship-building. You're aware that other team members are watching how these sessions go, that your approach to giving feedback will ripple out into team culture and individual confidence levels.",
+						"Sameer's relatively new to the team but clearly takes pride in his technical skills. How you frame your observations about areas for improvement will significantly impact not just his immediate performance but his sense of belonging and growth trajectory with the group.",
+						"The notepad in front of him sits open to a fresh page, pen poised, ready to capture whatever direction this conversation takes."
+					],
+					"choices": [
+						{
+							"id": "day-11-scene-3-a",
+							"text": "A. Give structured critical notes",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-11-scene-3-b",
+							"text": "B. Frame comments around team harmony",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						},
+						{
+							"id": "day-11-scene-3-c",
+							"text": "C. Ask questions to uncover hidden issues",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 1,
+									"S": -1,
+									"C": 1
+								},
+								"ocean": {
+									"O": 2,
+									"C": 1,
+									"E": 1,
+									"A": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d11s3.png"
+				},
+				{
+					"id": "day-11-scene-4",
+					"title": "Scene 4: Team Survey",
+					"description": [
+						"The video call with Priya from HR feels different than usual - her background is the familiar conference room, but her expression carries the particular focus of someone tasked with extracting honest insights from a naturally guarded population.",
+						"\"We need something that will give us actionable insights,\" she explains, sharing her screen with a preliminary survey outline that looks simultaneously thorough and potentially intimidating. \"But it also needs to be something people will actually fill out honestly, not just give us the answers they think we want to hear.\"",
+						"You're acutely aware of the delicate balance involved - surveys can become political documents where people perform their job satisfaction rather than express it authentically.",
+						"The team has been through changes lately, some visible, others existing in the subtle undercurrents of workplace dynamics. There are definitely issues that would be valuable to surface, but the knowledge that results will be shared with management adds layers of consideration to every question design choice.",
+						"Priya's waiting for your input and you can sense that how you approach this will influence not just what gets discovered, but how safe people feel being honest about their workplace experience."
+					],
+					"choices": [
+						{
+							"id": "day-11-scene-4-a",
+							"text": "A. Design a precise rating scale",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						},
+						{
+							"id": "day-11-scene-4-b",
+							"text": "B. Invite open-ended reflections",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 2,
+									"C": -1,
+									"E": 1,
+									"A": 2,
+									"N": 1
+								},
+								"enneagram": {
+									"type4": 1
+								}
+							}
+						},
+						{
+							"id": "day-11-scene-4-c",
+							"text": "C. Include risk-assessment questions",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": 1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -2
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d11s4.png"
+				},
+				{
+					"id": "day-11-scene-5",
+					"title": "Scene 5: End-day Debrief",
+					"description": [
+						"Friday evening settles around you like a familiar ritual as you sit with your notebook, the week's experiences still fresh enough to examine but distant enough to offer some perspective. The combination of policy changes, security procedures, feedback sessions and survey design created an interesting cross-section of organizational life - the administrative machinery that shapes daily experience often more than the actual work itself.",
+						"Your pen hovers over the blank page as you consider what this week revealed about team dynamics, communication patterns and the gaps between official processes and human reality. There were small moments of tension, instances of good collaboration and several process gaps that became apparent only when observed closely.",
+						"The question now is how to capture and act on these observations in a way that serves both your own professional development and the team's collective effectiveness, without becoming the person who over-analyzes every workplace interaction."
+					],
+					"choices": [
+						{
+							"id": "day-11-scene-5-a",
+							"text": "A. Note every procedural improvement",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": -1,
+									"N": 1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-11-scene-5-b",
+							"text": "B. Acknowledge team's emotional well-being",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 1,
+									"A": 2,
+									"N": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-11-scene-5-c",
+							"text": "C. Cross-check policy compliance",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": -1,
+									"S": 1,
+									"C": 2
+								},
+								"ocean": {
+									"O": -1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -2
+								},
+								"enneagram": {
+									"type6": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d11s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-12",
+			"title": "Day 12",
+			"scenes": [
+				{
+					"id": "day-12-scene-1",
+					"title": "Scene 1: Volunteer Opportunity",
+					"description": [
+						"The coffee maker's gentle gurgling provides a soundtrack to Priya from HR's approach, her enthusiasm radiating with the particular energy of someone about to present a \"voluntary mandatory\" opportunity. She clutches a colorful flyer that practically vibrates with corporate social responsibility messaging.",
+						"\"Hey! Perfect timing,\" she says and there's something in her tone that suggests this encounter was less coincidental than convenient. \"Remember last year's tree plantation drive? The one where you somehow managed to coordinate logistics for fifty people without anyone getting heat stroke or lost in the woods?\"",
+						"She leans in with conspiratorial energy, lowering her voice as if sharing a secret rather than making an assignment. \"We're doing something even bigger this quarter - a digital literacy program for underprivileged kids in nearby communities. I know Satvik already spoke to you about it, but here's the thing: we need someone with your particular combination of organizational skills and genuine care about community impact to spearhead this.\"",
+						"Your phone buzzes with another project deadline reminder, the notification creating a small tension between competing priorities. You remember last year's initiative - the exhaustion, the fulfillment, the way it felt both depleting and energizing to coordinate something meaningful outside the usual performance metrics."
+					],
+					"choices": [
+						{
+							"id": "day-12-scene-1-a",
+							"text": "A. Sign up to organize it",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 2,
+									"S": 1,
+									"C": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": 1,
+									"E": 2,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-12-scene-1-b",
+							"text": "B. Suggest a team fundraiser instead",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d12s1.png"
+				},
+				{
+					"id": "day-12-scene-2",
+					"title": "Scene 2: New Idea Pitch",
+					"description": [
+						"The weekly innovation meeting has settled into its familiar rhythm - Rahul from Product presenting another incremental feature update with the enthusiasm of someone who genuinely believes that adding a filter option to the search bar represents meaningful progress. The conference room feels charged with polite attention that barely conceals everyone's hope for something more substantial.",
+						"Your manager Priya glances your way with the subtle look of someone hoping the meeting will exceed its usual mediocrity. \"Before we wrap up, does anyone else have ideas brewing?\" she asks and there's genuine openness in her voice.",
+						"Your heart rate picks up as you consider the concept you've been refining for weeks - a complete reimagining of customer platform interaction that could genuinely transform how people engage with your service. It's bold, potentially game-changing, but would require significant resources and careful navigation of established product team territories. You can see Vikram from Engineering already wearing his skeptical expression and the finance head is performing that particular watch-checking gesture that indicates budget consciousness.",
+						"This could be your moment to step into a different level of strategic contribution, or it could mark you as someone who \"doesn't understand ground realities.\" The silence stretches just long enough to feel pregnant with possibility."
+					],
+					"choices": [
+						{
+							"id": "day-12-scene-2-a",
+							"text": "A. Share an optimistic big-picture concept",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 2,
+									"S": -1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 2,
+									"C": -1,
+									"E": 2,
+									"A": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						},
+						{
+							"id": "day-12-scene-2-b",
+							"text": "B. Detail actionable steps to a mentor",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": -1,
+									"S": 1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d12s2.png"
+				},
+				{
+					"id": "day-12-scene-3",
+					"title": "Scene 3: Mentorship Request",
+					"description": [
+						"Ananya approaches your desk with the careful energy of someone who's been building up courage for this conversation, her notebook clutched against her chest like a shield. Three months into her role as business analyst, she still carries that particular combination of competence and uncertainty that marks someone navigating their first professional environment.",
+						"\"Hey, sorry to bother you,\" she begins and there's something endearing about how she apologizes for seeking guidance. \"I know you're incredibly busy, but I was wondering if we could talk about career development stuff?\"",
+						"She glances around to ensure privacy, then continues with the vulnerability of someone admitting they don't have it all figured out. \"Everyone says you're the person to talk to about growth and strategic thinking. But honestly? I'm feeling a bit lost. I don't even know what questions I should be asking and I'm not sure what I should be focusing on to build a meaningful career here.\"",
+						"Her earnest expression reminds you of your own early professional confusion, the way advice seemed both desperately needed and somehow inadequate to the complexity of workplace navigation. You're aware that how you respond will shape not just her immediate confidence but her approach to seeking mentorship and professional development."
+					],
+					"choices": [
+						{
+							"id": "day-12-scene-3-a",
+							"text": "A. Commit to weekly check-ins",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": 1,
+									"E": 1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-12-scene-3-b",
+							"text": "B. Set clear KPI milestones",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": -1,
+									"C": 2,
+									"E": -1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-12-scene-3-c",
+							"text": "C. Plan creative ice-breaker sessions",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 2,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 2,
+									"C": -1,
+									"E": 2,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d12s3.png"
+				},
+				{
+					"id": "day-12-scene-4",
+					"title": "Scene 4: Social Media Sharing",
+					"description": [
+						"The email from Corporate Communications lands with the particular weight of mandatory participation disguised as voluntary engagement: \"Mandatory: Share Our Success Stories - Tracking Enabled.\" Even the subject line carries an almost comical contradiction that would be amusing if it weren't so invasive.",
+						"The message outlines clear expectations - everyone should post about recent project wins on LinkedIn, complete with pre-written templates and approved hashtags. But the real punch comes in the final paragraph: they've implemented a new system to track employee social media activity and measure \"engagement metrics.\"",
+						"Your phone pings with a WhatsApp from Arjun that captures the collective discomfort: \"Did you see this email? They're literally monitoring our personal LinkedIn now. This feels so intrusive.\"",
+						"You stare at the three template options, each one more corporate-speak than the last. Your team did achieve something genuinely impressive last month and you feel authentic pride in the work. But the idea of performing that pride under surveillance, of having your personal social media presence evaluated for company loyalty, creates a tension between professional advancement and personal autonomy."
+					],
+					"choices": [
+						{
+							"id": "day-12-scene-4-a",
+							"text": "A. Post a team success story",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 1,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-12-scene-4-b",
+							"text": "B. Showcase personal achievement highlights",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 2,
+									"S": -1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 2,
+									"A": -1,
+									"N": 1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-12-scene-4-c",
+							"text": "C. Share an inspiring behind-the-scenes clip",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 1,
+									"C": 1
+								},
+								"ocean": {
+									"O": 2,
+									"C": 1,
+									"E": 1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d12s4.png"
+				},
+				{
+					"id": "day-12-scene-5",
+					"title": "Scene 5: Wrap-up Note",
+					"description": [
+						"The end of the quarter brings its own particular energy - a mix of accomplishment, exhaustion and the forward momentum of planning what comes next. You sit with a blank email draft, cursor blinking in the subject line: \"Q3 Project Completion - Stakeholder Update.\"",
+						"The success story is complicated. Your team executed brilliantly, working those late nights and weekend sprints that turn projects from concepts into reality. But the initial breakthrough came from Ravi in Strategy during a brainstorming session that feels like it happened in a different era, though it was only four months ago. Ravi left the company midway through execution and somehow his contribution has been gradually edited out of the narrative in favor of \"strong internal team innovation.\"",
+						"The stakeholders - including VPs who influence future opportunities - are expecting this update. You know what they want to hear and you understand how positioning this success could impact your team's visibility and resource allocation going forward. But Ravi's insight was genuinely the catalyst that made everything else possible and his absence from the story feels like a small betrayal of collaborative truth.",
+						"Your team members are looking forward to recognition, especially after those intense final weeks of execution. They deserve celebration and visibility. But you can't shake the feeling that success stories shouldn't require erasing the contributions of those who aren't here to advocate for themselves."
+					],
+					"choices": [
+						{
+							"id": "day-12-scene-5-a",
+							"text": "A. Send a heartfelt thank-you to supporters",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 1,
+									"A": 2,
+									"N": 1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						},
+						{
+							"id": "day-12-scene-5-b",
+							"text": "B. Outline next goals in bullet points",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-12-scene-5-c",
+							"text": "C. Suggest a casual celebration plan",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 2,
+									"S": 2,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 2,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d12s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-13",
+			"title": "Day 13",
+			"scenes": [
+				{
+					"id": "day-13-scene-1",
+					"title": "Scene 1: Creative Brainstorm",
+					"description": [
+						"The conference room feels smaller than usual, as if the weight of two weeks' worth of circular discussions has compressed the very air. Meera, the Product Manager, paces near the whiteboard where multiple layers of erased ideas create a ghostly palimpsest of frustrated creativity. Her shoulders carry the particular tension of someone watching deadlines slip through their fingers like sand.",
+						"\"Okay, let's try a different approach,\" she announces, her voice carrying that slightly desperate edge of someone who's run out of conventional solutions. \"We need fresh eyes on this. The user journey for our new feature is like solving a Rubik's cube blindfolded - every time we fix one side, we mess up two others.\"",
+						"She clicks to the current mockups on the large screen and the familiar interface glows with the sterile perfection of something that works technically but fails to spark any emotional connection. The UX team slumps in their chairs with the defeated posture of people who've pitched their best ideas only to watch them get slowly optimized into mediocrity.",
+						"\"We've been going in circles with incremental changes,\" Meera continues, her hand gesturing at the screen with barely contained frustration. \"Maybe we need to think completely differently. Maybe we need to break something to fix it.\"",
+						"The developers are checking their phones with that particular distraction pattern that signals mental disengagement. You can feel the room's collective creative energy flatlined, but beneath the surface, there's still that spark of possibility that comes when a group of intelligent people finally acknowledges they need to venture into uncharted territory."
+					],
+					"choices": [
+						{
+							"id": "day-13-scene-1-a",
+							"text": "A. Propose a bold unique design",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 1,
+									"S": -1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 2,
+									"C": -1,
+									"E": 1,
+									"A": -1,
+									"N": 1
+								},
+								"enneagram": {
+									"type4": 1
+								}
+							}
+						},
+						{
+							"id": "day-13-scene-1-b",
+							"text": "B. Request data to support the idea",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d13s1.png"
+				},
+				{
+					"id": "day-13-scene-2",
+					"title": "Scene 2: Technical Deep Dive",
+					"description": [
+						"The emergency architecture review meeting carries the electric tension of a medical consultation where the prognosis might be terminal. Sameer, the Tech Lead, stands before multiple screens displaying system diagrams that look like the electronic equivalent of a patient's vital signs during cardiac arrest. His usual composed demeanor has been replaced by the focused intensity of someone who's spent sleepless nights staring at performance metrics.",
+						"\"We're hitting performance bottlenecks that we didn't anticipate,\" he explains, his voice carrying the particular weight of someone delivering bad news to people who need to act on it. \"The system is handling current load like a marathon runner at mile twenty - technically still moving, but showing signs of serious distress.\"",
+						"The room fills with the nervous energy of senior developers and architects who've seen enough system failures to know when the warning signs are real. Charts and graphs paint a clear picture of declining response times and exponentially increasing server costs. The conversation fragments into multiple technical discussions, each person offering solutions that address pieces of the problem without tackling the whole.",
+						"\"We need someone to take charge of this analysis,\" Sameer continues and you can hear the weight of leadership responsibility in his voice. \"To really dig deep and give us a clear path forward. This isn't just about putting band-aids on the current bleeding - we need to think about long-term scalability before we're building new architecture on the ruins of the old.\"",
+						"The silence that follows carries the weight of career-defining decisions and the particular pressure that comes when technical competence meets organizational urgency."
+					],
+					"choices": [
+						{
+							"id": "day-13-scene-2-a",
+							"text": "A. Lead a rigorous analysis session",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": 1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type8": 1
+								}
+							}
+						},
+						{
+							"id": "day-13-scene-2-b",
+							"text": "B. Challenge assumptions bluntly",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 1,
+									"S": -2,
+									"C": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": 1,
+									"E": 1,
+									"A": -2,
+									"N": -1
+								},
+								"enneagram": {
+									"type8": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d13s2.png"
+				},
+				{
+					"id": "day-13-scene-3",
+					"title": "Scene 3: Prototype Review",
+					"description": [
+						"The design team's workspace has been transformed into a gallery of anticipation, with Kavya, the Lead Designer, nervously adjusting her laptop connection as three weeks of intensive creative work prepares to face its first real audience. Her fingers drum against the table with the particular rhythm of someone who's poured their professional soul into pixels and now waits for judgment.",
+						"\"So, we've focused on making it visually appealing and modern,\" she begins, her voice carrying both pride and vulnerability as she clicks through mockups that look like they've been crafted by digital artists rather than interface designers. \"The color palette draws from contemporary design trends, the animations flow like water and the overall aesthetic should make users feel like they're interacting with something genuinely premium.\"",
+						"The interface unfolds on the large monitor like a work of art - gradients that shift with mathematical precision, micro-interactions that respond to user behavior with organic fluidity and artistic flourishes that transform mundane functionality into something approaching digital poetry. The room falls silent with the particular awe that greets unexpected beauty.",
+						"\"It's beautiful work,\" someone from marketing breathes and you can hear the immediate mental calculations of how this will be photographed for press releases and investor presentations. \"This will definitely make leadership sit up and take notice.\"",
+						"But as you study the flowing aesthetics, you notice the actual user paths seem to wind through the visual elements like hikers navigating dense forest - beautiful to observe, potentially exhausting to experience. The development team's expressions shift from initial appreciation to the quiet concern of people calculating implementation complexity in their heads."
+					],
+					"choices": [
+						{
+							"id": "day-13-scene-3-a",
+							"text": "A. Suggest an artistic tweak",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": -1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 2,
+									"C": -1,
+									"E": 1,
+									"A": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type4": 1
+								}
+							}
+						},
+						{
+							"id": "day-13-scene-3-b",
+							"text": "B. Push for functionality over form",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": -1,
+									"C": 2,
+									"E": -1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						},
+						{
+							"id": "day-13-scene-3-c",
+							"text": "C. Ask detailed questions on implementation",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d13s3.png"
+				},
+				{
+					"id": "day-13-scene-4",
+					"title": "Scene 4: Design Critique",
+					"description": [
+						"The UX team's presentation setup feels like a courtroom where the designs are both evidence and defendant. Pooja, the UX Lead, stands with her presentation clicker held like a conductor's baton, ready to guide the room through the reasoning behind every interface decision. The wall-mounted screen displays designs that represent weeks of user research, iteration and careful consideration of competing priorities.",
+						"\"We've user-tested this with fifteen participants across different demographics,\" she explains, her voice carrying the particular confidence that comes from having data to support creative decisions. \"The feedback has been mostly positive, but we want to get internal perspectives before we commit to final development.\"",
+						"The designs spread across the screen strike a balance between clean functionality and visual appeal, but you can see the tension points where user experience could flow more smoothly. The marketing team's eyes light up with the satisfaction of people seeing something they can easily promote, while the development team maintains the focused concentration of people calculating feasibility in real-time.",
+						"As the critique session begins, you can feel the room's energy shift into evaluation mode.",
+						"Different stakeholders lean forward with different priorities - some concerned with user satisfaction, others with technical implementation, still others with market positioning. Your feedback could tip the balance toward any of these concerns."
+					],
+					"choices": [
+						{
+							"id": "day-13-scene-4-a",
+							"text": "A. Frame feedback in personal terms",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 1,
+									"A": 2,
+									"N": 1
+								},
+								"enneagram": {
+									"type4": 1
+								}
+							}
+						},
+						{
+							"id": "day-13-scene-4-b",
+							"text": "B. Highlight user-flow priorities",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-13-scene-4-c",
+							"text": "C. Stress the need for timely decisions",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 1,
+									"S": -1,
+									"C": 1
+								},
+								"ocean": {
+									"O": -1,
+									"C": 1,
+									"E": 1,
+									"A": -1,
+									"N": 1
+								},
+								"enneagram": {
+									"type8": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d13s4.png"
+				},
+				{
+					"id": "day-13-scene-5",
+					"title": "Scene 5: Creative Reflection",
+					"description": [
+						"The design sprint week concludes with the particular exhaustion that comes from intensive creative work - the kind of tiredness that settles into your bones but leaves your mind still buzzing with possibilities. The quiet zone feels like a sanctuary after days of collaborative energy, brainstorming sessions, rapid prototyping and the emotional roller coaster of testing ideas with real users.",
+						"You open your laptop to a blank document that needs to capture a week's worth of breakthrough moments, frustrating dead ends, surprising user insights and the kind of technical discoveries that only emerge when you push systems beyond their comfort zones. The cursor blinks with the patient persistence of something waiting for wisdom to be distilled from experience.",
+						"Some colleagues prefer the structured clarity of detailed documentation, while others respond to visual summaries that capture the emotional journey alongside the practical outcomes. The leadership team wants actionable next steps that can be translated into resource allocation and timeline planning, but you know the real value lies in the subtle insights that emerge from sustained creative pressure.",
+						"The challenge is preserving the nuanced understanding that comes from being deeply embedded in the process while making it accessible to people who weren't part of the journey. The week's learnings feel too valuable to lose in the rush toward the next urgent deadline."
+					],
+					"choices": [
+						{
+							"id": "day-13-scene-5-a",
+							"text": "A. Sketch an emotional journey board",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 2,
+									"C": -1,
+									"E": 1,
+									"A": 1,
+									"N": 1
+								},
+								"enneagram": {
+									"type4": 1
+								}
+							}
+						},
+						{
+							"id": "day-13-scene-5-b",
+							"text": "B. Document data insights in tables",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						},
+						{
+							"id": "day-13-scene-5-c",
+							"text": "C. Plan a bold next-step challenge",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 1,
+									"S": -1,
+									"C": 1
+								},
+								"ocean": {
+									"O": 2,
+									"C": 1,
+									"E": 1,
+									"A": -1,
+									"N": 1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d13s5.png"
+				}
+			]
+		},
+		{
+			"id": "day-14",
+			"title": "Day 14",
+			"scenes": [
+				{
+					"id": "day-14-scene-1",
+					"title": "Scene 1: Process Audit",
+					"description": [
+						"The management conference room carries an atmosphere of barely concealed interrogation, with Rajesh from Operations positioned at the head of the table like a prosecutor preparing to cross-examine witnesses. His thick folder of documentation sits before him like evidence in a trial, while team leads from different departments arrange themselves with the careful positioning of people who aren't sure whether they're collaborators or suspects.",
+						"\"We need to identify inefficiencies,\" Rajesh announces and there's something in his tone that transforms the word 'inefficiencies' into something that sounds more like 'guilty parties.' \"The leadership team wants a comprehensive review of how we're operating - every process, every workflow, every decision point.\"",
+						"The presence of someone from HR taking notes adds a layer of formality that makes everyone's posture slightly more rigid. You've witnessed these \"process audits\" before - sometimes they genuinely lead to improved workflows and better resource allocation, but other times they become archaeological expeditions hunting for scapegoats to explain missed targets and budget overruns.",
+						"Your team's processes aren't perfect, but they've evolved organically to handle the particular challenges of your work environment. The gaps and workarounds that might look like inefficiencies to an outside observer often represent creative solutions to resource constraints and changing priorities. The question is whether this audit will recognize adaptive problem-solving or simply categorize it as deviation from best practices."
+					],
+					"choices": [
+						{
+							"id": "day-14-scene-1-a",
+							"text": "A. Identify exactly what needs fixing",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-14-scene-1-b",
+							"text": "B. Note general high-level strengths",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d14s1.png"
+				},
+				{
+					"id": "day-14-scene-2",
+					"title": "Scene 2: Team Celebration",
+					"description": [
+						"The office buzzes with the particular energy that follows major project completion - a mixture of relief, exhaustion and genuine pride that creates an almost electric atmosphere. Your team has just witnessed their months of intensive work transform into something real and successful, with initial user feedback that exceeds everyone's expectations. The tension that's been building for weeks finally releases like a held breath.",
+						"\"We should definitely celebrate this,\" Priya announces, her project manager persona temporarily replaced by someone who looks genuinely excited about acknowledging achievement. \"This was a huge effort from everyone and honestly, there were moments when I wasn't sure we were going to pull it off.\"",
+						"The team gathers with the spontaneous enthusiasm of people who've shared both struggle and triumph. Conversations fragment into multiple celebration suggestions - some people want the traditional post-project drinks, others prefer the comfort of ordering pizza and staying in their familiar workspace and a few are advocating for something more formal that acknowledges individual contributions alongside team success.",
+						"You can see everyone contributed differently to this achievement: some team members sacrificed weekends and evenings, others provided creative solutions at crucial moments and still others maintained group morale during the most challenging periods. The celebration needs to honor all these different forms of contribution while bringing everyone together in shared recognition."
+					],
+					"choices": [
+						{
+							"id": "day-14-scene-2-a",
+							"text": "A. Organise a structured award ceremony",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": 1,
+									"S": 1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": 1,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type3": 1
+								}
+							}
+						},
+						{
+							"id": "day-14-scene-2-b",
+							"text": "B. Throw a fun unplanned party",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 2,
+									"S": 1,
+									"C": -2
+								},
+								"ocean": {
+									"O": 1,
+									"C": -2,
+									"E": 2,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d14s2.png"
+				},
+				{
+					"id": "day-14-scene-3",
+					"title": "Scene 3: Last-minute Change",
+					"description": [
+						"Your phone rings with the particular urgency that makes your stomach drop before you've even seen the caller ID. The client's voice carries that forced casualness that people use when they're about to deliver news that will disrupt everyone's plans.",
+						"\"We need to make some changes to the deliverable,\" they say and the word 'changes' hangs in the air with the weight of someone trying to minimize the impact of what they're about to request. \"Nothing major, just a few adjustments to better align with our revised strategy.\"",
+						"As they outline these \"minor adjustments,\" it becomes clear that you're looking at a complete architectural overhaul of a key component - the kind of change that normally requires weeks of planning, development and testing. The casual tone can't disguise the fact that this is essentially starting over on a critical piece of the project. The catch, delivered with the breathless optimism of someone who doesn't have to execute the work, is that Friday's deadline remains unchanged.",
+						"Your weekend calendar glows accusingly on your phone screen - non-refundable bookings for a getaway that's been planned for months, family traveling from another city, the kind of personal commitments that require as much coordination as professional projects. Your team members have been working intensively for weeks and several of them have mentioned their own weekend plans with the particular relief of people who've earned time away from work.",
+						"The client is important, but this feels like poor planning becoming an emergency that somehow transfers to your shoulders."
+					],
+					"choices": [
+						{
+							"id": "day-14-scene-3-a",
+							"text": "A. Adjust plan with precise steps",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": 1,
+									"N": -2
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-14-scene-3-b",
+							"text": "B. Rally the team with upbeat pep talk",
+							"deltas": {
+								"disc": {
+									"D": 2,
+									"I": 2,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 2,
+									"A": 1,
+									"N": -1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						},
+						{
+							"id": "day-14-scene-3-c",
+							"text": "C. Facilitate a calm re-alignment discussion",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": 1,
+									"E": 1,
+									"A": 2,
+									"N": -2
+								},
+								"enneagram": {
+									"type9": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d14s3.png"
+				},
+				{
+					"id": "day-14-scene-4",
+					"title": "Scene 4: Feedback Loop",
+					"description": [
+						"The project's official completion brings the particular satisfaction of crossing a finish line, but also the immediate responsibility of extracting wisdom from the experience. You sit with your laptop open to a blank feedback template, trying to design an approach that will genuinely capture insights from everyone involved - team members, stakeholders and clients - without falling into the trap of collecting superficial responses.",
+						"The challenge lies in the diversity of communication styles within your network. Some people excel at articulating their thoughts in writing, crafting detailed responses that reveal nuanced understanding. Others come alive in conversation, where follow-up questions and real-time dialogue help them explore their experiences more deeply. The introverted developers might prefer the safety of anonymous surveys, while the extroverted sales team thrives in group discussions where energy builds on itself.",
+						"You know that without the right approach, you'll end up with a collection of surface-level \"everything was great\" responses from people who don't want to create problems, mixed with others who might use this as an opportunity to air grievances that have little to do with the actual project. The insights you gather here could significantly impact how future projects are structured, resourced and managed.",
+						"The cursor blinks in the feedback template, waiting for you to decide how to extract the kind of honest, actionable intelligence that makes these post-project reviews genuinely valuable."
+					],
+					"choices": [
+						{
+							"id": "day-14-scene-4-a",
+							"text": "A. Send a detailed questionnaire",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						},
+						{
+							"id": "day-14-scene-4-b",
+							"text": "B. Host an informal chat circle",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 2,
+									"S": 2,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 2,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						},
+						{
+							"id": "day-14-scene-4-c",
+							"text": "C. Collate data and present key stats",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type5": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d14s4.png"
+				},
+				{
+					"id": "day-14-scene-5",
+					"title": "Scene 5: Closure Reflection",
+					"description": [
+						"The quiet zone provides sanctuary for the kind of deep reflection that project completion demands. Your notebook lies open to a fresh page, ready to capture the essence of what you've all experienced together - the technical challenges that seemed insurmountable until they weren't, the client changes that tested everyone's adaptability, the team dynamics that evolved under pressure and the personal growth moments that emerged from professional challenges.",
+						"The project's journey feels like a story with multiple layers: the surface narrative of deliverables and deadlines, the deeper story of relationships and problem-solving and the personal story of individual development within collective achievement. There were team members who discovered leadership capabilities they didn't know they possessed, processes that broke down under pressure and revealed better approaches and solutions that emerged from the creative tension between constraint and possibility.",
+						"As you sit in the late afternoon quiet, you're aware that this reflection serves multiple purposes. There's the practical need to document lessons learned for future project reference, but there's also something more valuable - the opportunity to acknowledge the real human value of what you've accomplished together. It's easy to lose track of these insights as attention shifts to the next urgent priority, but the wisdom embedded in this experience deserves to be preserved.",
+						"The question is how to create something that captures not just what happened, but what it meant and what it taught you about working together effectively."
+					],
+					"choices": [
+						{
+							"id": "day-14-scene-5-a",
+							"text": "A. Create a checklist of improvements",
+							"deltas": {
+								"disc": {
+									"D": 1,
+									"I": -1,
+									"S": -1,
+									"C": 2
+								},
+								"ocean": {
+									"O": 1,
+									"C": 2,
+									"E": -1,
+									"A": -1,
+									"N": -1
+								},
+								"enneagram": {
+									"type1": 1
+								}
+							}
+						},
+						{
+							"id": "day-14-scene-5-b",
+							"text": "B. Share a joy-list of highlights",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 1,
+									"C": -1
+								},
+								"ocean": {
+									"O": 1,
+									"C": -1,
+									"E": 1,
+									"A": 2,
+									"N": 1
+								},
+								"enneagram": {
+									"type7": 1
+								}
+							}
+						},
+						{
+							"id": "day-14-scene-5-c",
+							"text": "C. Mediate a gratitude round-robin",
+							"deltas": {
+								"disc": {
+									"D": -1,
+									"I": 1,
+									"S": 2,
+									"C": 1
+								},
+								"ocean": {
+									"O": 1,
+									"C": 1,
+									"E": 1,
+									"A": 2,
+									"N": -1
+								},
+								"enneagram": {
+									"type2": 1
+								}
+							}
+						}
+					],
+					"imageUrl": "/scene/d14s5.png"
+				}
+			]
+		}
+	]
+}
