@@ -202,6 +202,7 @@ export default function GamePage() {
 						totalScenes={gameData.days[currentDay].scenes.length}
 						totalPoints={totalPoints}
 						onChoice={handleChoice}
+						onRestart={handleRestart}
 					/>
 				)}
 
