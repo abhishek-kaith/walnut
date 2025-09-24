@@ -75,8 +75,7 @@ const Header: React.FC = () => {
 						onMouseEnter={() => handleMouseEnter("corporate")}
 						onMouseLeave={handleMouseLeave}
 					>
-						{/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-						<button>
+						<button type="button">
 							<span>Corporate Solutions</span>
 							<ChevronDown
 								style={{
@@ -104,8 +103,7 @@ const Header: React.FC = () => {
 						onMouseEnter={() => handleMouseEnter("individual")}
 						onMouseLeave={handleMouseLeave}
 					>
-						{/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-						<button>
+						<button type="button">
 							<span>Individual Solutions</span>
 							<ChevronDown
 								style={{
@@ -128,12 +126,12 @@ const Header: React.FC = () => {
 				<div className="space-x-4">
 					<Link href="/resources">Resources</Link>{" "}
 					<Link href="/contact">Contact</Link>{" "}
-					{/* biome-ignore lint/a11y/useButtonType: <explanation> */}
 					<button
+						type="button"
 						className="rounded-lg bg-accent px-2 py-1 text-white"
-						onClick={() => handleNavigation("/login")}
+						onClick={() => handleNavigation("/game")}
 					>
-						Login
+						Start Quest
 					</button>
 				</div>
 			</nav>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import EmblaCarousel from "./_components/slider";
 
 export default async function HomePage() {
@@ -36,12 +37,12 @@ export default async function HomePage() {
 							Where growth <br /> meets play.
 						</p>
 					</div>
-					<button
-						className="mx-auto block rounded-lg bg-primary p-1 text-[24px] text-white md:text-[48px]"
-						type="button"
+					<Link
+						href="/game"
+						className="mx-auto block rounded-lg bg-primary p-1 text-center text-[24px] text-white transition-colors hover:bg-primary-light md:text-[48px]"
 					>
-						Let’s level up!
-					</button>
+						Let's level up!
+					</Link>
 					<p className="mt-8 text-[40px] text-primary md:mt-12 md:text-[80px]">
 						At Walnut, we turn learning into an adventure for individuals and
 						organisations alike.
@@ -132,12 +133,12 @@ export default async function HomePage() {
 									/>
 								</svg>
 							</button>
-							<button
-								className="-ml-[2px] cursor-pointer rounded-xl bg-primary px-4 py-2 text-[24px] text-white"
-								type="button"
+							<Link
+								href="/game"
+								className="-ml-[2px] cursor-pointer rounded-xl bg-primary px-4 py-2 text-[24px] text-white transition-colors hover:bg-primary-light"
 							>
 								Get Started
-							</button>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -204,12 +205,12 @@ export default async function HomePage() {
 									/>
 								</svg>
 							</button>
-							<button
-								className="-ml-[2px] cursor-pointer rounded-xl bg-primary px-4 py-2 text-[24px] text-white"
-								type="button"
+							<Link
+								href="/game"
+								className="-ml-[2px] cursor-pointer rounded-xl bg-primary px-4 py-2 text-[24px] text-white transition-colors hover:bg-primary-light"
 							>
 								Get Started
-							</button>
+							</Link>
 						</div>
 					</div>
 				</div>

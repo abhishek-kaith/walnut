@@ -14,14 +14,39 @@
 	--color-success-gradient-start: rgba(18, 151, 31, 0.8);
 	--color-success-gradient-end: rgba(18, 151, 31, 1);
 
+	/* RPG Game Theme Colors */
+	--color-rpg-gold: #ffd700;
+	--color-rpg-bronze: #cd7f32;
+	--color-rpg-dark: #1a1a1a;
+	--color-rpg-card: #2a2a2a;
+	--color-rpg-border: #404040;
+	--color-rpg-shadow: rgba(0, 0, 0, 0.3);
+	--color-rpg-glow: rgba(255, 215, 0, 0.2);
+
+	/* Personality Colors */
+	--color-disc-d: #e74c3c; /* Dominance - Red */
+	--color-disc-i: #f39c12; /* Influence - Orange */
+	--color-disc-s: #2ecc71; /* Steadiness - Green */
+	--color-disc-c: #3498db; /* Conscientiousness - Blue */
+
+	--color-ocean-o: #9b59b6; /* Openness - Purple */
+	--color-ocean-c: #34495e; /* Conscientiousness - Dark Blue */
+	--color-ocean-e: #e67e22; /* Extraversion - Orange */
+	--color-ocean-a: #27ae60; /* Agreeableness - Green */
+	--color-ocean-n: #e74c3c; /* Neuroticism - Red */
+
 	/* Semantic Color Mappings */
 	--color-text-primary: var(--color-primary);
 	--color-text-accent: var(--color-accent);
 	--color-text-white: var(--color-white);
+	--color-text-gold: var(--color-rpg-gold);
 	--color-background-primary: var(--color-primary);
 	--color-background-white: var(--color-white);
+	--color-background-dark: var(--color-rpg-dark);
+	--color-background-card: var(--color-rpg-card);
 	--color-button-primary: var(--color-primary);
 	--color-button-accent: var(--color-accent);
+	--color-button-gold: var(--color-rpg-gold);
 }
 
 @layer utilities {
@@ -29,5 +54,95 @@
 		@apply mx-auto px-[1%] md:px-[3%] max-w-full;
 		/* padding-left: clamp(1rem, 4vw, 4rem); */
 		/* padding-right: clamp(1rem, 4vw, 4rem); */
+	}
+
+	/* RPG Game UI Components */
+	.rpg-card {
+		background-color: var(--color-rpg-card);
+		border: 1px solid var(--color-rpg-border);
+		border-radius: 0.5rem;
+		box-shadow:
+			0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05),
+			0 4px 8px var(--color-rpg-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+	}
+
+	.rpg-button {
+		background: linear-gradient(
+			to bottom,
+			var(--color-rpg-gold),
+			var(--color-rpg-bronze)
+		);
+		color: var(--color-rpg-dark);
+		font-weight: 700;
+		padding: 0.75rem 1.5rem;
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-rpg-border);
+		box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px
+			rgba(0, 0, 0, 0.05);
+		transition: all 0.2s ease;
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+		cursor: pointer;
+	}
+
+	.rpg-button:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 12px var(--color-rpg-shadow), 0 0 20px
+			var(--color-rpg-glow);
+	}
+
+	.rpg-button:active {
+		transform: translateY(0);
+	}
+
+	.rpg-progress-bar {
+		background-color: var(--color-rpg-border);
+		border-radius: 9999px;
+		overflow: hidden;
+		box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	.rpg-progress-fill {
+		background: linear-gradient(
+			to right,
+			var(--color-rpg-gold),
+			var(--color-rpg-bronze)
+		);
+		height: 100%;
+		border-radius: 9999px;
+		transition: width 0.5s ease;
+	}
+
+	.rpg-scene-card {
+		background: linear-gradient(
+			135deg,
+			var(--color-rpg-card) 0%,
+			var(--color-rpg-dark) 100%
+		);
+		border: 1px solid var(--color-rpg-border);
+		border-radius: 0.5rem;
+		box-shadow:
+			0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05),
+			0 4px 8px var(--color-rpg-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+		padding: 1.5rem;
+		color: white;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.rpg-choice-button {
+		background-color: var(--color-primary);
+		color: white;
+		font-weight: 500;
+		padding: 0.75rem 1rem;
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-rpg-border);
+		transition: all 0.2s ease;
+		cursor: pointer;
+	}
+
+	.rpg-choice-button:hover {
+		background-color: var(--color-primary-light);
+		transform: translateX(4px);
+		box-shadow: -4px 4px 8px var(--color-rpg-shadow);
 	}
 }

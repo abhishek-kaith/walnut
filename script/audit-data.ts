@@ -59,7 +59,7 @@ const auditMarkdownStructure = (
 		if (trimmed.match(/^## Day (\d+)/)) {
 			finalizeScene();
 			const match = trimmed.match(/^## Day (\d+)/);
-			if (match && match[1]) {
+			if (match?.[1]) {
 				currentDay = Number.parseInt(match[1]);
 				currentScene = 0;
 			}
@@ -70,7 +70,7 @@ const auditMarkdownStructure = (
 		if (trimmed.match(/^### Scene (\d+):/)) {
 			finalizeScene();
 			const match = trimmed.match(/^### Scene (\d+): (.+)/);
-			if (match && match[1] && match[2]) {
+			if (match?.[1] && match[2]) {
 				currentScene = Number.parseInt(match[1]);
 				currentTitle = `Scene ${currentScene}: ${match[2]}`;
 				inDescription = true;
