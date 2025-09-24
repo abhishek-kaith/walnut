@@ -26,28 +26,28 @@ export function GameResults({
 	const chartData = [
 		// DISC traits
 		{
-			trait: "Dominance",
+			trait: "Direct & Decisive",
 			value: Math.max(0, scores.disc.D),
 			fullMark: 10,
 			category: "DISC",
 			color: "var(--color-disc-d)",
 		},
 		{
-			trait: "Influence",
+			trait: "People-Oriented & Enthusiastic",
 			value: Math.max(0, scores.disc.I),
 			fullMark: 10,
 			category: "DISC",
 			color: "var(--color-disc-i)",
 		},
 		{
-			trait: "Steadiness",
+			trait: "Patient & Supportive",
 			value: Math.max(0, scores.disc.S),
 			fullMark: 10,
 			category: "DISC",
 			color: "var(--color-disc-s)",
 		},
 		{
-			trait: "Conscientiousness",
+			trait: "Analytical & Precise",
 			value: Math.max(0, scores.disc.C),
 			fullMark: 10,
 			category: "DISC",
@@ -55,28 +55,35 @@ export function GameResults({
 		},
 		// OCEAN traits
 		{
-			trait: "Openness",
+			trait: "Creative & Curious",
 			value: Math.max(0, scores.ocean.O),
 			fullMark: 10,
 			category: "OCEAN",
 			color: "var(--color-ocean-o)",
 		},
 		{
-			trait: "Extraversion",
+			trait: "Organized & Responsible",
+			value: Math.max(0, scores.ocean.C),
+			fullMark: 10,
+			category: "OCEAN",
+			color: "var(--color-ocean-c)",
+		},
+		{
+			trait: "Sociable & Assertive",
 			value: Math.max(0, scores.ocean.E),
 			fullMark: 10,
 			category: "OCEAN",
 			color: "var(--color-ocean-e)",
 		},
 		{
-			trait: "Agreeableness",
+			trait: "Cooperative & Empathetic",
 			value: Math.max(0, scores.ocean.A),
 			fullMark: 10,
 			category: "OCEAN",
 			color: "var(--color-ocean-a)",
 		},
 		{
-			trait: "Neuroticism",
+			trait: "Sensitive & Stress-Aware",
 			value: Math.max(0, scores.ocean.N),
 			fullMark: 10,
 			category: "OCEAN",
@@ -166,38 +173,76 @@ export function GameResults({
 						<div className="grid grid-cols-2 gap-4">
 							<div>
 								<h3 className="mb-2 font-bold text-[var(--color-disc-d)]">
-									DISC Traits
+									Your Behavioral Style
 								</h3>
 								<div className="space-y-1 text-sm">
-									{Object.entries(DISC_TRAITS).map(([key, trait]) => (
-										<div key={key} className="flex justify-between">
-											<span className="text-gray-300">{trait.name}:</span>
-											<span className="font-bold text-[var(--color-rpg-gold)]">
-												{Math.max(
-													0,
-													scores.disc[key as keyof typeof scores.disc],
-												)}
-											</span>
-										</div>
-									))}
+									<div className="flex justify-between">
+										<span className="text-gray-300">Direct & Decisive:</span>
+										<span className="font-bold text-[var(--color-rpg-gold)]">
+											{Math.max(0, scores.disc.D)}
+										</span>
+									</div>
+									<div className="flex justify-between">
+										<span className="text-gray-300">People-Oriented:</span>
+										<span className="font-bold text-[var(--color-rpg-gold)]">
+											{Math.max(0, scores.disc.I)}
+										</span>
+									</div>
+									<div className="flex justify-between">
+										<span className="text-gray-300">Patient & Supportive:</span>
+										<span className="font-bold text-[var(--color-rpg-gold)]">
+											{Math.max(0, scores.disc.S)}
+										</span>
+									</div>
+									<div className="flex justify-between">
+										<span className="text-gray-300">Analytical & Precise:</span>
+										<span className="font-bold text-[var(--color-rpg-gold)]">
+											{Math.max(0, scores.disc.C)}
+										</span>
+									</div>
 								</div>
 							</div>
 							<div>
 								<h3 className="mb-2 font-bold text-[var(--color-ocean-o)]">
-									OCEAN Traits
+									Your Character Traits
 								</h3>
 								<div className="space-y-1 text-sm">
-									{Object.entries(OCEAN_TRAITS).map(([key, trait]) => (
-										<div key={key} className="flex justify-between">
-											<span className="text-gray-300">{trait.name}:</span>
-											<span className="font-bold text-[var(--color-rpg-gold)]">
-												{Math.max(
-													0,
-													scores.ocean[key as keyof typeof scores.ocean],
-												)}
-											</span>
-										</div>
-									))}
+									<div className="flex justify-between">
+										<span className="text-gray-300">Creative & Curious:</span>
+										<span className="font-bold text-[var(--color-rpg-gold)]">
+											{Math.max(0, scores.ocean.O)}
+										</span>
+									</div>
+									<div className="flex justify-between">
+										<span className="text-gray-300">
+											Organized & Responsible:
+										</span>
+										<span className="font-bold text-[var(--color-rpg-gold)]">
+											{Math.max(0, scores.ocean.C)}
+										</span>
+									</div>
+									<div className="flex justify-between">
+										<span className="text-gray-300">Sociable & Assertive:</span>
+										<span className="font-bold text-[var(--color-rpg-gold)]">
+											{Math.max(0, scores.ocean.E)}
+										</span>
+									</div>
+									<div className="flex justify-between">
+										<span className="text-gray-300">
+											Cooperative & Empathetic:
+										</span>
+										<span className="font-bold text-[var(--color-rpg-gold)]">
+											{Math.max(0, scores.ocean.A)}
+										</span>
+									</div>
+									<div className="flex justify-between">
+										<span className="text-gray-300">
+											Sensitive & Stress-Aware:
+										</span>
+										<span className="font-bold text-[var(--color-rpg-gold)]">
+											{Math.max(0, scores.ocean.N)}
+										</span>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -291,39 +336,98 @@ export function GameResults({
 					</div>
 				</div>
 
-				{/* Trait Descriptions */}
-				<div className="grid gap-8 md:grid-cols-2">
-					<div className="rpg-card p-6">
-						<h3 className="mb-4 font-bold text-[var(--color-rpg-gold)] text-xl">
-							🎯 DISC Traits Explained
-						</h3>
-						<div className="space-y-3">
-							{Object.entries(DISC_TRAITS).map(([key, trait]) => (
-								<div
-									key={key}
-									className="border-[var(--color-disc-d)] border-l-4 pl-3"
-								>
-									<h4 className="font-bold text-gray-300">{trait.name}</h4>
-									<p className="text-gray-400 text-sm">{trait.description}</p>
-								</div>
-							))}
-						</div>
-					</div>
+				{/* Personality Type Summary */}
+				<div className="rpg-card p-6">
+					<h3 className="mb-4 text-center font-bold text-2xl text-[var(--color-rpg-gold)]">
+						🌟 Your Personality Profile
+					</h3>
 
-					<div className="rpg-card p-6">
-						<h3 className="mb-4 font-bold text-[var(--color-rpg-gold)] text-xl">
-							🌊 OCEAN Traits Explained
-						</h3>
-						<div className="space-y-3">
-							{Object.entries(OCEAN_TRAITS).map(([key, trait]) => (
-								<div
-									key={key}
-									className="border-[var(--color-ocean-o)] border-l-4 pl-3"
-								>
-									<h4 className="font-bold text-gray-300">{trait.name}</h4>
-									<p className="text-gray-400 text-sm">{trait.description}</p>
+					<div className="grid gap-6 md:grid-cols-2">
+						<div>
+							<h4 className="mb-3 font-bold text-[var(--color-disc-d)] text-lg">
+								How You Interact & Make Decisions
+							</h4>
+							<div className="space-y-3">
+								<div className="border-[var(--color-disc-d)] border-l-4 pl-3">
+									<h5 className="font-bold text-gray-300">Direct & Decisive</h5>
+									<p className="text-gray-400 text-sm">
+										You're focused on results and taking action quickly
+									</p>
 								</div>
-							))}
+								<div className="border-[var(--color-disc-i)] border-l-4 pl-3">
+									<h5 className="font-bold text-gray-300">
+										People-Oriented & Enthusiastic
+									</h5>
+									<p className="text-gray-400 text-sm">
+										You enjoy social interactions and inspiring others
+									</p>
+								</div>
+								<div className="border-[var(--color-disc-s)] border-l-4 pl-3">
+									<h5 className="font-bold text-gray-300">
+										Patient & Supportive
+									</h5>
+									<p className="text-gray-400 text-sm">
+										You value stability and helping others succeed
+									</p>
+								</div>
+								<div className="border-[var(--color-disc-c)] border-l-4 pl-3">
+									<h5 className="font-bold text-gray-300">
+										Analytical & Precise
+									</h5>
+									<p className="text-gray-400 text-sm">
+										You focus on accuracy and following procedures
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<h4 className="mb-3 font-bold text-[var(--color-ocean-o)] text-lg">
+								Your Core Character Traits
+							</h4>
+							<div className="space-y-3">
+								<div className="border-[var(--color-ocean-o)] border-l-4 pl-3">
+									<h5 className="font-bold text-gray-300">
+										Creative & Curious
+									</h5>
+									<p className="text-gray-400 text-sm">
+										You're open to new experiences and love learning
+									</p>
+								</div>
+								<div className="border-[var(--color-ocean-c)] border-l-4 pl-3">
+									<h5 className="font-bold text-gray-300">
+										Organized & Responsible
+									</h5>
+									<p className="text-gray-400 text-sm">
+										You're dependable and like to plan ahead
+									</p>
+								</div>
+								<div className="border-[var(--color-ocean-e)] border-l-4 pl-3">
+									<h5 className="font-bold text-gray-300">
+										Sociable & Assertive
+									</h5>
+									<p className="text-gray-400 text-sm">
+										You're outgoing and comfortable taking charge
+									</p>
+								</div>
+								<div className="border-[var(--color-ocean-a)] border-l-4 pl-3">
+									<h5 className="font-bold text-gray-300">
+										Cooperative & Empathetic
+									</h5>
+									<p className="text-gray-400 text-sm">
+										You value harmony and understanding others
+									</p>
+								</div>
+								<div className="border-[var(--color-ocean-n)] border-l-4 pl-3">
+									<h5 className="font-bold text-gray-300">
+										Sensitive & Stress-Aware
+									</h5>
+									<p className="text-gray-400 text-sm">
+										You're in tune with emotions and handle pressure
+										thoughtfully
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

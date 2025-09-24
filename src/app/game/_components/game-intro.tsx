@@ -73,19 +73,19 @@ export function GameIntro({
 	};
 
 	return (
-		<div className="relative flex min-h-screen items-center justify-center bg-[var(--color-background-white)] p-4">
+		<div className="relative flex min-h-screen items-center justify-center bg-[var(--color-background-white)] p-3 md:p-4">
 			<div className="w-full max-w-4xl">
-				<div className="absolute top-4 right-4">
+				<div className="absolute top-3 right-3 md:top-4 md:right-4 z-10">
 					<button
 						onClick={handleSkip}
-						className="font-medium text-[var(--color-primary)]/60 text-sm transition-colors hover:text-[var(--color-primary)]"
+						className="font-medium text-[var(--color-primary)]/60 text-sm transition-colors hover:text-[var(--color-primary)] active:scale-95"
 					>
 						Skip Intro →
 					</button>
 				</div>
 
 				<div className="relative overflow-hidden rounded-2xl bg-[var(--color-primary)]">
-					<div className="absolute top-0 left-0 h-1 w-full bg-gray-200">
+					<div className="absolute top-0 left-0 z-10 h-1 w-full bg-gray-200">
 						<div
 							className="h-full bg-[var(--color-accent)] transition-all duration-300"
 							style={{
@@ -94,72 +94,73 @@ export function GameIntro({
 						/>
 					</div>
 
-					<div className="relative h-64 overflow-hidden md:h-80">
+					<div className="relative h-48 overflow-hidden sm:h-56 md:h-64 lg:h-80">
 						<Image
 							src={introSteps[currentStep]?.image || "/scene/d1s1.png"}
 							alt={introSteps[currentStep]?.title || "Game intro"}
 							width={800}
 							height={320}
 							className="h-full w-full object-cover"
+							priority
 						/>
 						<div className="absolute inset-0 bg-[var(--color-primary)]/40" />
 
-						<div className="absolute top-4 left-4 rounded-lg bg-[var(--color-accent)] px-4 py-2 font-semibold text-sm text-white">
+						<div className="absolute top-3 left-3 rounded-lg bg-[var(--color-accent)] px-3 py-1.5 font-semibold text-xs text-white md:top-4 md:left-4 md:px-4 md:py-2 md:text-sm">
 							{currentStep + 1} of {introSteps.length}
 						</div>
 
 						{userProfile && currentStep === 0 && (
-							<div className="absolute bottom-4 left-4 rounded-lg bg-[var(--color-primary)]/80 px-4 py-2 text-white backdrop-blur-sm">
-								<p className="font-medium text-sm">
+							<div className="absolute bottom-3 left-3 rounded-lg bg-[var(--color-primary)]/80 px-3 py-1.5 text-white backdrop-blur-sm md:bottom-4 md:left-4 md:px-4 md:py-2">
+								<p className="font-medium text-xs md:text-sm">
 									{userProfile.occupation} • Age {userProfile.age}
 								</p>
 							</div>
 						)}
 					</div>
 
-					<div className="p-6 md:p-8">
-						<h1 className="mb-4 font-bold text-[32px] text-white leading-tight md:text-[40px]">
+					<div className="p-4 md:p-6 lg:p-8">
+						<h1 className="mb-3 font-bold text-2xl text-white leading-tight md:mb-4 md:text-3xl lg:text-[40px]">
 							{introSteps[currentStep]?.title || "Welcome!"}
 						</h1>
 
-						<div className="mb-8 space-y-6">
-							<p className="text-lg text-white/90 leading-relaxed">
+						<div className="mb-6 space-y-4 md:mb-8 md:space-y-6">
+							<p className="text-base text-white/90 leading-relaxed md:text-lg">
 								{introSteps[currentStep]?.content ||
 									"Welcome to your personality journey!"}
 							</p>
 
-							<div className="grid grid-cols-3 gap-3">
-								<div className="rounded-lg bg-[var(--color-primary-light)] p-4 text-center">
-									<span className="mb-2 block text-2xl">🧠</span>
-									<p className="font-semibold text-sm text-white">DISC</p>
+							<div className="grid grid-cols-3 gap-2 md:gap-3">
+								<div className="rounded-lg bg-[var(--color-primary-light)] p-3 text-center md:p-4">
+									<span className="mb-1 block text-xl md:text-2xl">🧠</span>
+									<p className="font-semibold text-xs text-white md:text-sm">Behavioral Style</p>
 								</div>
-								<div className="rounded-lg bg-[var(--color-accent)] p-4 text-center">
-									<span className="mb-2 block text-2xl">🌊</span>
-									<p className="font-semibold text-sm text-white">OCEAN</p>
+								<div className="rounded-lg bg-[var(--color-accent)] p-3 text-center md:p-4">
+									<span className="mb-1 block text-xl md:text-2xl">🌊</span>
+									<p className="font-semibold text-xs text-white md:text-sm">Character Traits</p>
 								</div>
-								<div className="rounded-lg bg-[var(--color-success)] p-4 text-center">
-									<span className="mb-2 block text-2xl">⭐</span>
-									<p className="font-semibold text-sm text-white">Enneagram</p>
+								<div className="rounded-lg bg-[var(--color-success)] p-3 text-center md:p-4">
+									<span className="mb-1 block text-xl md:text-2xl">⭐</span>
+									<p className="font-semibold text-xs text-white md:text-sm">Core Motivations</p>
 								</div>
 							</div>
 						</div>
 
-						<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 							<button
 								onClick={handlePrevious}
 								disabled={currentStep === 0}
-								className="rounded-lg bg-[var(--color-primary-light)] px-6 py-3 text-white transition-colors hover:bg-[var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-50"
+								className="rounded-lg bg-[var(--color-primary-light)] px-4 py-2.5 text-sm text-white transition-colors hover:bg-[var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-50 active:scale-95 sm:px-6 sm:py-3"
 							>
 								← Previous
 							</button>
 
-							<div className="flex space-x-2">
+							<div className="flex justify-center space-x-1.5 sm:space-x-2">
 								{introSteps.map((step, index) => (
 									<div
 										key={step.title}
-										className={`h-2 w-2 rounded-full transition-all ${
+										className={`h-1.5 w-1.5 rounded-full transition-all sm:h-2 sm:w-2 ${
 											index === currentStep
-												? "w-6 bg-[var(--color-accent)]"
+												? "w-4 bg-[var(--color-accent)] sm:w-6"
 												: "bg-white/30"
 										}`}
 									/>
@@ -168,7 +169,7 @@ export function GameIntro({
 
 							<button
 								onClick={handleNext}
-								className="rounded-lg bg-[var(--color-accent)] px-6 py-3 font-semibold text-white transition-colors hover:bg-[var(--color-accent)]/80"
+								className="rounded-lg bg-[var(--color-accent)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-accent)]/80 active:scale-95 sm:px-6 sm:py-3"
 							>
 								{currentStep === introSteps.length - 1
 									? "Let's level up!"

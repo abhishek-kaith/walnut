@@ -71,7 +71,6 @@ export function GameDayComplete({
 			<div className="w-full max-w-4xl space-y-6">
 				<div className="text-center">
 					<div className="mb-4 inline-flex items-center space-x-3 rounded-xl bg-[var(--color-success)] px-6 py-3 text-white">
-						<span className="text-2xl">🎉</span>
 						<span className="font-semibold text-lg">
 							Day {dayNumber} Complete!
 						</span>

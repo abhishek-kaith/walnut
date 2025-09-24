@@ -156,7 +156,7 @@ export function GameScene({
 							{!showingResult && (
 								<div className="space-y-2 md:space-y-3">
 									<h3 className="mb-2 font-bold text-[var(--color-rpg-gold)] text-base md:mb-3 md:text-lg">
-										⚡ What do you do?
+										What do you do?
 									</h3>
 									{scene.choices.map((choice, index) => (
 										<button
