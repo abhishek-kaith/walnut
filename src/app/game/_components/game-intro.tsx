@@ -75,7 +75,7 @@ export function GameIntro({
 	return (
 		<div className="relative flex min-h-screen items-center justify-center bg-[var(--color-background-white)] p-3 md:p-4">
 			<div className="w-full max-w-4xl">
-				<div className="absolute top-3 right-3 md:top-4 md:right-4 z-10">
+				<div className="absolute top-3 right-3 z-10 md:top-4 md:right-4">
 					<button
 						onClick={handleSkip}
 						className="font-medium text-[var(--color-primary)]/60 text-sm transition-colors hover:text-[var(--color-primary)] active:scale-95"
@@ -105,7 +105,7 @@ export function GameIntro({
 						/>
 						<div className="absolute inset-0 bg-[var(--color-primary)]/40" />
 
-						<div className="absolute top-3 left-3 rounded-lg bg-[var(--color-accent)] px-3 py-1.5 font-semibold text-xs text-white md:top-4 md:left-4 md:px-4 md:py-2 md:text-sm">
+						<div className="absolute top-3 left-3 rounded-lg bg-[var(--color-accent)] px-3 py-1.5 font-semibold text-white text-xs md:top-4 md:left-4 md:px-4 md:py-2 md:text-sm">
 							{currentStep + 1} of {introSteps.length}
 						</div>
 
@@ -132,15 +132,21 @@ export function GameIntro({
 							<div className="grid grid-cols-3 gap-2 md:gap-3">
 								<div className="rounded-lg bg-[var(--color-primary-light)] p-3 text-center md:p-4">
 									<span className="mb-1 block text-xl md:text-2xl">🧠</span>
-									<p className="font-semibold text-xs text-white md:text-sm">Behavioral Style</p>
+									<p className="font-semibold text-white text-xs md:text-sm">
+										Behavioral Style
+									</p>
 								</div>
 								<div className="rounded-lg bg-[var(--color-accent)] p-3 text-center md:p-4">
 									<span className="mb-1 block text-xl md:text-2xl">🌊</span>
-									<p className="font-semibold text-xs text-white md:text-sm">Character Traits</p>
+									<p className="font-semibold text-white text-xs md:text-sm">
+										Character Traits
+									</p>
 								</div>
 								<div className="rounded-lg bg-[var(--color-success)] p-3 text-center md:p-4">
 									<span className="mb-1 block text-xl md:text-2xl">⭐</span>
-									<p className="font-semibold text-xs text-white md:text-sm">Core Motivations</p>
+									<p className="font-semibold text-white text-xs md:text-sm">
+										Core Motivations
+									</p>
 								</div>
 							</div>
 						</div>
@@ -149,7 +155,7 @@ export function GameIntro({
 							<button
 								onClick={handlePrevious}
 								disabled={currentStep === 0}
-								className="rounded-lg bg-[var(--color-primary-light)] px-4 py-2.5 text-sm text-white transition-colors hover:bg-[var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-50 active:scale-95 sm:px-6 sm:py-3"
+								className="rounded-lg bg-[var(--color-primary-light)] px-4 py-2.5 text-sm text-white transition-colors hover:bg-[var(--color-primary)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 sm:px-6 sm:py-3"
 							>
 								← Previous
 							</button>
@@ -169,7 +175,7 @@ export function GameIntro({
 
 							<button
 								onClick={handleNext}
-								className="rounded-lg bg-[var(--color-accent)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-accent)]/80 active:scale-95 sm:px-6 sm:py-3"
+								className="rounded-lg bg-[var(--color-accent)] px-4 py-2.5 font-semibold text-sm text-white transition-colors hover:bg-[var(--color-accent)]/80 active:scale-95 sm:px-6 sm:py-3"
 							>
 								{currentStep === introSteps.length - 1
 									? "Let's level up!"

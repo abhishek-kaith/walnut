@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface GameProfileProps {
 	onComplete: (profile: {
@@ -16,6 +16,8 @@ export function GameProfile({ onComplete }: GameProfileProps) {
 		age: 25,
 		occupation: "",
 	});
+	const [formProgress, setFormProgress] = useState(0);
+	const [isFocused, setIsFocused] = useState("");
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
@@ -27,6 +29,15 @@ export function GameProfile({ onComplete }: GameProfileProps) {
 			});
 		}
 	};
+
+	// Calculate form completion progress
+	useEffect(() => {
+		let progress = 0;
+		if (profile.name.trim()) progress += 40;
+		if (profile.age >= 16 && profile.age <= 100) progress += 30;
+		if (profile.occupation.trim()) progress += 30;
+		setFormProgress(progress);
+	}, [profile]);
 
 	const occupationOptions = [
 		"Software Developer",
@@ -46,40 +57,81 @@ export function GameProfile({ onComplete }: GameProfileProps) {
 
 	return (
 		<div className="flex min-h-screen items-center justify-center bg-[var(--color-rpg-dark)] p-3 md:p-4">
-			<div className="rpg-card w-full max-w-lg p-5 md:p-8">
-				<div className="mb-6 text-center md:mb-8">
-					<h1 className="mb-3 font-bold text-2xl text-[var(--color-rpg-gold)] md:mb-4 md:text-3xl">
-						⚔️ Create Your Character
+			<div className="rpg-card w-full max-w-md p-5 md:p-6">
+				{/* Header */}
+				<div className="mb-5 text-center">
+					<h1 className="mb-2 font-bold text-2xl text-[var(--color-rpg-gold)] md:text-3xl">
+						Create Your Profile
 					</h1>
-					<p className="px-2 text-base text-gray-300 md:text-lg">
-						Tell us about yourself to personalize your personality quest
+					<p className="text-gray-300 text-sm">
+						Tell us about yourself to personalize your assessment
 					</p>
 				</div>
 
-				<form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
-					<div>
-						<label
-							htmlFor="name"
-							className="mb-2 block font-medium text-gray-300 text-sm"
-						>
-							Character Name
-						</label>
-						<input
-							id="name"
-							type="text"
-							value={profile.name}
-							onChange={(e) => setProfile({ ...profile, name: e.target.value })}
-							className="w-full rounded-lg border border-[var(--color-rpg-border)] bg-[var(--color-rpg-border)] px-4 py-3 text-base text-white placeholder-gray-400 transition-all focus:border-transparent focus:ring-2 focus:ring-[var(--color-rpg-gold)]"
-							placeholder="Enter your name"
-							required
-							autoComplete="name"
-						/>
+				{/* Progress Bar */}
+				<div className="mb-6 bg-[var(--color-rpg-border)] p-0.5">
+					<div
+						className="h-1.5 bg-[var(--color-accent)] transition-all duration-300"
+						style={{ width: `${formProgress}%` }}
+					/>
+				</div>
+
+				{/* Form */}
+				<form onSubmit={handleSubmit} className="space-y-4">
+					<div className="flex flex-col items-center space-y-4 md:flex-row md:space-x-6 md:space-y-0">
+						{/* Avatar */}
+						<div className="flex-shrink-0">
+							<div className="flex h-20 w-20 items-center justify-center rounded-full bg-[var(--color-rpg-border)]">
+								{profile.name ? (
+									<span className="font-bold text-2xl text-gray-400">
+										{profile.name[0]?.toUpperCase()}
+									</span>
+								) : (
+									<svg
+										className="h-10 w-10 text-gray-500"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<title>Icon</title>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+										/>
+									</svg>
+								)}
+							</div>
+						</div>
+
+						{/* Name Input */}
+						<div className="flex-1">
+							<label
+								htmlFor="name"
+								className="mb-1.5 block font-medium text-gray-300 text-sm"
+							>
+								Full Name
+							</label>
+							<input
+								id="name"
+								type="text"
+								value={profile.name}
+								onChange={(e) =>
+									setProfile({ ...profile, name: e.target.value })
+								}
+								className="w-full rounded-lg border border-[var(--color-rpg-border)] bg-[var(--color-rpg-border)] px-3 py-2.5 text-white placeholder-gray-400 transition-colors focus:border-[var(--color-accent)] focus:outline-none"
+								placeholder="Enter your name"
+								required
+								autoComplete="name"
+							/>
+						</div>
 					</div>
 
 					<div>
 						<label
 							htmlFor="age"
-							className="mb-2 block font-medium text-gray-300 text-sm"
+							className="mb-1.5 block font-medium text-gray-300 text-sm"
 						>
 							Age
 						</label>
@@ -95,17 +147,21 @@ export function GameProfile({ onComplete }: GameProfileProps) {
 									age: Number.parseInt(e.target.value) || 25,
 								})
 							}
-							className="w-full rounded-lg border border-[var(--color-rpg-border)] bg-[var(--color-rpg-border)] px-4 py-3 text-base text-white placeholder-gray-400 transition-all focus:border-transparent focus:ring-2 focus:ring-[var(--color-rpg-gold)]"
+							className="w-full rounded-lg border border-[var(--color-rpg-border)] bg-[var(--color-rpg-border)] px-3 py-2.5 text-white placeholder-gray-400 transition-colors focus:border-[var(--color-accent)] focus:outline-none"
 							placeholder="Enter your age"
 							required
 						/>
-						<div className="mt-3 flex flex-wrap justify-center gap-2 md:mt-4">
+						<div className="mt-2 flex flex-wrap justify-center gap-1.5">
 							{[18, 25, 30, 35, 40].map((age) => (
 								<button
 									key={age}
 									type="button"
 									onClick={() => setProfile({ ...profile, age })}
-									className="rounded-lg bg-[var(--color-primary-light)] px-3 py-2 text-sm text-white transition-colors hover:bg-[var(--color-primary)] active:scale-95"
+									className={`rounded-md px-3 py-1.5 font-medium text-sm transition-colors ${
+										profile.age === age
+											? "bg-[var(--color-accent)] text-white"
+											: "bg-[var(--color-primary-light)] text-gray-300 hover:bg-[var(--color-primary)]"
+									}`}
 								>
 									{age}
 								</button>
@@ -116,9 +172,9 @@ export function GameProfile({ onComplete }: GameProfileProps) {
 					<div>
 						<label
 							htmlFor="occupation"
-							className="mb-2 block font-medium text-gray-300 text-sm"
+							className="mb-1.5 block font-medium text-gray-300 text-sm"
 						>
-							Class/Occupation
+							Occupation
 						</label>
 						<select
 							id="occupation"
@@ -126,30 +182,34 @@ export function GameProfile({ onComplete }: GameProfileProps) {
 							onChange={(e) =>
 								setProfile({ ...profile, occupation: e.target.value })
 							}
-							className="w-full rounded-lg border border-[var(--color-rpg-border)] bg-[var(--color-rpg-border)] px-4 py-3 text-base text-white transition-all focus:border-transparent focus:ring-2 focus:ring-[var(--color-rpg-gold)]"
+							className="w-full rounded-lg border border-[var(--color-rpg-border)] bg-[var(--color-rpg-border)] px-3 py-2.5 text-white transition-colors focus:border-[var(--color-accent)] focus:outline-none"
 							required
 						>
-							<option value="">Select your class...</option>
+							<option value="">Select your occupation...</option>
 							{occupationOptions.map((option) => (
 								<option key={option} value={option}>
 									{option}
 								</option>
 							))}
 						</select>
-						<div className="mt-3 grid grid-cols-2 gap-2 md:mt-4 md:grid-cols-3">
+						<div className="mt-2 grid grid-cols-2 gap-1.5 sm:grid-cols-3">
 							{[
 								"Developer",
 								"Designer",
 								"Student",
 								"Manager",
 								"Teacher",
-								"Artist",
+								"Other",
 							].map((job) => (
 								<button
 									key={job}
 									type="button"
 									onClick={() => setProfile({ ...profile, occupation: job })}
-									className="rounded-lg bg-[var(--color-primary-light)] px-3 py-2 text-sm text-white transition-colors hover:bg-[var(--color-primary)] active:scale-95"
+									className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
+										profile.occupation === job
+											? "bg-[var(--color-accent)] font-medium text-white"
+											: "bg-[var(--color-primary-light)] text-gray-300 hover:bg-[var(--color-primary)]"
+									}`}
 								>
 									{job}
 								</button>
@@ -159,20 +219,16 @@ export function GameProfile({ onComplete }: GameProfileProps) {
 
 					<button
 						type="submit"
-						className="rpg-button w-full py-3 text-base active:scale-95 md:py-4 md:text-lg"
 						disabled={!profile.name.trim() || !profile.occupation.trim()}
+						className={`rpg-button w-full py-3 font-medium text-base transition-all ${
+							profile.name.trim() && profile.occupation.trim()
+								? "hover:bg-[var(--color-primary-light)]"
+								: "cursor-not-allowed opacity-50"
+						}`}
 					>
-						🛡️ Complete Character Creation
+						Continue
 					</button>
 				</form>
-
-				<div className="mt-5 rounded-lg bg-[var(--color-rpg-border)] p-3 text-center md:mt-6 md:p-4">
-					<p className="text-gray-300 text-xs leading-relaxed md:text-sm">
-						💡 <strong>Tip:</strong> Your responses will help us create a
-						personalized personality assessment tailored to your background and
-						experiences.
-					</p>
-				</div>
 			</div>
 		</div>
 	);
