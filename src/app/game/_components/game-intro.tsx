@@ -11,6 +11,26 @@ interface GameIntroProps {
 	onSkip: () => void;
 }
 
+interface TraitDetail {
+	key: string;
+	name: string;
+	description: string;
+	color: string;
+	icon: string;
+}
+
+interface IntroStepDetails {
+	framework: string;
+	traits: TraitDetail[];
+}
+
+interface IntroStep {
+	title: string;
+	content: string;
+	image: string;
+	details: IntroStepDetails | null;
+}
+
 export function GameIntro({
 	intro,
 	userProfile,
@@ -18,6 +38,9 @@ export function GameIntro({
 	onSkip,
 }: GameIntroProps) {
 	const [currentStep, setCurrentStep] = useState(0);
+	const [activeFramework, setActiveFramework] = useState<
+		"disc" | "ocean" | "enneagram"
+	>("disc");
 
 	const sceneImages = [
 		"/scene/d1s1.png",
@@ -27,30 +50,204 @@ export function GameIntro({
 		"/scene/d2s2.png",
 	];
 
-	const introSteps = [
+	// Condensed personality framework data
+	const frameworks = {
+		disc: {
+			title: "DISC Behavioral Style",
+			description: "How you naturally behave and communicate",
+			icon: "🧠",
+			color: "var(--color-disc-d, #ff6b6b)",
+			traits: [
+				{
+					key: "D",
+					name: "Dominance",
+					desc: "Direct, decisive, results-oriented",
+					icon: "⚡",
+				},
+				{
+					key: "I",
+					name: "Influence",
+					desc: "Enthusiastic, people-oriented, talkative",
+					icon: "🗣️",
+				},
+				{
+					key: "S",
+					name: "Steadiness",
+					desc: "Patient, predictable, stable",
+					icon: "🤝",
+				},
+				{
+					key: "C",
+					name: "Conscientiousness",
+					desc: "Precise, analytical, systematic",
+					icon: "📋",
+				},
+			],
+		},
+		ocean: {
+			title: "OCEAN Personality Traits",
+			description: "Your core personality dimensions",
+			icon: "🌊",
+			color: "var(--color-ocean-o, #e17055)",
+			traits: [
+				{
+					key: "O",
+					name: "Openness",
+					desc: "Creativity, curiosity, new experiences",
+					icon: "🎨",
+				},
+				{
+					key: "C",
+					name: "Conscientiousness",
+					desc: "Organization, responsibility, dependability",
+					icon: "📊",
+				},
+				{
+					key: "E",
+					name: "Extraversion",
+					desc: "Sociability, assertiveness, talkativeness",
+					icon: "🌟",
+				},
+				{
+					key: "A",
+					name: "Agreeableness",
+					desc: "Cooperation, trust, empathy",
+					icon: "💝",
+				},
+				{
+					key: "N",
+					name: "Neuroticism",
+					desc: "Emotional sensitivity, stress awareness",
+					icon: "⚡",
+				},
+			],
+		},
+		enneagram: {
+			title: "Enneagram Motivations",
+			description: "Your deepest fears and desires",
+			icon: "⭐",
+			color: "var(--color-enneagram-3, #fdcb6e)",
+			traits: [
+				{
+					key: "1",
+					name: "Perfectionist",
+					desc: "Desire to be good/right",
+					icon: "⚖️",
+				},
+				{
+					key: "2",
+					name: "Helper",
+					desc: "Desire to be loved/needed",
+					icon: "💙",
+				},
+				{
+					key: "3",
+					name: "Achiever",
+					desc: "Desire to be valuable/worthwhile",
+					icon: "🏆",
+				},
+				{
+					key: "4",
+					name: "Individualist",
+					desc: "Desire to find self/significance",
+					icon: "🎭",
+				},
+				{
+					key: "5",
+					name: "Investigator",
+					desc: "Desire to be competent/understand",
+					icon: "🔍",
+				},
+				{
+					key: "6",
+					name: "Loyalist",
+					desc: "Desire for security/support",
+					icon: "🛡️",
+				},
+				{
+					key: "7",
+					name: "Enthusiast",
+					desc: "Desire happiness/satisfaction",
+					icon: "✨",
+				},
+				{
+					key: "8",
+					name: "Challenger",
+					desc: "Desire self-reliance/control",
+					icon: "💪",
+				},
+				{
+					key: "9",
+					name: "Peacemaker",
+					desc: "Desire inner/outer peace",
+					icon: "🕊️",
+				},
+			],
+		},
+	};
+
+	const introSteps: IntroStep[] = [
 		{
 			title: `Welcome, ${userProfile?.name || "Adventurer"}!`,
 			content:
-				"You're about to embark on a 7-day journey through various workplace and personal scenarios that will help uncover your unique personality traits.",
-			image: sceneImages[0],
+				"Embark on a 14-day workplace journey that reveals your personality across three comprehensive frameworks.",
+			image: sceneImages[0] || "/scene/d1s1.png",
+			details: null,
 		},
 		{
-			title: "Your Mission",
+			title: "DISC Behavioral Style",
 			content:
-				"Each day presents realistic situations where you'll need to make choices. Your responses will help us understand your DISC profile, OCEAN traits, and Enneagram type.",
-			image: sceneImages[1],
+				"Discover how you naturally behave and communicate in different situations through four key dimensions:",
+			image: sceneImages[1] || "/scene/d1s2.png",
+			details: {
+				framework: "DISC",
+				traits: frameworks.disc.traits.map((trait) => ({
+					key: trait.key,
+					name: trait.name,
+					description: trait.desc,
+					color: "var(--color-disc, #ff6b6b)",
+					icon: trait.icon,
+				})),
+			},
 		},
 		{
-			title: "Be True to Yourself",
+			title: "OCEAN Personality Traits",
 			content:
-				"Be honest with your choices - there are no right or wrong answers. The goal is to understand yourself better and gain insights into how you navigate different situations.",
-			image: sceneImages[2],
+				"Explore your core personality dimensions that shape how you think, feel, and behave:",
+			image: sceneImages[2] || "/scene/d1s3.png",
+			details: {
+				framework: "OCEAN",
+				traits: frameworks.ocean.traits.map((trait) => ({
+					key: trait.key,
+					name: trait.name,
+					description: trait.desc,
+					color: "var(--color-ocean, #e17055)",
+					icon: trait.icon,
+				})),
+			},
 		},
 		{
-			title: "Take Your Time",
+			title: "Enneagram Core Motivations",
 			content:
-				"Take your time with each scenario, consider the options carefully, and choose what feels most authentic to you.",
-			image: sceneImages[3],
+				"Uncover the deepest fears and desires that drive your behavior across nine personality types:",
+			image: sceneImages[3] || "/scene/d2s1.png",
+			details: {
+				framework: "Enneagram",
+				traits: frameworks.enneagram.traits.map((trait) => ({
+					key: trait.key,
+					name: trait.name,
+					description: trait.desc,
+					color: "var(--color-enneagram, #fdcb6e)",
+					icon: trait.icon,
+				})),
+			},
+		},
+		{
+			title: "Ready to Begin?",
+			content:
+				"No right or wrong answers - choose what feels natural to you. Your authentic responses create your unique personality profile.",
+			image: sceneImages[4] || "/scene/d2s2.png",
+			details: null,
 		},
 	];
 
@@ -94,7 +291,7 @@ export function GameIntro({
 						/>
 					</div>
 
-					<div className="relative h-48 overflow-hidden sm:h-56 md:h-64 lg:h-80">
+					<div className="relative h-32 overflow-hidden sm:h-40 md:h-48">
 						<Image
 							src={introSteps[currentStep]?.image || "/scene/d1s1.png"}
 							alt={introSteps[currentStep]?.title || "Game intro"}
@@ -118,37 +315,64 @@ export function GameIntro({
 						)}
 					</div>
 
-					<div className="p-4 md:p-6 lg:p-8">
+					<div className="p-3 md:p-4 lg:p-6">
 						<h1 className="mb-3 font-bold text-2xl text-white leading-tight md:mb-4 md:text-3xl lg:text-[40px]">
 							{introSteps[currentStep]?.title || "Welcome!"}
 						</h1>
 
-						<div className="mb-6 space-y-4 md:mb-8 md:space-y-6">
-							<p className="text-base text-white/90 leading-relaxed md:text-lg">
+						<div className="mb-4 space-y-3 md:mb-5 md:space-y-4">
+							<p className="text-sm text-white/90 leading-relaxed md:text-base">
 								{introSteps[currentStep]?.content ||
 									"Welcome to your personality journey!"}
 							</p>
 
-							<div className="grid grid-cols-3 gap-2 md:gap-3">
-								<div className="rounded-lg bg-[var(--color-primary-light)] p-3 text-center md:p-4">
-									<span className="mb-1 block text-xl md:text-2xl">🧠</span>
-									<p className="font-semibold text-white text-xs md:text-sm">
-										Behavioral Style
-									</p>
+							{/* Framework Details - Show when available */}
+							{introSteps[currentStep]?.details ? (
+								<div className="space-y-2">
+									<div className="grid grid-cols-2 gap-2 md:gap-3">
+										{introSteps[currentStep].details.traits.map((trait) => (
+											<div
+												key={trait.key}
+												className="rounded-lg bg-white/10 p-2 md:p-3"
+											>
+												<div className="mb-1 flex items-center gap-2">
+													<span className="text-sm md:text-base">
+														{trait.icon}
+													</span>
+													<h4 className="font-bold text-white text-xs md:text-sm">
+														{trait.key} - {trait.name}
+													</h4>
+												</div>
+												<p className="text-white/80 text-xs leading-relaxed">
+													{trait.description}
+												</p>
+											</div>
+										))}
+									</div>
 								</div>
-								<div className="rounded-lg bg-[var(--color-accent)] p-3 text-center md:p-4">
-									<span className="mb-1 block text-xl md:text-2xl">🌊</span>
-									<p className="font-semibold text-white text-xs md:text-sm">
-										Character Traits
-									</p>
+							) : (
+								/* Overview cards for welcome and final steps */
+								<div className="grid grid-cols-3 gap-2">
+									<div className="rounded-lg bg-[var(--color-primary-light)] p-2 text-center md:p-3">
+										<span className="mb-1 block text-lg md:text-xl">🧠</span>
+										<p className="font-semibold text-white text-xs">
+											DISC Style
+										</p>
+									</div>
+									<div className="rounded-lg bg-[var(--color-accent)] p-2 text-center md:p-3">
+										<span className="mb-1 block text-lg md:text-xl">🌊</span>
+										<p className="font-semibold text-white text-xs">
+											OCEAN Traits
+										</p>
+									</div>
+									<div className="rounded-lg bg-[var(--color-success)] p-2 text-center md:p-3">
+										<span className="mb-1 block text-lg md:text-xl">⭐</span>
+										<p className="font-semibold text-white text-xs">
+											Enneagram
+										</p>
+									</div>
 								</div>
-								<div className="rounded-lg bg-[var(--color-success)] p-3 text-center md:p-4">
-									<span className="mb-1 block text-xl md:text-2xl">⭐</span>
-									<p className="font-semibold text-white text-xs md:text-sm">
-										Core Motivations
-									</p>
-								</div>
-							</div>
+							)}
 						</div>
 
 						<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

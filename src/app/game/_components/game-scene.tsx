@@ -4,6 +4,7 @@ import type { Choice, Deltas, Scene } from "@/types/game";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { InlineAudioPlayer } from "./inline-audio-player";
 
 interface GameSceneProps {
 	scene: Scene;
@@ -136,9 +137,21 @@ export function GameScene({
 						{/* Scene content - Bottom on mobile, right on desktop */}
 						<div className="order-2 space-y-4 md:order-2 md:space-y-6">
 							<div>
-								<h1 className="mb-3 font-bold text-[var(--color-rpg-gold)] text-xl md:mb-4 md:text-2xl lg:text-3xl">
-									{scene.title.split(":")[1]}
-								</h1>
+								<div className="mb-3 md:mb-4">
+									<h1 className="font-bold text-[var(--color-rpg-gold)] text-xl md:text-2xl lg:text-3xl">
+										{scene.title.split(":")[1]}
+									</h1>
+									<InlineAudioPlayer
+										text={`${scene.title}. ${scene.description.join(" ")} What do you do? Your choices are: ${scene.choices.map((choice, index) => `Option ${String.fromCharCode(65 + index)}: ${choice.text.split(". ")[1]?.trim() || choice.text}`).join(". ")}.`}
+										ttsConfig={{
+											endpoint: "/api/tts",
+											voice: "en-US",
+											speed: 1.0,
+											pitch: 1.0,
+										}}
+										className="mt-2"
+									/>
+								</div>
 
 								<div className="space-y-2 md:space-y-4">
 									{scene.description.map((paragraph, index) => (
@@ -198,6 +211,7 @@ export function GameScene({
 					</div>
 				</div>
 			</div>
+
 		</div>
 	);
 }
