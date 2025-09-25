@@ -56,7 +56,7 @@ export function GameAudioPlayer({
 			audio.removeEventListener("ended", handleEnded);
 			audio.removeEventListener("loadstart", handleLoadStart);
 		};
-	}, [audioSrc]);
+	}, []);
 
 	useEffect(() => {
 		if (audioRef.current) {
@@ -79,12 +79,23 @@ export function GameAudioPlayer({
 		}
 	};
 
-	const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+	const handleSeek = (
+		e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>,
+	) => {
 		const audio = audioRef.current;
 		if (!audio || duration === 0) return;
 
 		const rect = e.currentTarget.getBoundingClientRect();
-		const x = e.clientX - rect.left;
+		let x: number;
+
+		if ("clientX" in e) {
+			// MouseEvent
+			x = e.clientX - rect.left;
+		} else {
+			// KeyboardEvent - seek to middle
+			x = rect.width / 2;
+		}
+
 		const percentage = x / rect.width;
 		const newTime = percentage * duration;
 
@@ -104,7 +115,9 @@ export function GameAudioPlayer({
 		<div
 			className={`rpg-card bg-[var(--color-primary-light)]/20 p-3 md:p-4 ${className}`}
 		>
-			<audio ref={audioRef} src={audioSrc} preload="metadata" />
+			<audio ref={audioRef} src={audioSrc} preload="metadata">
+				<track kind="captions" srcLang="en" label="English" />
+			</audio>
 
 			{/* Header */}
 			<div className="mb-3 flex items-center justify-between">
@@ -132,6 +145,7 @@ export function GameAudioPlayer({
 							fill="currentColor"
 							viewBox="0 0 20 20"
 						>
+							<title>Volume icon</title>
 							<path
 								fillRule="evenodd"
 								d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.818L4.936 14H2a1 1 0 01-1-1V7a1 1 0 011-1h2.936l3.447-2.818a1 1 0 011.617.818zm0 0a1 1 0 01.894.553l2.991 5.98a.869.869 0 01.02.037l.99 1.98A1 1 0 0113.2 13.4L11.73 10.62a1 1 0 00-1.664.062 5.963 5.963 0 01-1.064-6.587z"
@@ -171,6 +185,7 @@ export function GameAudioPlayer({
 							fill="none"
 							viewBox="0 0 24 24"
 						>
+							<title>Loading</title>
 							<circle
 								className="opacity-25"
 								cx="12"
@@ -191,6 +206,7 @@ export function GameAudioPlayer({
 							fill="currentColor"
 							viewBox="0 0 20 20"
 						>
+							<title>Pause</title>
 							<path
 								fillRule="evenodd"
 								d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"
@@ -203,6 +219,7 @@ export function GameAudioPlayer({
 							fill="currentColor"
 							viewBox="0 0 20 20"
 						>
+							<title>Play</title>
 							<path
 								fillRule="evenodd"
 								d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
@@ -217,6 +234,17 @@ export function GameAudioPlayer({
 					<div
 						className="group mb-1 h-2 cursor-pointer rounded-full bg-[var(--color-primary)]/30 md:h-3"
 						onClick={handleSeek}
+						onKeyDown={(e) => {
+							if (e.key === "Enter" || e.key === " ") {
+								handleSeek(e);
+							}
+						}}
+						tabIndex={0}
+						role="slider"
+						aria-label="Seek audio"
+						aria-valuemin={0}
+						aria-valuemax={duration}
+						aria-valuenow={currentTime}
 					>
 						<div
 							className="h-full rounded-full bg-[var(--color-rpg-gold)] transition-all group-hover:bg-[var(--color-rpg-gold)]/80"
@@ -237,7 +265,10 @@ export function GameAudioPlayer({
 					<div className="flex gap-1">
 						{[...Array(3)].map((_, i) => (
 							<div
-								key={i}
+								key={`pulse-dot-${
+									// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+									i
+								}`}
 								className="h-1 w-1 animate-pulse rounded-full bg-[var(--color-rpg-gold)]"
 								style={{ animationDelay: `${i * 0.2}s` }}
 							/>

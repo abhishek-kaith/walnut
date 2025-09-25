@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface TTSConfig {
 	endpoint: string;
@@ -16,7 +16,13 @@ interface InlineAudioPlayerProps {
 	className?: string;
 }
 
-type AudioState = "idle" | "fetching" | "loading" | "playing" | "paused" | "error";
+type AudioState =
+	| "idle"
+	| "fetching"
+	| "loading"
+	| "playing"
+	| "paused"
+	| "error";
 
 export function InlineAudioPlayer({
 	text,
@@ -31,7 +37,8 @@ export function InlineAudioPlayer({
 	const [audioUrl, setAudioUrl] = useState<string | null>(null);
 	const [error, setError] = useState<string | null>(null);
 	const [usingWebSpeech, setUsingWebSpeech] = useState(false);
-	const [speechUtterance, setSpeechUtterance] = useState<SpeechSynthesisUtterance | null>(null);
+	const [speechUtterance, setSpeechUtterance] =
+		useState<SpeechSynthesisUtterance | null>(null);
 	const [playbackRate, setPlaybackRate] = useState(1.0);
 	const previousRateRef = useRef(1.0);
 
@@ -58,7 +65,7 @@ export function InlineAudioPlayer({
 			};
 
 			if (ttsConfig.apiKey) {
-				headers["Authorization"] = `Bearer ${ttsConfig.apiKey}`;
+				headers.Authorization = `Bearer ${ttsConfig.apiKey}`;
 			}
 
 			const response = await fetch(ttsConfig.endpoint, {
@@ -92,14 +99,14 @@ export function InlineAudioPlayer({
 	};
 
 	// Web Speech API Fallback
-	const useWebSpeechAPI = async (): Promise<void> => {
-		if (!('speechSynthesis' in window)) {
+	const useWebSpeechAPI = useCallback(async (): Promise<void> => {
+		if (!("speechSynthesis" in window)) {
 			throw new Error("Web Speech API not supported");
 		}
 
 		// Cancel any ongoing speech
 		window.speechSynthesis.cancel();
-		
+
 		setUsingWebSpeech(true);
 		setAudioState("loading");
 		setError(null);
@@ -107,57 +114,74 @@ export function InlineAudioPlayer({
 		// Wait for voices to load if needed
 		const getVoices = () => window.speechSynthesis.getVoices();
 		let voices = getVoices();
-		
+
 		if (voices.length === 0) {
 			// Wait for voiceschanged event
 			await new Promise<void>((resolve) => {
 				const handleVoicesChanged = () => {
 					voices = getVoices();
 					if (voices.length > 0) {
-						window.speechSynthesis.removeEventListener('voiceschanged', handleVoicesChanged);
+						window.speechSynthesis.removeEventListener(
+							"voiceschanged",
+							handleVoicesChanged,
+						);
 						resolve();
 					}
 				};
-				window.speechSynthesis.addEventListener('voiceschanged', handleVoicesChanged);
-				
+				window.speechSynthesis.addEventListener(
+					"voiceschanged",
+					handleVoicesChanged,
+				);
+
 				// Fallback timeout
 				setTimeout(() => {
-					window.speechSynthesis.removeEventListener('voiceschanged', handleVoicesChanged);
+					window.speechSynthesis.removeEventListener(
+						"voiceschanged",
+						handleVoicesChanged,
+					);
 					resolve();
 				}, 1000);
 			});
 		}
 
 		const utterance = new SpeechSynthesisUtterance(text);
-		utterance.rate = Math.max(0.1, Math.min(10, playbackRate * (ttsConfig?.speed || 1.0)));
+		utterance.rate = Math.max(
+			0.1,
+			Math.min(10, playbackRate * (ttsConfig?.speed || 1.0)),
+		);
 		utterance.pitch = Math.max(0, Math.min(2, ttsConfig?.pitch || 1.0));
 		utterance.volume = 1.0;
-		
+
 		// Try to use a specific voice if available
 		voices = getVoices();
-		const preferredVoice = voices.find(voice => 
-			voice.lang.startsWith('en') && (voice.name.includes('Neural') || voice.name.includes('Premium'))
-		) || voices.find(voice => voice.lang.startsWith('en')) || voices[0];
-		
+		const preferredVoice =
+			voices.find(
+				(voice) =>
+					voice.lang.startsWith("en") &&
+					(voice.name.includes("Neural") || voice.name.includes("Premium")),
+			) ||
+			voices.find((voice) => voice.lang.startsWith("en")) ||
+			voices[0];
+
 		if (preferredVoice) {
 			utterance.voice = preferredVoice;
-			console.log('Using voice:', preferredVoice.name);
+			console.log("Using voice:", preferredVoice.name);
 		}
 
 		utterance.onstart = () => {
-			console.log('Speech started');
+			console.log("Speech started");
 			setAudioState("playing");
 		};
 
 		utterance.onend = () => {
-			console.log('Speech ended');
+			console.log("Speech ended");
 			setAudioState("idle");
 			setUsingWebSpeech(false);
 			setSpeechUtterance(null);
 		};
 
 		utterance.onerror = (event) => {
-			console.error('Speech synthesis error:', event);
+			console.error("Speech synthesis error:", event);
 			setAudioState("error");
 			setError(`Speech failed: ${event.error}`);
 			setUsingWebSpeech(false);
@@ -165,28 +189,28 @@ export function InlineAudioPlayer({
 		};
 
 		utterance.onpause = () => {
-			console.log('Speech paused');
+			console.log("Speech paused");
 			setAudioState("paused");
 		};
 
 		utterance.onresume = () => {
-			console.log('Speech resumed');
+			console.log("Speech resumed");
 			setAudioState("playing");
 		};
 
 		setSpeechUtterance(utterance);
 
 		try {
-			console.log('Starting speech synthesis');
+			console.log("Starting speech synthesis");
 			window.speechSynthesis.speak(utterance);
 		} catch (error) {
-			console.error('Speech synthesis failed:', error);
+			console.error("Speech synthesis failed:", error);
 			setAudioState("error");
 			setError("Failed to start speech synthesis");
 			setUsingWebSpeech(false);
 			setSpeechUtterance(null);
 		}
-	};
+	}, [text, playbackRate, ttsConfig]);
 
 	// Audio event handlers
 	useEffect(() => {
@@ -237,30 +261,36 @@ export function InlineAudioPlayer({
 			audio.removeEventListener("canplay", handleCanPlay);
 			audio.removeEventListener("error", handleError);
 		};
-	}, [audioUrl, audioState]);
+	}, [audioState]);
 
 	// Playback rate control
 	useEffect(() => {
 		if (audioRef.current) {
 			audioRef.current.playbackRate = playbackRate;
 		}
-		
+
 		// For Web Speech API, we need to restart speech with new rate
-		if (usingWebSpeech && audioState === "playing" && previousRateRef.current !== playbackRate) {
-			console.log(`Changing Web Speech rate from ${previousRateRef.current} to ${playbackRate}`);
+		if (
+			usingWebSpeech &&
+			audioState === "playing" &&
+			previousRateRef.current !== playbackRate
+		) {
+			console.log(
+				`Changing Web Speech rate from ${previousRateRef.current} to ${playbackRate}`,
+			);
 			window.speechSynthesis.cancel();
 			// Small delay to ensure cancellation completes
 			setTimeout(async () => {
 				try {
 					await useWebSpeechAPI();
 				} catch (error) {
-					console.error('Failed to restart speech with new rate:', error);
+					console.error("Failed to restart speech with new rate:", error);
 				}
 			}, 100);
 		}
-		
+
 		previousRateRef.current = playbackRate;
-	}, [playbackRate, usingWebSpeech, audioState]);
+	}, [playbackRate, usingWebSpeech, audioState, useWebSpeechAPI]);
 
 	// Auto-expand when playing starts, auto-collapse after inactivity
 	useEffect(() => {
@@ -273,7 +303,11 @@ export function InlineAudioPlayer({
 		if (!isExpanded) return;
 
 		const timer = setTimeout(() => {
-			if (audioState !== "playing" && audioState !== "loading" && audioState !== "fetching") {
+			if (
+				audioState !== "playing" &&
+				audioState !== "loading" &&
+				audioState !== "fetching"
+			) {
 				setIsExpanded(false);
 			}
 		}, 8000);
@@ -348,12 +382,23 @@ export function InlineAudioPlayer({
 		}
 	};
 
-	const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+	const handleSeek = (
+		e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>,
+	) => {
 		const audio = audioRef.current;
 		if (!audio || duration === 0) return;
 
 		const rect = e.currentTarget.getBoundingClientRect();
-		const x = e.clientX - rect.left;
+		let x: number;
+
+		if ("clientX" in e) {
+			// MouseEvent
+			x = e.clientX - rect.left;
+		} else {
+			// KeyboardEvent - seek to middle
+			x = rect.width / 2;
+		}
+
 		const percentage = x / rect.width;
 		const newTime = percentage * duration;
 
@@ -373,7 +418,13 @@ export function InlineAudioPlayer({
 		switch (audioState) {
 			case "fetching":
 				return (
-					<svg className="w-6 h-6 animate-spin" fill="none" viewBox="0 0 24 24">
+					<svg
+						className="h-6 w-6 animate-spin"
+						fill="none"
+						viewBox="0 0 24 24"
+						aria-label="Loading"
+					>
+						<title>Loading</title>
 						<circle
 							className="opacity-25"
 							cx="12"
@@ -391,13 +442,25 @@ export function InlineAudioPlayer({
 				);
 			case "loading":
 				return (
-					<svg className="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-						<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+					<svg
+						className="h-6 w-6 animate-pulse"
+						fill="currentColor"
+						viewBox="0 0 24 24"
+						aria-label="Loading audio"
+					>
+						<title>Loading audio</title>
+						<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
 					</svg>
 				);
 			case "playing":
 				return (
-					<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+					<svg
+						className="h-6 w-6"
+						fill="currentColor"
+						viewBox="0 0 20 20"
+						aria-label="Pause"
+					>
+						<title>Pause</title>
 						<path
 							fillRule="evenodd"
 							d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"
@@ -407,7 +470,13 @@ export function InlineAudioPlayer({
 				);
 			case "error":
 				return (
-					<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+					<svg
+						className="h-6 w-6"
+						fill="currentColor"
+						viewBox="0 0 20 20"
+						aria-label="Error"
+					>
+						<title>Error</title>
 						<path
 							fillRule="evenodd"
 							d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
@@ -417,8 +486,14 @@ export function InlineAudioPlayer({
 				);
 			default:
 				return (
-					<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-						<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+					<svg
+						className="h-6 w-6"
+						fill="currentColor"
+						viewBox="0 0 24 24"
+						aria-label="Play"
+					>
+						<title>Play</title>
+						<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
 					</svg>
 				);
 		}
@@ -441,8 +516,12 @@ export function InlineAudioPlayer({
 
 	return (
 		<div className={`flex items-center gap-2 ${className}`}>
-			{audioUrl && <audio ref={audioRef} src={audioUrl} preload="metadata" />}
-			
+			{audioUrl && (
+				<audio ref={audioRef} src={audioUrl} preload="metadata">
+					<track kind="captions" srcLang="en" label="English" />
+				</audio>
+			)}
+
 			{/* Audio Icon Button */}
 			<button
 				onClick={() => {
@@ -457,19 +536,19 @@ export function InlineAudioPlayer({
 					}
 				}}
 				disabled={audioState === "fetching" || audioState === "loading"}
-				className={`flex items-center justify-center p-2 rounded-lg transition-all hover:scale-105 ${getStateColor()} disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100`}
+				className={`flex items-center justify-center rounded-lg p-2 transition-all hover:scale-105 ${getStateColor()} disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100`}
 				title={
-					audioState === "idle" || audioState === "error" 
+					audioState === "idle" || audioState === "error"
 						? "Play scene narration"
-						: audioState === "playing" 
-						? "Pause narration"
-						: audioState === "paused"
-						? "Resume narration"
-						: audioState === "fetching"
-						? "Loading audio..."
-						: audioState === "loading"
-						? "Preparing audio..."
-						: "Listen to scene narration"
+						: audioState === "playing"
+							? "Pause narration"
+							: audioState === "paused"
+								? "Resume narration"
+								: audioState === "fetching"
+									? "Loading audio..."
+									: audioState === "loading"
+										? "Preparing audio..."
+										: "Listen to scene narration"
 				}
 			>
 				{getStateIcon()}
@@ -477,11 +556,11 @@ export function InlineAudioPlayer({
 
 			{/* Expanded Controls */}
 			{isExpanded && (
-				<div className="flex items-center gap-2 ml-1">
+				<div className="ml-1 flex items-center gap-2">
 					<button
 						onClick={handlePlayPause}
 						disabled={audioState === "fetching" || audioState === "loading"}
-						className={`p-1 rounded transition-colors ${getStateColor()} disabled:opacity-50`}
+						className={`rounded p-1 transition-colors ${getStateColor()} disabled:opacity-50`}
 					>
 						{audioState === "playing" ? "Pause" : "Play"}
 					</button>
@@ -489,19 +568,30 @@ export function InlineAudioPlayer({
 					{/* Progress Controls - Only for TTS Audio */}
 					{audioUrl && !usingWebSpeech && (
 						<>
-							<span className="text-xs text-gray-400 min-w-[2rem]">
+							<span className="min-w-[2rem] text-gray-400 text-xs">
 								{formatTime(currentTime)}
 							</span>
 							<div
 								className="group h-1 w-16 cursor-pointer rounded-full bg-white/20"
 								onClick={handleSeek}
+								onKeyDown={(e) => {
+									if (e.key === "Enter" || e.key === " ") {
+										handleSeek(e);
+									}
+								}}
+								tabIndex={0}
+								role="slider"
+								aria-label="Seek audio"
+								aria-valuemin={0}
+								aria-valuemax={duration}
+								aria-valuenow={currentTime}
 							>
 								<div
 									className="h-full rounded-full bg-[var(--color-rpg-gold)] transition-all group-hover:bg-[var(--color-rpg-gold)]/80"
 									style={{ width: `${progressPercentage}%` }}
 								/>
 							</div>
-							<span className="text-xs text-gray-400 min-w-[2rem]">
+							<span className="min-w-[2rem] text-gray-400 text-xs">
 								{duration > 0 ? formatTime(duration) : "--:--"}
 							</span>
 						</>
@@ -509,16 +599,16 @@ export function InlineAudioPlayer({
 
 					{/* Speed Control - Works for both TTS and Web Speech */}
 					<div className="flex items-center gap-1">
-						<span className="text-xs text-gray-400">Speed:</span>
-						<div className="flex bg-white/10 rounded-md">
+						<span className="text-gray-400 text-xs">Speed:</span>
+						<div className="flex rounded-md bg-white/10">
 							{[0.5, 1.0, 2.0].map((rate) => (
 								<button
 									key={rate}
 									onClick={() => setPlaybackRate(rate)}
-									className={`px-2 py-1 text-xs rounded transition-colors ${
+									className={`rounded px-2 py-1 text-xs transition-colors ${
 										playbackRate === rate
-											? 'bg-[var(--color-rpg-gold)] text-black'
-											: 'text-gray-300 hover:text-white hover:bg-white/10'
+											? "bg-[var(--color-rpg-gold)] text-black"
+											: "text-gray-300 hover:bg-white/10 hover:text-white"
 									}`}
 								>
 									{rate}x
@@ -528,11 +618,14 @@ export function InlineAudioPlayer({
 					</div>
 
 					{usingWebSpeech && (
-						<span className="text-xs text-gray-400">Using browser speech</span>
+						<span className="text-gray-400 text-xs">Using browser speech</span>
 					)}
 
 					{error && (
-						<span className="text-xs text-red-400 truncate max-w-32" title={error}>
+						<span
+							className="max-w-32 truncate text-red-400 text-xs"
+							title={error}
+						>
 							{error}
 						</span>
 					)}

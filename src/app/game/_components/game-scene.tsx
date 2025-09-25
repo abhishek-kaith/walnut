@@ -145,7 +145,7 @@ export function GameScene({
 										text={`${scene.title}. ${scene.description.join(" ")} What do you do? Your choices are: ${scene.choices.map((choice, index) => `Option ${String.fromCharCode(65 + index)}: ${choice.text.split(". ")[1]?.trim() || choice.text}`).join(". ")}.`}
 										ttsConfig={{
 											endpoint: "/api/tts",
-											voice: "en-US",
+											voice: "Joanna",
 											speed: 1.0,
 											pitch: 1.0,
 										}}
@@ -211,7 +211,6 @@ export function GameScene({
 					</div>
 				</div>
 			</div>
-
 		</div>
 	);
 }
