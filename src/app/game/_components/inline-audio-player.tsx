@@ -1,429 +1,405 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-
-interface TTSConfig {
-	endpoint: string;
-	apiKey?: string;
-	voice?: string;
-	speed?: number;
-	pitch?: number;
-}
+import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
+import { useEffect, useRef, useState } from "react";
 
 interface InlineAudioPlayerProps {
 	text: string;
-	ttsConfig?: TTSConfig;
+	voice?: string;
 	className?: string;
+	onTextChange?: (newText: string) => void;
 }
 
-type AudioState =
-	| "idle"
-	| "fetching"
-	| "loading"
-	| "playing"
-	| "paused"
-	| "error";
+type AudioState = "idle" | "loading" | "playing" | "paused" | "error";
+type AudioSource = "elevenlabs" | "webspeech" | null;
 
 export function InlineAudioPlayer({
 	text,
-	ttsConfig,
+	voice = "21m00Tcm4TlvDq8ikWAM",
 	className = "",
+	onTextChange,
 }: InlineAudioPlayerProps) {
-	const audioRef = useRef<HTMLAudioElement>(null);
 	const [audioState, setAudioState] = useState<AudioState>("idle");
-	const [isExpanded, setIsExpanded] = useState(false);
-	const [duration, setDuration] = useState(0);
-	const [currentTime, setCurrentTime] = useState(0);
-	const [audioUrl, setAudioUrl] = useState<string | null>(null);
 	const [error, setError] = useState<string | null>(null);
-	const [usingWebSpeech, setUsingWebSpeech] = useState(false);
-	const [speechUtterance, setSpeechUtterance] =
-		useState<SpeechSynthesisUtterance | null>(null);
-	const [playbackRate, setPlaybackRate] = useState(1.0);
-	const previousRateRef = useRef(1.0);
+	const [currentAudioSource, setCurrentAudioSource] =
+		useState<AudioSource>(null);
+	const previousTextRef = useRef(text);
+	const speechUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+	const audioRef = useRef<HTMLAudioElement | null>(null);
 
-	// TTS API Integration
-	const fetchTTSAudio = async (): Promise<string> => {
-		if (!text || !ttsConfig) {
-			throw new Error("No text or TTS config provided");
+	// Initialize audio element
+	useEffect(() => {
+		if (!audioRef.current) {
+			audioRef.current = new Audio();
+		}
+	}, []);
+
+	// Stop all audio on scene change
+	useEffect(() => {
+		if (previousTextRef.current !== text) {
+			// Stop any playing audio
+			stopAllAudio();
+
+			window.scrollTo({ top: 0, behavior: "smooth" });
+			previousTextRef.current = text;
+			setAudioState("idle");
+			setError(null);
+			setCurrentAudioSource(null);
+
+			if (onTextChange) {
+				onTextChange(text);
+			}
+		}
+	}, [text, onTextChange]);
+
+	const stopAllAudio = () => {
+		// Stop Web Speech API
+		if (window.speechSynthesis) {
+			window.speechSynthesis.cancel();
+		}
+		speechUtteranceRef.current = null;
+
+		// Stop HTML Audio element
+		if (audioRef.current) {
+			audioRef.current.pause();
+			audioRef.current.currentTime = 0;
+			audioRef.current.src = "";
 		}
 
-		setAudioState("fetching");
-		setError(null);
-
-		try {
-			const requestBody = {
-				text,
-				voice: ttsConfig.voice || "en-US-AriaNeural",
-				speed: ttsConfig.speed || 1.0,
-				pitch: ttsConfig.pitch || 1.0,
-				format: "mp3",
-			};
-
-			const headers: Record<string, string> = {
-				"Content-Type": "application/json",
-			};
-
-			if (ttsConfig.apiKey) {
-				headers.Authorization = `Bearer ${ttsConfig.apiKey}`;
-			}
-
-			const response = await fetch(ttsConfig.endpoint, {
-				method: "POST",
-				headers,
-				body: JSON.stringify(requestBody),
-			});
-
-			if (!response.ok) {
-				throw new Error(
-					`TTS API error: ${response.status} ${response.statusText}`,
-				);
-			}
-
-			const contentType = response.headers.get("content-type");
-			if (contentType?.includes("application/json")) {
-				const errorData = await response.json();
-				throw new Error(errorData.message || "TTS API returned an error");
-			}
-
-			const audioBlob = await response.blob();
-			const audioUrl = URL.createObjectURL(audioBlob);
-			return audioUrl;
-		} catch (error) {
-			setAudioState("error");
-			const errorMessage =
-				error instanceof Error ? error.message : "Failed to fetch audio";
-			setError(errorMessage);
-			throw error;
-		}
+		setCurrentAudioSource(null);
 	};
 
-	// Web Speech API Fallback
-	const useWebSpeechAPI = useCallback(async (): Promise<void> => {
-		if (!("speechSynthesis" in window)) {
-			throw new Error("Web Speech API not supported");
-		}
-
-		// Cancel any ongoing speech
-		window.speechSynthesis.cancel();
-
-		setUsingWebSpeech(true);
-		setAudioState("loading");
-		setError(null);
-
-		// Wait for voices to load if needed
-		const getVoices = () => window.speechSynthesis.getVoices();
-		let voices = getVoices();
-
-		if (voices.length === 0) {
-			// Wait for voiceschanged event
-			await new Promise<void>((resolve) => {
-				const handleVoicesChanged = () => {
-					voices = getVoices();
-					if (voices.length > 0) {
-						window.speechSynthesis.removeEventListener(
-							"voiceschanged",
-							handleVoicesChanged,
-						);
-						resolve();
-					}
-				};
-				window.speechSynthesis.addEventListener(
-					"voiceschanged",
-					handleVoicesChanged,
-				);
-
-				// Fallback timeout
-				setTimeout(() => {
-					window.speechSynthesis.removeEventListener(
-						"voiceschanged",
-						handleVoicesChanged,
-					);
-					resolve();
-				}, 1000);
-			});
-		}
-
-		const utterance = new SpeechSynthesisUtterance(text);
-		utterance.rate = Math.max(
-			0.1,
-			Math.min(10, playbackRate * (ttsConfig?.speed || 1.0)),
-		);
-		utterance.pitch = Math.max(0, Math.min(2, ttsConfig?.pitch || 1.0));
-		utterance.volume = 1.0;
-
-		// Try to use a specific voice if available
-		voices = getVoices();
-		const preferredVoice =
-			voices.find(
-				(voice) =>
-					voice.lang.startsWith("en") &&
-					(voice.name.includes("Neural") || voice.name.includes("Premium")),
-			) ||
-			voices.find((voice) => voice.lang.startsWith("en")) ||
-			voices[0];
-
-		if (preferredVoice) {
-			utterance.voice = preferredVoice;
-			console.log("Using voice:", preferredVoice.name);
-		}
-
-		utterance.onstart = () => {
-			console.log("Speech started");
-			setAudioState("playing");
-		};
-
-		utterance.onend = () => {
-			console.log("Speech ended");
-			setAudioState("idle");
-			setUsingWebSpeech(false);
-			setSpeechUtterance(null);
-		};
-
-		utterance.onerror = (event) => {
-			console.error("Speech synthesis error:", event);
-			setAudioState("error");
-			setError(`Speech failed: ${event.error}`);
-			setUsingWebSpeech(false);
-			setSpeechUtterance(null);
-		};
-
-		utterance.onpause = () => {
-			console.log("Speech paused");
-			setAudioState("paused");
-		};
-
-		utterance.onresume = () => {
-			console.log("Speech resumed");
-			setAudioState("playing");
-		};
-
-		setSpeechUtterance(utterance);
-
-		try {
-			console.log("Starting speech synthesis");
-			window.speechSynthesis.speak(utterance);
-		} catch (error) {
-			console.error("Speech synthesis failed:", error);
-			setAudioState("error");
-			setError("Failed to start speech synthesis");
-			setUsingWebSpeech(false);
-			setSpeechUtterance(null);
-		}
-	}, [text, playbackRate, ttsConfig]);
-
-	// Audio event handlers
+	// Set up audio element event listeners
 	useEffect(() => {
 		const audio = audioRef.current;
 		if (!audio) return;
 
-		const handleLoadedMetadata = () => {
-			setDuration(audio.duration);
-			setAudioState("paused");
+		const handlePlay = () => {
+			if (currentAudioSource === "elevenlabs") {
+				setAudioState("playing");
+			}
 		};
 
-		const handleTimeUpdate = () => {
-			setCurrentTime(audio.currentTime);
+		const handlePause = () => {
+			if (currentAudioSource === "elevenlabs") {
+				setAudioState("paused");
+			}
 		};
 
 		const handleEnded = () => {
-			setAudioState("paused");
-			setCurrentTime(0);
-		};
-
-		const handleLoadStart = () => {
-			setAudioState("loading");
-		};
-
-		const handleCanPlay = () => {
-			if (audioState === "loading") {
-				setAudioState("paused");
+			if (currentAudioSource === "elevenlabs") {
+				setAudioState("idle");
+				setCurrentAudioSource(null);
 			}
 		};
 
 		const handleError = () => {
-			setAudioState("error");
-			setError("Failed to load audio");
+			if (currentAudioSource === "elevenlabs") {
+				setAudioState("error");
+				setError("Audio playback failed");
+				setCurrentAudioSource(null);
+			}
 		};
 
-		audio.addEventListener("loadedmetadata", handleLoadedMetadata);
-		audio.addEventListener("timeupdate", handleTimeUpdate);
+		audio.addEventListener("play", handlePlay);
+		audio.addEventListener("pause", handlePause);
 		audio.addEventListener("ended", handleEnded);
-		audio.addEventListener("loadstart", handleLoadStart);
-		audio.addEventListener("canplay", handleCanPlay);
 		audio.addEventListener("error", handleError);
 
 		return () => {
-			audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
-			audio.removeEventListener("timeupdate", handleTimeUpdate);
+			audio.removeEventListener("play", handlePlay);
+			audio.removeEventListener("pause", handlePause);
 			audio.removeEventListener("ended", handleEnded);
-			audio.removeEventListener("loadstart", handleLoadStart);
-			audio.removeEventListener("canplay", handleCanPlay);
 			audio.removeEventListener("error", handleError);
 		};
-	}, [audioState]);
+	}, [currentAudioSource]);
 
-	// Playback rate control
-	useEffect(() => {
-		if (audioRef.current) {
-			audioRef.current.playbackRate = playbackRate;
+	const fetchElevenLabsAudio = async (): Promise<void> => {
+		console.log("Trying ElevenLabs real-time streaming...");
+
+		try {
+			const elevenlabs = new ElevenLabsClient({
+				apiKey: "sk_c5a5a0be1cfe47c60dcaf2c598c77962a12332534109ccff",
+			});
+
+			// Use textToSpeech.stream for true real-time streaming
+			const audioStream = await elevenlabs.textToSpeech.stream(voice, {
+				text: text.trim(),
+				modelId: "eleven_multilingual_v2",
+			});
+
+			// Start streaming audio chunks immediately
+			await streamAudioChunks(audioStream);
+		} catch (error) {
+			console.error("ElevenLabs streaming error:", error);
+			throw new Error("ElevenLabs streaming failed");
+		}
+	};
+
+	// Stream audio chunks in real-time using MediaSource API
+	const streamAudioChunks = async (stream: ReadableStream): Promise<void> => {
+		// Check if MediaSource is supported
+		if (!("MediaSource" in window)) {
+			console.log("MediaSource not supported, falling back to blob method");
+			return streamToBlob(stream);
 		}
 
-		// For Web Speech API, we need to restart speech with new rate
-		if (
-			usingWebSpeech &&
-			audioState === "playing" &&
-			previousRateRef.current !== playbackRate
-		) {
-			console.log(
-				`Changing Web Speech rate from ${previousRateRef.current} to ${playbackRate}`,
-			);
-			window.speechSynthesis.cancel();
-			// Small delay to ensure cancellation completes
-			setTimeout(async () => {
+		const mediaSource = new MediaSource();
+		const audioUrl = URL.createObjectURL(mediaSource);
+
+		if (!audioRef.current) return;
+
+		audioRef.current.src = audioUrl;
+		setCurrentAudioSource("elevenlabs");
+
+		return new Promise((resolve, reject) => {
+			mediaSource.addEventListener("sourceopen", async () => {
 				try {
-					await useWebSpeechAPI();
+					// Create source buffer for MP3 audio
+					const sourceBuffer = mediaSource.addSourceBuffer("audio/mpeg");
+					// let isFirstChunk = true;
+					let isPlayingStarted = false;
+					let pendingBuffer: Uint8Array[] = [];
+					const MIN_BUFFER_SIZE = 8192; // Minimum bytes before starting playback
+
+					const reader = stream.getReader();
+
+					const processChunk = async () => {
+						try {
+							const { done, value } = await reader.read();
+
+							if (done) {
+								if (mediaSource.readyState === "open") {
+									mediaSource.endOfStream();
+								}
+								resolve();
+								return;
+							}
+
+							if (value) {
+								// If not playing yet, accumulate chunks
+								if (!isPlayingStarted) {
+									pendingBuffer.push(value);
+									const totalSize = pendingBuffer.reduce(
+										(acc, chunk) => acc + chunk.length,
+										0,
+									);
+
+									// If we have enough buffer, start playback
+									if (totalSize >= MIN_BUFFER_SIZE && !sourceBuffer.updating) {
+										isPlayingStarted = true;
+										// Concatenate all pending chunks and append
+										const fullChunk = new Uint8Array(totalSize);
+										let offset = 0;
+										// biome-ignore lint/complexity/noForEach: <explanation>
+										pendingBuffer.forEach((chunk) => {
+											fullChunk.set(chunk, offset);
+											offset += chunk.length;
+										});
+										pendingBuffer = [];
+										sourceBuffer.appendBuffer(fullChunk);
+
+										// Start playing immediately
+										console.log("Starting playback with accumulated buffer");
+										setAudioState("playing"); // Clear loading state
+										setTimeout(async () => {
+											try {
+												await audioRef.current?.play();
+											} catch (e) {
+												console.log("Playback failed, continuing to buffer...");
+											}
+										}, 100);
+									}
+								} else if (!sourceBuffer.updating) {
+									// Direct streaming after playback started
+									sourceBuffer.appendBuffer(value);
+								}
+							}
+
+							// Wait for buffer to finish updating before next chunk
+							if (sourceBuffer.updating) {
+								sourceBuffer.addEventListener("updateend", processChunk, {
+									once: true,
+								});
+							} else {
+								// Process next chunk immediately
+								setTimeout(processChunk, 0);
+							}
+						} catch (error) {
+							console.error("Error processing chunk:", error);
+							reject(error);
+						}
+					};
+
+					// Start processing chunks
+					processChunk();
 				} catch (error) {
-					console.error("Failed to restart speech with new rate:", error);
+					console.error("Error setting up MediaSource:", error);
+					reject(error);
 				}
-			}, 100);
-		}
+			});
 
-		previousRateRef.current = playbackRate;
-	}, [playbackRate, usingWebSpeech, audioState, useWebSpeechAPI]);
+			mediaSource.addEventListener("error", (error) => {
+				console.error("MediaSource error:", error);
+				reject(error);
+			});
+		});
+	};
 
-	// Auto-expand when playing starts, auto-collapse after inactivity
-	useEffect(() => {
-		if (audioState === "playing" && !usingWebSpeech) {
-			setIsExpanded(true);
-		}
-	}, [audioState, usingWebSpeech]);
+	// Fallback: Convert stream to blob (for older browsers)
+	const streamToBlob = async (stream: ReadableStream): Promise<void> => {
+		console.log("Using blob fallback for streaming");
+		const reader = stream.getReader();
+		const chunks: Uint8Array[] = [];
 
-	useEffect(() => {
-		if (!isExpanded) return;
-
-		const timer = setTimeout(() => {
-			if (
-				audioState !== "playing" &&
-				audioState !== "loading" &&
-				audioState !== "fetching"
-			) {
-				setIsExpanded(false);
+		try {
+			while (true) {
+				const { done, value } = await reader.read();
+				if (done) break;
+				if (value) chunks.push(value);
 			}
-		}, 8000);
+		} finally {
+			reader.releaseLock();
+		}
 
-		return () => clearTimeout(timer);
-	}, [isExpanded, audioState]);
+		// Create blob and play
+		const audioBlob = new Blob(chunks as BlobPart[], { type: "audio/mpeg" });
+		const audioUrl = URL.createObjectURL(audioBlob);
+
+		if (audioRef.current) {
+			audioRef.current.src = audioUrl;
+			setCurrentAudioSource("elevenlabs");
+			setAudioState("playing"); // Clear loading state
+			await audioRef.current.play();
+		}
+	};
 
 	const handlePlayPause = async () => {
-		if (usingWebSpeech) {
+		if (!text?.trim()) return;
+
+		// Handle pause/resume for ElevenLabs audio
+		if (currentAudioSource === "elevenlabs" && audioRef.current) {
+			if (audioState === "playing") {
+				audioRef.current.pause();
+				return;
+			}
+			if (audioState === "paused") {
+				await audioRef.current.play();
+				return;
+			}
+		}
+
+		// Handle pause/resume for Web Speech API
+		if (currentAudioSource === "webspeech" && speechUtteranceRef.current) {
 			if (audioState === "playing") {
 				window.speechSynthesis.pause();
 				setAudioState("paused");
-			} else if (audioState === "paused") {
+				return;
+			}
+			if (audioState === "paused") {
 				window.speechSynthesis.resume();
 				setAudioState("playing");
-			} else {
-				window.speechSynthesis.cancel();
-				setUsingWebSpeech(false);
-				setAudioState("idle");
+				return;
 			}
-			return;
 		}
 
-		const audio = audioRef.current;
-
+		// Stop any currently playing audio
 		if (audioState === "playing") {
-			audio?.pause();
-			setAudioState("paused");
+			stopAllAudio();
+			setAudioState("idle");
 			return;
 		}
 
-		if (audioState === "paused" && audioUrl) {
+		// Start new audio playback
+		setAudioState("loading");
+		setError(null);
+
+		// Step 1: Try ElevenLabs API first
+		try {
+			await fetchElevenLabsAudio();
+		} catch (elevenlabsError) {
+			console.warn(
+				"ElevenLabs failed, trying Web Speech API:",
+				elevenlabsError,
+			);
+			setError("ElevenLabs failed, trying Web Speech API...");
+
+			// Step 2: Try Web Speech API as fallback
 			try {
-				await audio?.play();
-				setAudioState("playing");
-			} catch (error) {
+				await useWebSpeechAPI();
+			} catch (webSpeechError) {
+				console.error(
+					"Both ElevenLabs and Web Speech API failed:",
+					webSpeechError,
+				);
 				setAudioState("error");
-				setError("Failed to play audio");
+				setError("Both ElevenLabs and Web Speech API failed");
+				setCurrentAudioSource(null);
 			}
-			return;
+		}
+	};
+
+	const useWebSpeechAPI = async (): Promise<void> => {
+		if (!("speechSynthesis" in window)) {
+			throw new Error("Web Speech API not supported");
 		}
 
-		// Try TTS API first, fallback to Web Speech API
-		if (audioState === "idle" || audioState === "error") {
+		console.log("Using Web Speech API...");
+		setCurrentAudioSource("webspeech");
+
+		return new Promise((resolve, reject) => {
+			const utterance = new SpeechSynthesisUtterance(text.trim());
+			utterance.rate = 1.0;
+			utterance.pitch = 1.0;
+			utterance.volume = 0.8;
+
+			speechUtteranceRef.current = utterance;
+
+			utterance.onstart = () => {
+				console.log("Web Speech started");
+				setAudioState("playing");
+				setError(null);
+			};
+
+			utterance.onend = () => {
+				console.log("Web Speech ended");
+				setAudioState("idle");
+				setCurrentAudioSource(null);
+				speechUtteranceRef.current = null;
+				resolve();
+			};
+
+			utterance.onerror = (event) => {
+				console.error("Web Speech error:", event.error);
+				setAudioState("error");
+				setCurrentAudioSource(null);
+				speechUtteranceRef.current = null;
+				reject(new Error(`Web Speech API failed: ${event.error}`));
+			};
+
+			utterance.onpause = () => {
+				setAudioState("paused");
+			};
+
+			utterance.onresume = () => {
+				setAudioState("playing");
+			};
+
 			try {
-				if (ttsConfig) {
-					const newAudioUrl = await fetchTTSAudio();
-					setAudioUrl(newAudioUrl);
-
-					setTimeout(async () => {
-						try {
-							await audio?.play();
-							setAudioState("playing");
-						} catch (error) {
-							setAudioState("error");
-							setError("Failed to play audio");
-						}
-					}, 100);
-				} else {
-					await useWebSpeechAPI();
-				}
+				window.speechSynthesis.speak(utterance);
 			} catch (error) {
-				console.warn("TTS API failed, falling back to Web Speech API:", error);
-				try {
-					await useWebSpeechAPI();
-				} catch (speechError) {
-					console.error("Both TTS API and Web Speech API failed:", speechError);
-					setAudioState("error");
-					setError("Both TTS and browser speech failed");
-				}
+				setCurrentAudioSource(null);
+				speechUtteranceRef.current = null;
+				reject(error);
 			}
-		}
+		});
 	};
 
-	const handleSeek = (
-		e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>,
-	) => {
-		const audio = audioRef.current;
-		if (!audio || duration === 0) return;
-
-		const rect = e.currentTarget.getBoundingClientRect();
-		let x: number;
-
-		if ("clientX" in e) {
-			// MouseEvent
-			x = e.clientX - rect.left;
-		} else {
-			// KeyboardEvent - seek to middle
-			x = rect.width / 2;
-		}
-
-		const percentage = x / rect.width;
-		const newTime = percentage * duration;
-
-		audio.currentTime = newTime;
-		setCurrentTime(newTime);
-	};
-
-	const formatTime = (time: number): string => {
-		const minutes = Math.floor(time / 60);
-		const seconds = Math.floor(time % 60);
-		return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-	};
-
-	const progressPercentage = duration > 0 ? (currentTime / duration) * 100 : 0;
-
-	const getStateIcon = () => {
+	const getIcon = () => {
 		switch (audioState) {
-			case "fetching":
+			case "loading":
 				return (
-					<svg
-						className="h-6 w-6 animate-spin"
-						fill="none"
-						viewBox="0 0 24 24"
-						aria-label="Loading"
-					>
+					<svg className="h-5 w-5 animate-spin" fill="none" viewBox="0 0 24 24">
 						<title>Loading</title>
 						<circle
 							className="opacity-25"
@@ -440,27 +416,10 @@ export function InlineAudioPlayer({
 						/>
 					</svg>
 				);
-			case "loading":
-				return (
-					<svg
-						className="h-6 w-6 animate-pulse"
-						fill="currentColor"
-						viewBox="0 0 24 24"
-						aria-label="Loading audio"
-					>
-						<title>Loading audio</title>
-						<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-					</svg>
-				);
 			case "playing":
 				return (
-					<svg
-						className="h-6 w-6"
-						fill="currentColor"
-						viewBox="0 0 20 20"
-						aria-label="Pause"
-					>
-						<title>Pause</title>
+					<svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+						<title>Stop</title>
 						<path
 							fillRule="evenodd"
 							d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"
@@ -468,14 +427,20 @@ export function InlineAudioPlayer({
 						/>
 					</svg>
 				);
+			case "paused":
+				return (
+					<svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+						<title>Resume</title>
+						<path
+							fillRule="evenodd"
+							d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+							clipRule="evenodd"
+						/>
+					</svg>
+				);
 			case "error":
 				return (
-					<svg
-						className="h-6 w-6"
-						fill="currentColor"
-						viewBox="0 0 20 20"
-						aria-label="Error"
-					>
+					<svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
 						<title>Error</title>
 						<path
 							fillRule="evenodd"
@@ -486,14 +451,13 @@ export function InlineAudioPlayer({
 				);
 			default:
 				return (
-					<svg
-						className="h-6 w-6"
-						fill="currentColor"
-						viewBox="0 0 24 24"
-						aria-label="Play"
-					>
+					<svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
 						<title>Play</title>
-						<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+						<path
+							fillRule="evenodd"
+							d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+							clipRule="evenodd"
+						/>
 					</svg>
 				);
 		}
@@ -502,135 +466,97 @@ export function InlineAudioPlayer({
 	const getStateColor = () => {
 		switch (audioState) {
 			case "playing":
-				return "text-green-400 hover:text-green-300 bg-green-400/10 hover:bg-green-400/20 border border-green-400/20";
+				return "bg-gradient-to-br from-red-500 to-red-600 text-white hover:shadow-md hover:shadow-red-500/20"; // Red gradient for stop
+			case "paused":
+				return "bg-gradient-to-br from-blue-500 to-blue-600 text-white hover:shadow-md hover:shadow-blue-500/20"; // Blue gradient for resume
 			case "error":
-				return "text-red-400 hover:text-red-300 bg-red-400/10 hover:bg-red-400/20 border border-red-400/20";
-			case "fetching":
-				return "text-blue-400 bg-blue-400/10 border border-blue-400/20";
+				return "bg-gradient-to-br from-red-500 to-red-600 text-white hover:shadow-md hover:shadow-red-500/20";
 			case "loading":
-				return "text-[var(--color-rpg-gold)] bg-[var(--color-rpg-gold)]/10 border border-[var(--color-rpg-gold)]/20";
+				return "bg-gradient-to-br from-gray-400 to-gray-500 text-white animate-pulse";
 			default:
-				return "text-[var(--color-rpg-gold)] hover:text-[var(--color-rpg-gold)]/80 bg-[var(--color-rpg-gold)]/5 hover:bg-[var(--color-rpg-gold)]/10 border border-[var(--color-rpg-gold)]/20 hover:border-[var(--color-rpg-gold)]/40";
+				return "bg-gradient-to-br from-blue-500 to-blue-600 text-white hover:shadow-md hover:shadow-blue-500/20"; // Blue gradient for play
 		}
+	};
+
+	const getButtonTitle = () => {
+		switch (audioState) {
+			case "loading":
+				return currentAudioSource === "elevenlabs"
+					? "Starting real-time stream..."
+					: "Loading audio...";
+			case "playing":
+				return currentAudioSource === "elevenlabs"
+					? "Pause audio (Real-time Stream)"
+					: "Pause audio (Web Speech)";
+			case "paused":
+				return currentAudioSource === "elevenlabs"
+					? "Resume audio (Real-time Stream)"
+					: "Resume audio (Web Speech)";
+			case "error":
+				return "Try playing audio again";
+			default:
+				return "Play audio";
+		}
+	};
+
+	const getStatusMessage = () => {
+		if (error) {
+			return (
+				<span className="text-red-500 text-sm" title={error}>
+					{error}
+				</span>
+			);
+		}
+
+		if (audioState === "playing") {
+			const source =
+				currentAudioSource === "elevenlabs" ? "Real-time Stream" : "Web Speech";
+			return (
+				<div className="flex items-center gap-1">
+					<div className="flex gap-1">
+						{[...Array(3)].map((_, i) => {
+							const k = `kay${i}`;
+							return (
+								<div
+									key={k}
+									className="h-1 w-1 animate-pulse rounded-full bg-green-500"
+									style={{ animationDelay: `${i * 0.2}s` }}
+								/>
+							);
+						})}
+					</div>
+					<span className="text-green-500 text-sm">Playing ({source})</span>
+				</div>
+			);
+		}
+
+		if (audioState === "paused") {
+			const source =
+				currentAudioSource === "elevenlabs"
+					? "ElevenLabs Stream"
+					: "Web Speech";
+			return <span className="text-sm text-yellow-500">Paused ({source})</span>;
+		}
+
+		return null;
 	};
 
 	return (
 		<div className={`flex items-center gap-2 ${className}`}>
-			{audioUrl && (
-				<audio ref={audioRef} src={audioUrl} preload="metadata">
-					<track kind="captions" srcLang="en" label="English" />
-				</audio>
-			)}
+			{/* Hidden audio element for ElevenLabs playback */}
+			{/* biome-ignore lint/a11y/useMediaCaption: <explanation> */}
+			<audio ref={audioRef} preload="none" style={{ display: "none" }} />
 
-			{/* Audio Icon Button */}
 			<button
-				onClick={() => {
-					if (audioState === "idle" || audioState === "error") {
-						handlePlayPause();
-					} else if (audioState === "playing") {
-						handlePlayPause();
-					} else if (audioState === "paused") {
-						handlePlayPause();
-					} else {
-						setIsExpanded(!isExpanded);
-					}
-				}}
-				disabled={audioState === "fetching" || audioState === "loading"}
-				className={`flex items-center justify-center rounded-lg p-2 transition-all hover:scale-105 ${getStateColor()} disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100`}
-				title={
-					audioState === "idle" || audioState === "error"
-						? "Play scene narration"
-						: audioState === "playing"
-							? "Pause narration"
-							: audioState === "paused"
-								? "Resume narration"
-								: audioState === "fetching"
-									? "Loading audio..."
-									: audioState === "loading"
-										? "Preparing audio..."
-										: "Listen to scene narration"
-				}
+				onClick={handlePlayPause}
+				disabled={audioState === "loading"}
+				className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all duration-200 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 ${getStateColor()} backdrop-blur-sm hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white/20`}
+				title={getButtonTitle()}
 			>
-				{getStateIcon()}
+				<div className="scale-90">{getIcon()}</div>
 			</button>
 
-			{/* Expanded Controls */}
-			{isExpanded && (
-				<div className="ml-1 flex items-center gap-2">
-					<button
-						onClick={handlePlayPause}
-						disabled={audioState === "fetching" || audioState === "loading"}
-						className={`rounded p-1 transition-colors ${getStateColor()} disabled:opacity-50`}
-					>
-						{audioState === "playing" ? "Pause" : "Play"}
-					</button>
-
-					{/* Progress Controls - Only for TTS Audio */}
-					{audioUrl && !usingWebSpeech && (
-						<>
-							<span className="min-w-[2rem] text-gray-400 text-xs">
-								{formatTime(currentTime)}
-							</span>
-							<div
-								className="group h-1 w-16 cursor-pointer rounded-full bg-white/20"
-								onClick={handleSeek}
-								onKeyDown={(e) => {
-									if (e.key === "Enter" || e.key === " ") {
-										handleSeek(e);
-									}
-								}}
-								tabIndex={0}
-								role="slider"
-								aria-label="Seek audio"
-								aria-valuemin={0}
-								aria-valuemax={duration}
-								aria-valuenow={currentTime}
-							>
-								<div
-									className="h-full rounded-full bg-[var(--color-rpg-gold)] transition-all group-hover:bg-[var(--color-rpg-gold)]/80"
-									style={{ width: `${progressPercentage}%` }}
-								/>
-							</div>
-							<span className="min-w-[2rem] text-gray-400 text-xs">
-								{duration > 0 ? formatTime(duration) : "--:--"}
-							</span>
-						</>
-					)}
-
-					{/* Speed Control - Works for both TTS and Web Speech */}
-					<div className="flex items-center gap-1">
-						<span className="text-gray-400 text-xs">Speed:</span>
-						<div className="flex rounded-md bg-white/10">
-							{[0.5, 1.0, 2.0].map((rate) => (
-								<button
-									key={rate}
-									onClick={() => setPlaybackRate(rate)}
-									className={`rounded px-2 py-1 text-xs transition-colors ${
-										playbackRate === rate
-											? "bg-[var(--color-rpg-gold)] text-black"
-											: "text-gray-300 hover:bg-white/10 hover:text-white"
-									}`}
-								>
-									{rate}x
-								</button>
-							))}
-						</div>
-					</div>
-
-					{usingWebSpeech && (
-						<span className="text-gray-400 text-xs">Using browser speech</span>
-					)}
-
-					{error && (
-						<span
-							className="max-w-32 truncate text-red-400 text-xs"
-							title={error}
-						>
-							{error}
-						</span>
-					)}
-				</div>
-			)}
+			{getStatusMessage()}
 		</div>
 	);
 }

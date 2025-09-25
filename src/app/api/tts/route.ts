@@ -1,8 +1,5 @@
-import {
-	PollyClient,
-	SynthesizeSpeechCommand,
-	type VoiceId,
-} from "@aws-sdk/client-polly";
+import { env } from "@/env";
+import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
 import { type NextRequest, NextResponse } from "next/server";
 
 interface TTSRequest {
@@ -18,99 +15,61 @@ export async function POST(request: NextRequest) {
 		const body: TTSRequest = await request.json();
 		const {
 			text,
-			voice = "Joanna",
-			speed = 1.0,
-			pitch = 1.0,
+			// speed = 1.0,
+			// pitch = 1.0,
 			format = "mp3",
 		} = body;
-
-		// Validate input
 		if (!text || text.trim().length === 0) {
 			return NextResponse.json({ error: "Text is required" }, { status: 400 });
 		}
-
 		if (text.length > 5000) {
 			return NextResponse.json(
 				{ error: "Text too long (max 5000 characters)" },
 				{ status: 400 },
 			);
 		}
-
-		// AWS Polly configuration
-		const awsRegion = process.env.AWS_REGION || "us-east-1";
-		const awsAccessKeyId = process.env.AWS_ACCESS_KEY_ID;
-		const awsSecretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
-
-		if (!awsAccessKeyId || !awsSecretAccessKey) {
-			console.warn("AWS credentials not found, falling back to Web Speech API");
+		const elevenLabsApiKey = env.EL;
+		if (!elevenLabsApiKey) {
+			console.warn(
+				"ElevenLabs API key not found, falling back to Web Speech API",
+			);
 			return NextResponse.json(
 				{
 					error:
-						"AWS Polly not configured. Add AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY to your .env file",
+						"ElevenLabs not configured. Add ELEVENLABS_API_KEY to your .env file",
 					fallback: true,
 				},
 				{ status: 501 },
 			);
 		}
-
 		try {
-			// Initialize AWS Polly client
-			const pollyClient = new PollyClient({
-				region: awsRegion,
-				credentials: {
-					accessKeyId: awsAccessKeyId,
-					secretAccessKey: awsSecretAccessKey,
+			const elevenlabs = new ElevenLabsClient({
+				apiKey: elevenLabsApiKey,
+			});
+			const audio = await elevenlabs.textToSpeech.convert(
+				"21m00Tcm4TlvDq8ikWAM",
+				{
+					text: text,
+					modelId: "eleven_v3",
 				},
-			});
-
-			// Map format to Polly output format
-			const outputFormat = format === "wav" ? "pcm" : "mp3";
-
-			// Build SSML with prosody controls for speed and pitch
-			const ssmlText = `
-				<speak>
-					<prosody rate="${speed * 100}%" pitch="${pitch > 1 ? "+" : ""}${((pitch - 1) * 50).toFixed(1)}%">
-						${text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}
-					</prosody>
-				</speak>
-			`;
-
-			// Synthesize speech using AWS Polly
-			const command = new SynthesizeSpeechCommand({
-				Text: ssmlText,
-				TextType: "ssml",
-				VoiceId: voice as VoiceId,
-				OutputFormat: outputFormat,
-				SampleRate: "22050",
-				Engine: "neural", // Use neural engine for better quality
-			});
-
-			const response = await pollyClient.send(command);
-
-			if (!response.AudioStream) {
-				throw new Error("No audio stream returned from Polly");
-			}
-
-			// Convert the stream to a buffer
-			const audioBuffer = await response.AudioStream.transformToByteArray();
-
-			return new NextResponse(audioBuffer as unknown as BodyInit, {
+			);
+			return new NextResponse(audio as ReadableStream, {
 				headers: {
-					"Content-Type": outputFormat === "mp3" ? "audio/mpeg" : "audio/wav",
-					"Content-Length": audioBuffer.length.toString(),
-					"Cache-Control": "public, max-age=3600", // Cache for 1 hour
+					"Content-Type": "audio/mpeg",
+					"Cache-Control": "public, max-age=3600",
+					"Transfer-Encoding": "chunked",
 				},
 			});
-		} catch (awsError) {
-			console.error("AWS Polly error:", awsError);
-
-			// Fallback to Web Speech API on AWS errors
+		} catch (elevenLabsError) {
+			console.error("ElevenLabs error:", elevenLabsError);
 			return NextResponse.json(
 				{
-					error: "AWS Polly failed, falling back to Web Speech API",
+					error: "ElevenLabs failed, falling back to Web Speech API",
 					fallback: true,
 					details:
-						awsError instanceof Error ? awsError.message : "Unknown AWS error",
+						elevenLabsError instanceof Error
+							? elevenLabsError.message
+							: "Unknown ElevenLabs error",
 				},
 				{ status: 501 },
 			);
@@ -124,31 +83,20 @@ export async function POST(request: NextRequest) {
 	}
 }
 
-// GET endpoint for health check
 export async function GET() {
-	const awsConfigured = !!(
-		process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY
-	);
+	const elevenLabsConfigured = !!process.env.ELEVENLABS_API_KEY;
 
 	return NextResponse.json({
-		status: "AWS Polly TTS API endpoint ready",
+		status: "ElevenLabs TTS API endpoint ready",
 		timestamp: new Date().toISOString(),
-		configured: awsConfigured,
-		region: process.env.AWS_REGION || "us-east-1",
+		configured: elevenLabsConfigured,
 		fallback: "Web Speech API",
 		availableVoices: [
-			"Joanna",
-			"Matthew",
-			"Ivy",
-			"Justin",
-			"Kendra",
-			"Kimberly",
-			"Salli",
-			"Joey",
-			"Emma",
-			"Brian",
-			"Amy",
-			"Russell",
+			"JBFqnCBsd6RMkjVDRZzb", // Rachel
+			"TxGEqnHWrfWFTfGW9XjX", // Josh
+			"VR6AewLTigWG4xSOukaG", // Arnold
+			"pNInz6obpgDQGcFmaJgB", // Adam
+			"yoZ06aMxZJJ28mfd3POQ", // Sam
 		],
 	});
 }

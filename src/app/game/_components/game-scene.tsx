@@ -141,6 +141,7 @@ export function GameScene({
 									<h1 className="font-bold text-[var(--color-rpg-gold)] text-xl md:text-2xl lg:text-3xl">
 										{scene.title.split(":")[1]}
 									</h1>
+
 									<InlineAudioPlayer
 										text={`${scene.title}. ${scene.description.join(" ")} What do you do? Your choices are: ${scene.choices.map((choice, index) => `Option ${String.fromCharCode(65 + index)}: ${choice.text.split(". ")[1]?.trim() || choice.text}`).join(". ")}.`}
 										ttsConfig={{
