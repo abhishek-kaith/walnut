@@ -144,12 +144,7 @@ export function GameScene({
 
 									<InlineAudioPlayer
 										text={`${scene.title}. ${scene.description.join(" ")} What do you do? Your choices are: ${scene.choices.map((choice, index) => `Option ${String.fromCharCode(65 + index)}: ${choice.text.split(". ")[1]?.trim() || choice.text}`).join(". ")}.`}
-										ttsConfig={{
-											endpoint: "/api/tts",
-											voice: "Joanna",
-											speed: 1.0,
-											pitch: 1.0,
-										}}
+										voice="Joanna"
 										className="mt-2"
 									/>
 								</div>
