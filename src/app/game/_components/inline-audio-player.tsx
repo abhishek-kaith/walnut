@@ -1,6 +1,5 @@
 "use client";
 
-import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
 import { useEffect, useRef, useState } from "react";
 
 interface InlineAudioPlayerProps {
@@ -118,15 +117,24 @@ export function InlineAudioPlayer({
 		console.log("Trying ElevenLabs real-time streaming...");
 
 		try {
-			const elevenlabs = new ElevenLabsClient({
-				apiKey: "sk_c5a5a0be1cfe47c60dcaf2c598c77962a12332534109ccff",
+			// Fetch streaming audio from our server API
+			const response = await fetch("/api/tts/stream", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					text: text.trim(),
+					voice,
+				}),
 			});
 
-			// Use textToSpeech.stream for true real-time streaming
-			const audioStream = await elevenlabs.textToSpeech.stream(voice, {
-				text: text.trim(),
-				modelId: "eleven_multilingual_v2",
-			});
+			if (!response.ok) {
+				throw new Error(`Server responded with ${response.status}`);
+			}
+
+			// Get the readable stream from the response
+			const audioStream = response.body as ReadableStream<Uint8Array>;
 
 			// Start streaming audio chunks immediately
 			await streamAudioChunks(audioStream);
